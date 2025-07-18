@@ -4,65 +4,101 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>LatensLink™ — Trusted Connections</title>
-  <link rel="stylesheet" href="assets/css/style.css" />
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- AOS.js for scroll animations -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
 </head>
-<body>
-  <header>
-    <div class="container nav-header">
-      <img src="assets/images/Logo.png" alt="LatensLink Logo" class="logo" />
-      <nav>
-        <ul class="nav-links">
-          <li><a href="index.html" class="active">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </nav>
+<body class="bg-gray-900 text-white font-sans leading-relaxed">
+  <!-- Navigation Bar -->
+  <nav class="absolute top-0 left-0 right-0 flex items-center justify-between p-5 bg-transparent z-50">
+    <div class="flex items-center">
+      <img src="assets/images/logo.png" alt="LatensLink Logo" class="w-32">
     </div>
-  </header>
-
-  <section class="hero">
-    <div class="hero-content">
-      <h1>LatensLink™</h1>
-      <p>Real connections. Credible leads. Quietly powerful results.</p>
-      <a href="contact.html" class="btn-primary">Let’s Talk</a>
+    <div class="hidden md:flex space-x-6">
+      <a href="/" class="text-white hover:text-gray-400">Home</a>
+      <a href="#services" class="text-white hover:text-gray-400">Our Services</a>
+      <a href="#testimonials" class="text-white hover:text-gray-400">Testimonials</a>
+      <a href="#contact" class="text-white hover:text-gray-400">Contact</a>
     </div>
-  </section>
+  </nav>
 
-  <section class="section what-we-do">
-    <div class="container">
-      <h2>What We Do</h2>
-      <p>
-        We help individuals and businesses reach the right opportunities — fast. Whether you're a professional looking for a role or a company seeking talent, we quietly connect you to the most credible channels available.
-      </p>
+  <!-- Hero Section -->
+  <section class="relative h-screen bg-cover bg-center" style="background-image: url('assets/images/hero-bg.jpg');" data-aos="fade-in">
+    <div class="absolute inset-0 bg-black opacity-50"></div>
+    <div class="absolute inset-0 flex items-center justify-center text-center text-white">
+      <div>
+        <h1 class="text-5xl font-bold mb-4">Where Connections Become Opportunities</h1>
+        <p class="text-lg mb-8">We help you reach the right opportunities — quickly and directly.</p>
+        <a href="#contact" class="px-6 py-3 bg-blue-600 text-white text-xl rounded-full hover:bg-blue-700 transition">Get Started</a>
+      </div>
     </div>
   </section>
 
-  <section class="section why-us">
-    <div class="container">
-      <h2>Why Choose LatensLink</h2>
-      <ul>
-        <li><strong>Discreet & Direct:</strong> No noise — just real access.</li>
-        <li><strong>Credible Connections:</strong> Built through trust, not tricks.</li>
-        <li><strong>Clarity First:</strong> We make opportunity visible.</li>
-      </ul>
+  <!-- Our Services Section -->
+  <section id="services" class="py-16 bg-gray-800" data-aos="fade-up">
+    <div class="container mx-auto text-center">
+      <h2 class="text-4xl font-bold text-white mb-8">What We Do</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-gray-700 p-8 rounded-lg shadow-md hover:shadow-xl transition">
+          <img src="assets/images/service1.jpg" alt="Service 1" class="w-12 h-12 mb-4 mx-auto">
+          <h3 class="text-2xl font-semibold mb-2">Tailored Opportunities</h3>
+          <p>Connect with the right companies in your field. No fluff, just results.</p>
+        </div>
+        <div class="bg-gray-700 p-8 rounded-lg shadow-md hover:shadow-xl transition">
+          <img src="assets/images/service2.jpg" alt="Service 2" class="w-12 h-12 mb-4 mx-auto">
+          <h3 class="text-2xl font-semibold mb-2">Direct Access</h3>
+          <p>Get your profile directly in front of decision-makers. No middlemen.</p>
+        </div>
+        <div class="bg-gray-700 p-8 rounded-lg shadow-md hover:shadow-xl transition">
+          <img src="assets/images/service3.jpg" alt="Service 3" class="w-12 h-12 mb-4 mx-auto">
+          <h3 class="text-2xl font-semibold mb-2">Real-Time Feedback</h3>
+          <p>We ensure you get responses, whether positive or negative.</p>
+        </div>
+      </div>
     </div>
   </section>
 
-  <section class="section system">
-    <div class="container">
-      <h2>The LatensLink Way</h2>
-      <p>
-        No dashboards. No logins. No fluff. We work behind the scenes to make sure you're connected where it counts. You show up — we open the doors.
-      </p>
+  <!-- Testimonials Section -->
+  <section id="testimonials" class="py-16 bg-gray-900" data-aos="fade-up">
+    <div class="container mx-auto text-center">
+      <h2 class="text-4xl font-bold text-white mb-8">What Our Clients Say</h2>
+      <div class="flex flex-wrap justify-center gap-8">
+        <div class="bg-gray-800 p-8 rounded-lg shadow-lg w-80" data-aos="flip-left">
+          <p class="text-lg italic mb-4">“LatensLink got me the job I wanted in just a few weeks. Highly recommend!”</p>
+          <p class="font-semibold">John Doe</p>
+          <p>Software Engineer</p>
+        </div>
+        <div class="bg-gray-800 p-8 rounded-lg shadow-lg w-80" data-aos="flip-left">
+          <p class="text-lg italic mb-4">“Efficient, effective, and reliable — LatensLink delivers on its promises!”</p>
+          <p class="font-semibold">Jane Smith</p>
+          <p>Product Manager</p>
+        </div>
+      </div>
     </div>
   </section>
 
-  <footer>
-    <div class="container footer-content">
+  <!-- Call to Action Section -->
+  <section class="py-16 bg-blue-600" data-aos="fade-in">
+    <div class="container mx-auto text-center text-white">
+      <h2 class="text-4xl font-bold mb-4">Ready to Get Started?</h2>
+      <p class="text-lg mb-8">Let’s help you connect to the right opportunities. Get your free test batch today!</p>
+      <a href="#contact" class="px-6 py-3 bg-white text-blue-600 text-xl rounded-full hover:bg-gray-300 transition">Contact Us</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-8" id="contact">
+    <div class="container mx-auto text-center">
       <p>&copy; 2025 LatensLink™. All rights reserved.</p>
-      <p>Email: <a href="mailto:admin@latenslink.co.ke">admin@latenslink.co.ke</a></p>
+      <p>Email: <a href="mailto:admin@latenslink.co.ke" class="text-blue-400">admin@latenslink.co.ke</a></p>
     </div>
   </footer>
+
+  <!-- AOS.js Script -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
 </body>
 </html>
