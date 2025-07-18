@@ -222,7 +222,7 @@
 <!-- Evidence Button -->
 <div class="mt-4 text-center">
   <button
-    onclick="toggleModal(true)"
+    id="evidenceBtn"
     class="text-xs px-4 py-1 rounded-full border border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-white transition duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
   >
     Here is the evidence
@@ -248,20 +248,28 @@
 
 <!-- JS for Modal Toggle -->
 <script>
+  const evidenceBtn = document.getElementById('evidenceBtn');
   const evidenceModal = document.getElementById('evidenceModal');
   const closeEvidence = document.getElementById('closeEvidence');
 
+  // Open modal
+  evidenceBtn.addEventListener('click', () => {
+    evidenceModal.classList.remove('hidden');
+  });
+
+  // Close modal
   closeEvidence.addEventListener('click', () => {
     evidenceModal.classList.add('hidden');
   });
 
-  // Close on click outside modal
+  // Close on outside click
   window.addEventListener('click', (e) => {
     if (e.target === evidenceModal) {
       evidenceModal.classList.add('hidden');
     }
   });
 </script>
+
 
 <!-- CTA Section -->
 <section id="cta" class="py-16 bg-gray-800 text-white text-center px-6 md:px-0" data-aos="zoom-in">
