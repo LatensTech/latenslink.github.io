@@ -18,6 +18,15 @@
       transform-origin: top center;
     }
   }
+  @keyframes slideDown {
+    0% { transform: translateY(-10%); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+  }
+
+  .animate-slide-down {
+    animation: slideDown 0.3s ease-out forwards;
+  }
+  
 </style>
 
 </head>
@@ -28,14 +37,14 @@
       <img src="assets/images/logo.png" alt="LatensLink Logo" class="w-28 md:w-32">
     </div>
 
-    <!-- Mobile Hamburger Menu -->
-    <div class="md:hidden flex items-center">
-      <button id="hamburger" class="text-white focus:outline-none">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M4 6h16M4 12h16M4 18h16"></path>
-        </svg>
-      </button>
-    </div>
+<!-- Mobile Nav Button -->
+<button class="md:hidden text-white focus:outline-none" onclick="toggleMenu()">
+  <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"
+    viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path stroke-linecap="round" stroke-linejoin="round"
+      d="M4 6h16M4 12h16M4 18h16"></path>
+  </svg>
+</button>
 
     <!-- Desktop Menu -->
     <div class="hidden md:flex space-x-6">
@@ -47,14 +56,33 @@
     </div>
   </nav>
 
-  <!-- Mobile Menu Dropdown -->
-  <div id="mobileMenu" class="md:hidden bg-gray-800 text-white absolute left-0 right-0 top-0 mt-16 py-4 text-center hidden">
-    <a href="/" class="block py-2 hover:bg-gray-700">Home</a>
-    <a href="#services" class="block py-2 hover:bg-gray-700">Our Services</a>
-    <a href="#industries" class="block py-2 hover:bg-gray-700">Industries</a>
-    <a href="#testimonials" class="block py-2 hover:bg-gray-700">Testimonials</a>
-    <a href="#contact" class="block py-2 hover:bg-gray-700">Contact</a>
-  </div>
+ <!-- Mobile Menu -->
+<div id="mobile-menu" class="hidden md:hidden absolute top-16 left-0 w-full bg-[#0a0a0a] z-50 text-center py-4 border-t border-gray-700 animate-slide-down">
+  <a href="#home" class="block px-4 py-2 text-white hover:text-teal-400 transition duration-200 flex items-center justify-center gap-2">
+    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2"
+      viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round"
+      d="M3 12l2-2m0 0l7-7 7 7M13 5v13"></path></svg>
+    Home
+  </a>
+  <a href="#channels" class="block px-4 py-2 text-white hover:text-teal-400 transition duration-200 flex items-center justify-center gap-2">
+    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2"
+      viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round"
+      d="M8 10h.01M12 10h.01M16 10h.01M9 16h6"></path></svg>
+    Channels
+  </a>
+  <a href="#industries" class="block px-4 py-2 text-white hover:text-teal-400 transition duration-200 flex items-center justify-center gap-2">
+    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2"
+      viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round"
+      d="M3 4a1 1 0 011-1h16a1 1 0 011 1v16l-6-3-6 3V4z"></path></svg>
+    Industries
+  </a>
+  <a href="#contact" class="block px-4 py-2 text-white hover:text-teal-400 transition duration-200 flex items-center justify-center gap-2">
+    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2"
+      viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round"
+      d="M16 12H8m0 0l4-4m-4 4l4 4"></path></svg>
+    Contact
+  </a>
+</div>
 
   <!-- Hero Section -->
   <section class="relative h-80 md:h-screen bg-cover bg-center" style="background-image: url('assets/images/hero-bg.jpg');" data-aos="fade-in">
@@ -185,5 +213,12 @@
       menu.classList.toggle('hidden');
     });
   </script>
+<script>
+  function toggleMenu() {
+    const menu = document.getElementById('mobile-menu');
+    menu.classList.toggle('hidden');
+  }
+</script>
+
 </body>
 </html>
