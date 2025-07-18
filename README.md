@@ -31,7 +31,7 @@ No dashboards. No logins. Just outcomes.
 
 - Email: [admin@latenslink.co.ke](mailto:admin@latenslink.co.ke)  
 - WhatsApp: [+254 789 108 058](https://wa.me/254789108058)  
-- Telegram: [@LatensLink](https://t.me/LatensLink)  
+- Telegram: [@LatensLink](https://t.me/Latens_potentia)  
 - Website: [www.latenslink.co.ke](https://www.latenslink.co.ke)
 
 ---
