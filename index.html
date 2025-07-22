@@ -121,15 +121,23 @@
 </div>
 
   <!-- Hero Section -->
-<section id="hero-section" class="relative h-80 md:h-screen bg-cover bg-center transition-opacity duration-1000 ease-in-out" style="background-image: url('assets/images/BigBg1.jpg');" data-aos="fade-in">
-  <div class="absolute inset-0 bg-black opacity-50"></div>
-  <div class="absolute inset-0 flex items-center justify-center text-center text-white">
+<section id="hero-section" class="relative h-80 md:h-screen overflow-hidden" data-aos="fade-in">
+
+  <!-- Background Image Layer -->
+  <div id="hero-bg" class="absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ease-in-out z-0" style="background-image: url('assets/images/BigBg1.jpg');"></div>
+
+  <!-- Black Overlay -->
+  <div class="absolute inset-0 bg-black opacity-50 z-10"></div>
+
+  <!-- Text Content -->
+  <div class="absolute inset-0 flex items-center justify-center text-center text-white z-20">
     <div>
       <h1 class="text-2xl md:text-5xl font-bold mb-4">Where Connections Become Opportunities</h1>
       <p class="text-base md:text-lg mb-8">We help you reach the right opportunities — Verified and direct.</p>
       <a href="#contact" class="px-6 py-3 bg-blue-600 text-white text-lg rounded-full hover:bg-blue-700 transition">Get Linked</a>
     </div>
   </div>
+
 </section>
 
   <!-- Channels Section (Replaces Partner Logos) -->
@@ -409,17 +417,17 @@
   ];
 
   let current = 0;
-  const hero = document.getElementById('hero-section');
+  const bg = document.getElementById('hero-bg');
 
   setInterval(() => {
     current = (current + 1) % images.length;
-    hero.style.opacity = 0;
+    bg.style.opacity = 0;
 
     setTimeout(() => {
-      hero.style.backgroundImage = `url('${images[current]}')`;
-      hero.style.opacity = 1;
-    }, 1000); // fade out, then switch
-  }, 6000); // every 6 seconds
+      bg.style.backgroundImage = `url('${images[current]}')`;
+      bg.style.opacity = 1;
+    }, 1000); // Fade out, then swap
+  }, 6000);
 </script>
   
 </body>
