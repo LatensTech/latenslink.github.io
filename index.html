@@ -121,16 +121,16 @@
 </div>
 
   <!-- Hero Section -->
-  <section class="relative h-80 md:h-screen bg-cover bg-center" style="background-image: url('assets/images/BigBg1.jpg');" data-aos="fade-in">
-    <div class="absolute inset-0 bg-black opacity-50"></div>
-    <div class="absolute inset-0 flex items-center justify-center text-center text-white">
-      <div>
-        <h1 class="text-2xl md:text-5xl font-bold mb-4">Where Connections Become Opportunities</h1>
-        <p class="text-base md:text-lg mb-8">We help you reach the right opportunities — Verified and direct.</p>
-        <a href="#contact" class="px-6 py-3 bg-blue-600 text-white text-lg rounded-full hover:bg-blue-700 transition">Get Linked</a>
-      </div>
+<section id="hero-section" class="relative h-80 md:h-screen bg-cover bg-center transition-opacity duration-1000 ease-in-out" style="background-image: url('assets/images/BigBg1.jpg');" data-aos="fade-in">
+  <div class="absolute inset-0 bg-black opacity-50"></div>
+  <div class="absolute inset-0 flex items-center justify-center text-center text-white">
+    <div>
+      <h1 class="text-2xl md:text-5xl font-bold mb-4">Where Connections Become Opportunities</h1>
+      <p class="text-base md:text-lg mb-8">We help you reach the right opportunities — Verified and direct.</p>
+      <a href="#contact" class="px-6 py-3 bg-blue-600 text-white text-lg rounded-full hover:bg-blue-700 transition">Get Linked</a>
     </div>
-  </section>
+  </div>
+</section>
 
   <!-- Channels Section (Replaces Partner Logos) -->
 <section class="py-8 md:py-16 bg-gray-800" data-aos="fade-up">
@@ -400,5 +400,27 @@
   }
 </script>
 
+<script>
+  const images = [
+    'assets/images/BigBg1.jpg',
+    'assets/images/BigBg2.jpg',
+    'assets/images/BigBg3.jpg',
+    'assets/images/BigBg4.jpg'
+  ];
+
+  let current = 0;
+  const hero = document.getElementById('hero-section');
+
+  setInterval(() => {
+    current = (current + 1) % images.length;
+    hero.style.opacity = 0;
+
+    setTimeout(() => {
+      hero.style.backgroundImage = `url('${images[current]}')`;
+      hero.style.opacity = 1;
+    }, 1000); // fade out, then switch
+  }, 6000); // every 6 seconds
+</script>
+  
 </body>
 </html>
