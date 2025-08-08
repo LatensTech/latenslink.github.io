@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Latens Potentia Systems</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
   <style>
     .text-gold { color: #B8860B; }
     .bg-gold { background-color: #B8860B; }
@@ -14,7 +16,6 @@
     .gradient-gold {
       background: linear-gradient(90deg, #B8860B 0%, #FFD700 100%);
     }
-    /* Update all gold buttons to have black text for readability */
     .gold-btn {
       background-color: #B8860B;
       color: #111;
@@ -27,16 +28,196 @@
       box-shadow: 0 0 20px #B8860B, 0 0 40px #FFD700;
       transform: scale(1.04);
     }
+    /* --- 3D, Parallax, Glow, Glassmorphism, Terminal --- */
+    .scroll-cards {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      gap: 2rem;
+      padding: 2.5rem 1rem 2rem 1rem;
+      margin-top: -2rem;
+    }
+    .scroll-card {
+      min-width: 320px;
+      max-width: 90vw;
+      background: rgba(38,42,53,0.90);
+      border-radius: 1.5rem;
+      scroll-snap-align: center;
+      box-shadow: 0 4px 24px 0 rgba(8,20,44,0.22);
+      transition: transform 0.22s cubic-bezier(.27,1.25,.55,1), box-shadow 0.18s;
+      cursor: pointer;
+      backface-visibility: hidden;
+      will-change: transform, box-shadow;
+      border: 1.5px solid rgba(255,255,255,0.08);
+      position: relative;
+      z-index: 1;
+    }
+    .scroll-card:hover {
+      transform: scale(1.045) perspective(700px) rotateY(7deg);
+      box-shadow: 0 8px 36px 0 #FFD70066, 0 2px 32px 0 rgba(0,0,0,0.18);
+      z-index: 2;
+    }
+    .scroll-card .card-content {
+      padding: 2rem 1.5rem;
+      color: #fff;
+      font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+      transition: text-shadow 0.22s;
+      text-shadow: 0 0 8px #FFD70033;
+    }
+    .scroll-card .card-content code {
+      font-family: 'Fira Mono', 'JetBrains Mono', 'SFMono-Regular', 'Menlo', monospace;
+      background: #161a25;
+      color: #FFD700;
+      border-radius: 0.4em;
+      padding: 0.15em 0.35em;
+      font-size: 1em;
+    }
+    .glass-panel {
+      background: rgba(30,42,54,0.43);
+      border-radius: 1.3rem;
+      border: 1.5px solid rgba(255,255,255,0.16);
+      box-shadow: 0 4px 32px 0 rgba(255,215,0,0.13);
+      backdrop-filter: blur(15px);
+      padding: 2.5rem 2rem;
+      margin: 2.5rem auto;
+      max-width: 680px;
+      position: relative;
+    }
+    .terminal-text {
+      font-family: 'Fira Mono', 'JetBrains Mono', 'SFMono-Regular', 'Menlo', monospace;
+      font-size: 1.08rem;
+      color: #FFD700;
+      letter-spacing: 0.08em;
+      background: linear-gradient(90deg, #101c1e 85%, #1d2235 100%);
+      border-radius: 0.5em;
+      padding: 1.1em;
+      margin: 0.85em 0 0.45em 0;
+      box-shadow: 0 0 10px #FFD70055;
+      border: 1px solid #FFD70033;
+      text-shadow: 0 0 2px #FFD700, 0 0 8px #FFD70033;
+    }
+    .glow {
+      box-shadow: 0 0 24px 5px #FFD70044;
+      background: radial-gradient(circle, #1b2c36 40%, #FFD70022 120%);
+    }
+    /* Parallax Hero */
+    .hero-parallax {
+      position: relative;
+      overflow: hidden;
+      height: 60vh;
+      min-height: 370px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(120deg, #070e1e 0%, #151c2a 100%);
+    }
+    .parallax-bg, .parallax-fg {
+      position: absolute;
+      left: 0; top: 0; width: 100%; height: 100%;
+      pointer-events: none;
+    }
+    .parallax-bg {
+      background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80') center/cover;
+      opacity: 0.19;
+      z-index: 1;
+      transform: translateY(0);
+      transition: transform 0.2s;
+    }
+    .parallax-fg {
+      background: radial-gradient(circle at 70% 30%, #FFD70022 0%, transparent 80%);
+      z-index: 2;
+      transform: translateY(0);
+      transition: transform 0.2s;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 3;
+      text-align: center;
+      width: 100%;
+      padding: 0 2rem;
+    }
+    .hero-title {
+      font-size: 2.6rem;
+      font-weight: 700;
+      letter-spacing: -2px;
+      color: #FFD700;
+      text-shadow: 0 0 16px #FFD70099;
+      animation: fadeInUp 1.2s cubic-bezier(.16,1,.31,1.02);
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(2.5rem);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+    .cta-glow {
+      margin-top: 2rem;
+      display: inline-block;
+      padding: 0.85rem 2.1rem;
+      font-size: 1.18rem;
+      border-radius: 1.5rem;
+      background: radial-gradient(circle, #FFD700 0%, #B8860B 100%);
+      color: #111;
+      font-weight: 600;
+      box-shadow: 0 0 24px 8px #FFD70055;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      transition: box-shadow 0.18s, transform 0.17s;
+    }
+    .cta-glow:hover {
+      box-shadow: 0 0 48px 16px #FFD70099;
+      transform: scale(1.05);
+    }
+    @media (max-width: 900px) {
+      .hero-title { font-size: 2.0rem; }
+      .glass-panel { padding: 1.5rem 1rem; }
+    }
+    @media (max-width: 600px) {
+      .hero-title { font-size: 1.3rem; }
+      .scroll-card { min-width: 85vw; }
+    }
   </style>
 </head>
 <body class="bg-black text-white font-sans">
 
-  <!-- Hero Section -->
-  <section id="hero" class="py-20 text-center">
-    <h1 class="text-5xl font-bold tracking-wide text-gold">LATENS POTENTIA SYSTEMS</h1>
-    <p class="mt-4 text-xl italic">From Nothing to Absolute Greatness.</p>
-    <p class="mt-6 text-sm text-gray-400">~Hidden Power</p>
-    <a href="#vault" class="mt-10 inline-block px-6 py-3 gold-btn">Unlock the Vault</a>
+  <!-- Parallax Hero Section -->
+  <section class="hero-parallax">
+    <div class="parallax-bg"></div>
+    <div class="parallax-fg"></div>
+    <div class="hero-content" data-aos="zoom-in">
+      <div class="hero-title">LATENS POTENTIA SYSTEMS</div>
+      <p class="mt-4 text-xl italic text-gray-200">From Nothing to Absolute Greatness.</p>
+      <p class="mt-6 text-sm text-gray-400">~Hidden Power</p>
+      <a href="#vault" class="mt-10 inline-block px-6 py-3 cta-glow glow">Unlock the Vault</a>
+    </div>
+  </section>
+
+  <!-- Dynamic Scrollable Cards -->
+  <section class="scroll-cards">
+    <div class="scroll-card" data-aos="fade-up">
+      <div class="card-content">
+        <strong>Dynamic Scroll</strong><br>
+        Slide left/right.<br>
+        <small>Cards snap to center & elevate on hover.</small>
+      </div>
+    </div>
+    <div class="scroll-card" data-aos="fade-up" data-aos-delay="80">
+      <div class="card-content">
+        <strong>3D Perspective</strong><br>
+        <small>Subtle <code>rotateY()</code> tilt & shadow.</small>
+      </div>
+    </div>
+    <div class="scroll-card" data-aos="fade-up" data-aos-delay="160">
+      <div class="card-content">
+        <strong>Cinematic Reveal</strong><br>
+        <small>Scroll to animate cards with <code>fade-up</code>.</small>
+      </div>
+    </div>
+    <div class="scroll-card" data-aos="fade-up" data-aos-delay="240">
+      <div class="card-content">
+        <strong>Crypto-Grade UI</strong><br>
+        <small>Ambient glow & glass panels.<br>Monospace for code.</small>
+      </div>
+    </div>
   </section>
 
   <!-- Mission Brief -->
@@ -67,21 +248,24 @@
     </div>
   </section>
 
-  <!-- Systems Vault -->
-  <section id="vault" class="py-16 px-6 md:px-20">
+  <!-- Glassmorphism Vault -->
+  <section id="vault" class="glass-panel glow" data-aos="fade-up">
     <h2 class="text-3xl font-bold text-gold mb-8">Systems Vault</h2>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      <div class="border border-gold p-6 rounded-lg">
+      <div>
+        <div class="terminal-text mb-2">$ npm install latenslink</div>
         <h3 class="text-xl font-semibold text-gold">LeadSniper</h3>
         <p class="text-sm text-gray-400 mb-4">Outreach engine. Pull leads from thin air.</p>
         <a href="https://t.me/Latens_potentia" class="text-gold underline">Deploy via Telegram</a>
       </div>
-      <div class="border border-gold p-6 rounded-lg">
+      <div>
+        <div class="terminal-text mb-2">$ ./potentia-bot --intelligence</div>
         <h3 class="text-xl font-semibold text-gold">Potentia Bot</h3>
         <p class="text-sm text-gray-400 mb-4">File intelligence. Store, serve, sync.</p>
         <a href="https://t.me/Latens_potentia" class="text-gold underline">View Bot</a>
       </div>
-      <div class="border border-gold p-6 rounded-lg">
+      <div>
+        <div class="terminal-text mb-2">$ curl -O unlock-protocol.pdf</div>
         <h3 class="text-xl font-semibold text-gold">Unlock Protocol</h3>
         <p class="text-sm text-gray-400 mb-4">Alignment doc. PDF drop.</p>
         <a href="https://t.me/Latens_potentia" class="text-gold underline">Download via TG</a>
@@ -93,7 +277,7 @@
   <section id="hq" class="py-16 text-center">
     <h2 class="text-3xl font-bold text-gold mb-4">Telegram HQ</h2>
     <p class="text-gray-400 mb-6">All systems live. All ops routed through Telegram.</p>
-    <a href="https://t.me/Latens_potentia" class="px-6 py-3 gold-btn">Enter the Control Room</a>
+    <a href="https://t.me/Latens_potentia" class="px-6 py-3 gold-btn glow">Enter the Control Room</a>
   </section>
 
   <!-- Recruitment Signal -->
@@ -111,5 +295,33 @@
     <p><a href="mailto:admin@latenslink.co.ke" class="text-gold underline">admin@latenslink.co.ke</a></p>
   </footer>
 
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    // Parallax effect for hero section
+    window.addEventListener('scroll', function() {
+      const scrolled = window.scrollY;
+      document.querySelector('.parallax-bg').style.transform = `translateY(${scrolled * 0.18}px)`;
+      document.querySelector('.parallax-fg').style.transform = `translateY(${scrolled * 0.28}px)`;
+    });
+    // AOS scroll animation
+    AOS.init({ once:true, duration:760 });
+
+    // Perspective tilt on card hover
+    document.querySelectorAll('.scroll-card').forEach(card => {
+      card.addEventListener('mousemove', e => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const rotateY = ((x / rect.width) - 0.5) * 20;
+        const rotateX = ((y / rect.height) - 0.5) * -12;
+        card.style.transform = `scale(1.045) perspective(700px) rotateY(${rotateY}deg) rotateX(${rotateX}deg)`;
+        card.style.zIndex = 2;
+      });
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = '';
+        card.style.zIndex = 1;
+      });
+    });
+  </script>
 </body>
 </html>
