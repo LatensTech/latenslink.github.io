@@ -6,9 +6,27 @@
   <title>Latens Potentia Systems</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    .text-gold { color: #FFD700; }
-    .bg-gold { background-color: #FFD700; }
-    .hover\:shadow-gold:hover { box-shadow: 0 0 10px #FFD700; }
+    .text-gold { color: #B8860B; }
+    .bg-gold { background-color: #B8860B; }
+    .hover\:shadow-gold:hover { 
+      box-shadow: 0 0 20px #B8860B, 0 0 40px #FFD700;
+    }
+    .gradient-gold {
+      background: linear-gradient(90deg, #B8860B 0%, #FFD700 100%);
+    }
+    /* Update all gold buttons to have black text for readability */
+    .gold-btn {
+      background-color: #B8860B;
+      color: #111;
+      font-weight: 600;
+      border-radius: 9999px;
+      transition: background 0.3s, box-shadow 0.3s, transform 0.2s;
+    }
+    .gold-btn:hover {
+      background: linear-gradient(90deg, #B8860B 0%, #FFD700 100%);
+      box-shadow: 0 0 20px #B8860B, 0 0 40px #FFD700;
+      transform: scale(1.04);
+    }
   </style>
 </head>
 <body class="bg-black text-white font-sans">
@@ -18,7 +36,7 @@
     <h1 class="text-5xl font-bold tracking-wide text-gold">LATENS POTENTIA SYSTEMS</h1>
     <p class="mt-4 text-xl italic">From Nothing to Absolute Greatness.</p>
     <p class="mt-6 text-sm text-gray-400">~Hidden Power</p>
-    <a href="#vault" class="mt-10 inline-block px-6 py-3 bg-gold text-black font-semibold rounded-full hover:bg-yellow-500 transition">Enter the Vault</a>
+    <a href="#vault" class="mt-10 inline-block px-6 py-3 gold-btn">Unlock the Vault</a>
   </section>
 
   <!-- Mission Brief -->
@@ -75,7 +93,7 @@
   <section id="hq" class="py-16 text-center">
     <h2 class="text-3xl font-bold text-gold mb-4">Telegram HQ</h2>
     <p class="text-gray-400 mb-6">All systems live. All ops routed through Telegram.</p>
-    <a href="https://t.me/Latens_potentia" class="px-6 py-3 bg-gold text-black font-semibold rounded-full hover:bg-yellow-500 transition">Enter the Control Room</a>
+    <a href="https://t.me/Latens_potentia" class="px-6 py-3 gold-btn">Enter the Control Room</a>
   </section>
 
   <!-- Recruitment Signal -->
