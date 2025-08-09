@@ -183,6 +183,52 @@
       .hero-parallax { height: auto; min-height: 180px; padding: 2.5rem 0; }
       .hero-content { gap: 0.7rem; }
     }
+
+  /* --- Mobile "zoom out" tweaks --- */
+  @media (max-width: 600px) {
+    body {
+      font-size: 0.95rem;
+    }
+    .hero-content {
+      max-width: 99vw;
+      padding: 0 0.15rem;
+    }
+    .hero-title {
+      font-size: clamp(0.9rem, 7vw, 1.09rem);
+    }
+    section,
+    .glass-panel {
+      padding-left: 0.5rem !important;
+      padding-right: 0.5rem !important;
+    }
+    .glass-panel {
+      max-width: 99vw;
+      padding: 1.3rem 0.5rem;
+    }
+    .scroll-card {
+      min-width: 240px;
+      max-width: 96vw;
+      padding: 1.2rem 0.7rem;
+    }
+    .card-content {
+      padding: 1.2rem 0.5rem !important;
+    }
+    .gold-btn, .cta-glow {
+      padding: 0.6rem 1.1rem !important;
+      font-size: 1rem !important;
+    }
+    .terminal-text {
+      font-size: 0.89rem;
+      padding: 0.8em;
+    }
+    .grid {
+      gap: 0.8rem;
+    }
+    h2, .text-3xl {
+      font-size: 1.35rem !important;
+    }
+  }
+
   </style>
 </head>
 <body class="bg-black text-white font-sans">
