@@ -229,10 +229,40 @@
     }
   }
 
+.logo-container {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 9999;
+}
+
+.brand-logo {
+  width: 48px;
+  height: auto;
+  object-fit: contain;
+  background-color: transparent;
+}
+
+/* Responsive scaling */
+@media (max-width: 768px) {
+  .brand-logo {
+    width: 36px;
+  }
+}
+
+@media (max-width: 480px) {
+  .brand-logo {
+    width: 28px;
+  }
+}
+
+    
   </style>
 </head>
 <body class="bg-black text-white font-sans">
-
+    <a href="/" class="logo-container">
+  <img src="./assets/img/Picon.png" alt="Latens Potentia Logo" class="brand-logo" />
+    </a>
   <!-- Parallax Hero Section -->
   <section class="hero-parallax">
     <div class="parallax-bg"></div>
