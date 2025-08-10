@@ -731,49 +731,6 @@
   <script>
     AOS.init({ once: true, duration: 520 });
 
-    /* ---------- Modal handling ---------- */
-    const modalBackdrop = document.getElementById('modalBackdrop');
-    const modalTitle = document.getElementById('modalTitle');
-    const modalBody = document.getElementById('modalBody');
-    const modalClose = document.getElementById('modalClose');
-    const modalClose2 = document.getElementById('modalClose2');
-    const modalDownload = document.getElementById('modalDownload');
-
-    function openModal(title, htmlContent, downloadHref){
-      modalTitle.innerText = title || 'Details';
-      modalBody.innerHTML = htmlContent || '<p>No details provided.</p>';
-      if(downloadHref){
-        modalDownload.style.display = 'inline-block';
-        modalDownload.href = downloadHref;
-      } else {
-        modalDownload.style.display = 'none';
-      }
-      modalBackdrop.classList.add('active');
-      modalBackdrop.setAttribute('aria-hidden','false');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeModal(){
-      modalBackdrop.classList.remove('active');
-      modalBackdrop.setAttribute('aria-hidden','true');
-      document.body.style.overflow = '';
-      modalBody.innerHTML = '';
-    }
-
-    modalClose.addEventListener('click', closeModal);
-    modalClose2.addEventListener('click', closeModal);
-    modalBackdrop.addEventListener('click', (e)=>{ if(e.target === modalBackdrop) closeModal(); });
-
-    // attach to all .btn-gold buttons
-    document.querySelectorAll('.btn-gold').forEach(btn=>{
-      btn.addEventListener('click', (e)=>{
-        const title = btn.getAttribute('data-modal-title') || 'Details';
-        const content = btn.getAttribute('data-modal-content') || '<p>No content</p>';
-        openModal(title, content, null);
-      });
-    });
-
-
     // 🔹 Dynamic Popup Logic
 const popupBackdrop = document.getElementById('popupBackdrop');
 const popupTitle = document.getElementById('popupTitle');
