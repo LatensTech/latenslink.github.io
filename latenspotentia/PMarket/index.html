@@ -1,115 +1,512 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Potentia Drops | Universe</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <title>Potentia Market | Universe</title>
+
+  <!-- Fonts & libs -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Orbitron:wght@600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css"/>
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
+
   <style>
-    body {
-      background: linear-gradient(rgba(22,24,29,0.65), rgba(19,19,26,0.65)), url('/latenspotentia/assets/img/HeroBg1.jpg');
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-      font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+    :root{
+      --gold1: #B8860B;
+      --gold2: #FFD700;
+      --bg-dark: rgba(10,10,12,0.6);
+      --panel-dark: rgba(26,26,31,0.35);
+      --card-bg: rgba(38,42,53,0.95);
+    }
+
+    html,body{
+      height:100%;
+      margin:0;
+      padding:0;
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: linear-gradient(rgba(22,24,29,0.65), rgba(19,19,26,0.65)), url('/latenspotentia/assets/img/HeroBg1.jpg') center/cover fixed no-repeat;
       color: #fff;
-      min-height: 100vh;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
     }
-    .gold-gradient {
-      background: linear-gradient(90deg, #B8860B 0%, #FFD700 100%);
-      color: #111;
+
+    /* ---------- Header (fixed, transparent, centered title) ---------- */
+    header.site-header{
+      position:fixed;
+      top:0;
+      left:0;
+      right:0;
+      height:72px;
+      z-index:60;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:0 18px;
+      gap:12px;
+      backdrop-filter: blur(6px);
+      background: linear-gradient(180deg, rgba(10,10,12,0.12), rgba(10,10,12,0.06));
+      border-bottom: 1px solid rgba(255,255,255,0.03);
     }
-    .gold-btn {
-      background-color: #B8860B;
-      color: #111;
-      font-weight: 600;
-      border-radius: 9999px;
-      transition: background 0.3s, box-shadow 0.3s, transform 0.2s;
-      box-shadow: 0 0 10px #B8860B55;
-      padding: 0.75em 2.5em;
-      font-size: 1.1em;
+
+    /* left / right items */
+    .header-left, .header-right{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-width:120px;
     }
-    .gold-btn:hover {
-      background: linear-gradient(90deg, #B8860B 0%, #FFD700 100%);
-      box-shadow: 0 0 20px #B8860B, 0 0 40px #FFD700;
-      transform: scale(1.035);
+
+    .brand-logo{
+      width:48px;
+      height:48px;
+      border-radius:50%;
+      background:#121217;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      box-shadow:0 0 14px rgba(255,215,0,0.15);
+      object-fit:cover;
     }
-    .drop-card {
-      background: rgba(38,42,53,0.97);
-      border-radius: 1.5rem;
-      box-shadow: 0 4px 24px 0 rgba(8,20,44,0.18);
-      border: 1.5px solid rgba(255,255,255,0.08);
-      padding: 2.5rem 2rem;
-      margin-bottom: 2.5rem;
-      max-width: 470px;
-      margin-left: auto;
-      margin-right: auto;
+
+    .home-btn{
+      color:var(--gold2);
+      text-decoration:none;
+      font-weight:700;
+      padding:6px 10px;
+      border-radius:10px;
+      transition:all .18s;
     }
-    .drop-title {
-      font-size: 2.4rem;
-      font-weight: 700;
-      letter-spacing: -1px;
-      margin-bottom: 0.5rem;
-      color: #FFD700;
-      text-shadow: 0 0 12px #B8860B66;
+    .home-btn:hover{ transform:translateY(-2px); color:var(--gold1); }
+
+    /* Center title absolute center to ensure true centering */
+    .header-title{
+      position:absolute;
+      left:0; right:0;
+      margin:0 auto;
+      text-align:center;
+      pointer-events:none; /* allow clicks pass-through to left/right */
     }
-    .drop-desc {
-      font-size: 1.15rem;
-      color: #fafafa;
-      margin-bottom: 1.7rem;
-      font-weight: 400;
-      opacity: 0.93;
+    .header-title h1{
+      font-family: "Orbitron", sans-serif;
+      font-weight:700;
+      font-size:20px;
+      color:var(--gold2);
+      letter-spacing:2px;
+      text-shadow:0 0 18px rgba(184,134,11,0.18);
+      margin:0;
     }
-    .option-list {
-      margin: 0 0 1.5rem 0;
-      padding: 0;
-      list-style: none;
+    .header-title .sub{
+      display:block;
+      font-size:11px;
+      color:rgba(255,255,255,0.65);
+      margin-top:2px;
+      font-weight:600;
     }
-    .option-list li {
-      margin-bottom: 1rem;
-      display: flex;
-      align-items: center;
-      gap: 1em;
+
+    /* ---------- Section Nav (fixed narrow pipe with treadmill) ---------- */
+    nav.section-nav{
+      position:fixed;
+      top:72px; /* directly below header */
+      left:0;
+      right:0;
+      height:64px;
+      z-index:50;
+      padding:8px 16px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      backdrop-filter: blur(10px);
+      background: linear-gradient(180deg, rgba(10,10,12,0.06), rgba(10,10,12,0.03));
+      border-bottom: 1px solid rgba(255,255,255,0.03);
+      overflow:hidden;
     }
-    .option-list svg {
-      flex-shrink: 0;
-      color: #FFD700;
-      width: 1.7em;
-      height: 1.7em;
-      margin-right: 0.5em;
+
+    /* treadmill viewport (narrow pipe / cylinder) */
+    .tread-viewport{
+      width:min(1200px,100%);
+      max-width:1200px;
+      height:48px;
+      border-radius:9999px;
+      background: linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      box-shadow: inset 0 0 22px rgba(0,0,0,0.45);
+      padding:6px;
+      display:flex;
+      align-items:center;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,0.02);
     }
-    .option-link {
-      color: #FFD700;
-      text-decoration: underline;
-      font-weight: 600;
-      transition: color 0.16s;
+
+    /* inner scroll track */
+    .tread-track{
+      display:flex;
+      gap:12px;
+      align-items:center;
+      will-change:transform;
+      /* auto scroll animation */
+      animation:scroll-left 18s linear infinite;
     }
-    .option-link:hover {
-      color: #B8860B;
-      text-decoration: underline;
+
+    /* prevent hover pause on mobile: only pause when hovered on desktop */
+    .tread-viewport:hover .tread-track{ animation-play-state:paused; }
+
+    @keyframes scroll-left {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-40%); } /* adjust to taste */
     }
-    .brand-logo {
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      box-shadow: 0 0 14px #FFD70055;
-      margin-right: 1.25em;
-      background: #18181d;
-      object-fit: cover;
+
+    .tread-elem{
+      white-space:nowrap;
+      padding:10px 16px;
+      background: rgba(26,26,33,0.55);
+      border-radius:9999px;
+      color:var(--gold2);
+      font-weight:700;
+      font-size:13px;
+      border:1px solid rgba(255,215,0,0.07);
+      box-shadow:0 4px 24px rgba(0,0,0,0.35);
+      transition:transform .12s;
     }
+    .tread-elem:hover{ transform:translateY(-4px); background:rgba(40,40,48,0.7); }
+
+    /* ---------- Main content spacing so cards scroll UNDER the fixed nav ---------- */
+    main.content{
+      padding-top: 152px; /* header (72) + nav (64) + spacing */
+      padding-left:16px;
+      padding-right:16px;
+      padding-bottom:80px;
+    }
+
+    /* ---------- Grid: 3 columns default, responsive down ---------- */
+    .drops-grid{
+      display:grid;
+      grid-template-columns: repeat(1, minmax(0,1fr));
+      gap:28px;
+      max-width:1200px;
+      margin:0 auto;
+    }
+    @media(min-width:640px){ .drops-grid{ grid-template-columns: repeat(2, 1fr); } }
+    @media(min-width:1024px){ .drops-grid{ grid-template-columns: repeat(3, 1fr); } }
+
+    /* Card */
+    .drop-card{
+      background: var(--card-bg);
+      border-radius:18px;
+      padding:26px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+      border:1px solid rgba(255,255,255,0.04);
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      transition:transform .18s, box-shadow .18s;
+      min-height:260px;
+    }
+    .drop-card:hover{ transform:translateY(-8px); box-shadow: 0 18px 46px rgba(0,0,0,0.7); }
+
+    .drop-title{
+      font-size:1.45rem;
+      font-weight:800;
+      color:var(--gold2);
+      text-shadow:0 0 10px rgba(184,134,11,0.15);
+      letter-spacing: -0.5px;
+    }
+    .drop-desc{ color:rgba(255,255,255,0.92); font-size:1rem; line-height:1.35; }
+
+    .drop-actions{ margin-top:auto; display:flex; gap:10px; align-items:center; }
+
+    .btn-gold{
+      background: linear-gradient(90deg, var(--gold1) 0%, var(--gold2) 100%);
+      color:#111;
+      font-weight:800;
+      padding:10px 14px;
+      border-radius:12px;
+      border:none;
+      cursor:pointer;
+      box-shadow:0 6px 20px rgba(184,134,11,0.12);
+    }
+    .btn-ghost{
+      background:transparent;
+      color:var(--gold2);
+      border:1px solid rgba(255,215,0,0.08);
+      padding:8px 12px;
+      border-radius:10px;
+      cursor:pointer;
+    }
+
+    /* Small / mobile card sizing fix (reduces 'zoomed' effect) */
+    @media(max-width:420px){
+      .drop-card{ padding:18px; min-height:220px; }
+      .drop-title{ font-size:1.15rem; }
+      .header-title h1{ font-size:18px; }
+      .tread-viewport{ height:44px; }
+    }
+
+    /* Footer small */
+    footer.site-footer{
+      margin-top:40px;
+      text-align:center;
+      color:rgba(255,255,255,0.45);
+      font-size:12px;
+    }
+
+    /* ---------- Modal (popup) ---------- */
+    .modal-backdrop{
+      position:fixed;
+      inset:0;
+      background:rgba(4,6,8,0.7);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      z-index:120;
+      padding:20px;
+    }
+    .modal-backdrop.active{ display:flex; }
+
+    .modal{
+      background:linear-gradient(180deg, rgba(22,22,24,0.98), rgba(18,18,20,0.99));
+      border-radius:14px;
+      max-width:920px;
+      width:100%;
+      padding:22px;
+      box-shadow:0 30px 60px rgba(0,0,0,0.6);
+      border:1px solid rgba(255,255,255,0.04);
+      overflow:auto;
+      max-height:88vh;
+    }
+    .modal .modal-head{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      margin-bottom:12px;
+    }
+    .modal .modal-head h2{ margin:0; color:var(--gold2); font-weight:800; font-family:"Orbitron", sans-serif; }
+    .modal .modal-body{ color:rgba(255,255,255,0.9); line-height:1.5; font-size:0.98rem; }
+    .modal .modal-close{
+      margin-left:auto;
+      background:transparent;
+      border:none;
+      color:rgba(255,255,255,0.7);
+      font-size:18px;
+      cursor:pointer;
+    }
+
   </style>
 </head>
-<body class="relative">
+<body>
 
-  <!-- 🔹 Fixed Header -->
-  <header class="fixed top-0 left-0 w-full z-50 bg-[#1a1a1f]/90 backdrop-blur-md shadow-md flex items-center justify-between px-6 py-4 text-yellow-400 font-bold text-lg">
-    <div class="flex items-center gap-3">
-      <div class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center text-sm">LOGO</div>
-      <span>Potentia Market</span>
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="header-left">
+      <img src="/latenspotentia/assets/img/Picon.jpg" alt="Potentia" class="brand-logo">
+      <!-- keep text hidden here, center handles title -->
     </div>
-    <a href="/" class="text-yellow-400 hover:text-yellow-300 transition">🏠 Home</a>
+
+    <!-- absolute-centered title -->
+    <div class="header-title" aria-hidden="true">
+      <h1>THE POTENTIA MARKET</h1>
+      <span class="sub">Drops • Tools • Systems • Hardware</span>
+    </div>
+
+    <div class="header-right">
+      <a class="home-btn" href="/" title="Back home">🏠 Home</a>
+    </div>
+  </header>
+
+  <!-- SECTION NAV (treadmill pipe) -->
+  <nav class="section-nav" role="navigation" aria-label="Potentia sections">
+    <div class="tread-viewport">
+      <div class="tread-track" id="treadTrack">
+        <!-- duplicate set to create seamless scroll -->
+        <div class="tread-elem">SCRIPTS</div>
+        <div class="tread-elem">HARDWARE</div>
+        <div class="tread-elem">PDFs</div>
+        <div class="tread-elem">CUSTOM CODE</div>
+        <div class="tread-elem">LATENSLINK</div>
+        <div class="tread-elem">PROTOTYPES</div>
+        <div class="tread-elem">DOCS</div>
+
+        <!-- repeat for smoother loop -->
+        <div class="tread-elem">SCRIPTS</div>
+        <div class="tread-elem">HARDWARE</div>
+        <div class="tread-elem">PDFs</div>
+        <div class="tread-elem">CUSTOM CODE</div>
+        <div class="tread-elem">LATENSLINK</div>
+        <div class="tread-elem">PROTOTYPES</div>
+        <div class="tread-elem">DOCS</div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MAIN CONTENT -->
+  <main class="content">
+    <section class="drops-grid" id="dropsGrid">
+      <!-- CARD TEMPLATE: duplicate/modify as needed. Each card must include a data-modal-content attribute. -->
+      <article class="drop-card" data-aos="zoom-in">
+        <div style="display:flex;align-items:center;gap:12px">
+          <img src="/latenspotentia/assets/img/Picon.jpg" class="brand-logo" alt="logo">
+          <div>
+            <div style="font-weight:800;color:var(--gold2);font-family:'Orbitron',sans-serif">Potentia</div>
+            <div style="font-size:12px;color:rgba(255,255,255,0.65)">Universe Drop</div>
+          </div>
+        </div>
+
+        <div class="drop-title">Universe™ Drop</div>
+        <div class="drop-desc">The Universe drop is live. Choose your preferred way to unlock and get started.</div>
+
+        <ul class="option-list" style="margin:0;padding:0;list-style:none;">
+          <li style="display:flex;gap:10px;align-items:center;margin-bottom:8px">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 8v4l3 3"></path><circle cx="12" cy="12" r="10"></circle></svg>
+            <a class="option-link" href="https://t.me/Potentiabot_bot" target="_blank">Get via Telegram Bot (PotentiaBot)</a>
+          </li>
+          <li style="display:flex;gap:10px;align-items:center;margin-bottom:8px">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 7l9-4 9 4-9 4-9-4zm0 0v6c0 5.25 6.75 9 9 9s9-3.75 9-9V7"></path></svg>
+            <a class="option-link" href="https://github.com/LatensTech/Latens-Technology-/" target="_blank">Clone from GitHub</a>
+          </li>
+          <li style="display:flex;gap:10px;align-items:center">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 4v16m8-8H4"></path></svg>
+            <a class="option-link" href="/latenspotentia/drops/files/universe.zip" download>Download ZIP</a>
+          </li>
+        </ul>
+
+        <div class="drop-actions">
+          <button class="btn-gold" data-modal-title="Universe™ Drop" data-modal-content="<p><strong>Release:</strong> Universe v1.0</p><p><em>What’s inside:</em></p><ul><li>Telegram autoresponder bot</li><li>Sample scripts & README</li><li>Install instructions</li></ul><p>Drop manual & usage instructions included.</p>">Details</button>
+
+          <a class="btn-ghost" href="https://latenslink.co.ke/latenspotentia" target="_blank">Back to Main</a>
+        </div>
+      </article>
+
+      <!-- Duplicate cards below (you can keep many). I added a few as examples. -->
+      <article class="drop-card" data-aos="zoom-in">
+        <div style="display:flex;align-items:center;gap:12px">
+          <img src="/latenspotentia/assets/img/Picon.jpg" class="brand-logo" alt="logo">
+          <div>
+            <div style="font-weight:800;color:var(--gold2);font-family:'Orbitron',sans-serif">Potentia</div>
+            <div style="font-size:12px;color:rgba(255,255,255,0.65)">Script Drop</div>
+          </div>
+        </div>
+        <div class="drop-title">LatensLink™ Scraper</div>
+        <div class="drop-desc">A compact script for targeted lead extraction: example usage & config included.</div>
+        <div class="drop-actions">
+          <button class="btn-gold" data-modal-title="LatensLink™ Scraper" data-modal-content="<p>Compact lead extraction python script. <strong>Usage:</strong> configure keywords, run.</p><pre style='background:#0b0b0b;padding:8px;border-radius:8px;color:#ddd'>python latenslink.py --keywords 'hotel nairobi'</pre>">Details</button>
+          <a class="btn-ghost" href="/latenspotentia/drops/files/latenslink.zip" download>Download</a>
+        </div>
+      </article>
+
+      <article class="drop-card" data-aos="zoom-in">
+        <div style="display:flex;align-items:center;gap:12px">
+          <img src="/latenspotentia/assets/img/Picon.jpg" class="brand-logo" alt="logo">
+          <div>
+            <div style="font-weight:800;color:var(--gold2);font-family:'Orbitron',sans-serif">Potentia</div>
+            <div style="font-size:12px;color:rgba(255,255,255,0.65)">Hardware Service</div>
+          </div>
+        </div>
+        <div class="drop-title">Network Setup Kit</div>
+        <div class="drop-desc">Small business network install guide + device checklist. CCNA-backed setup steps.</div>
+        <div class="drop-actions">
+          <button class="btn-gold" data-modal-title="Network Setup Kit" data-modal-content="<p>What you get:</p><ul><li>Topology diagram</li><li>Device config samples</li><li>On-site checklist</li></ul>">Details</button>
+          <a class="btn-ghost" href="/latenspotentia/drops/files/network-kit.zip" download>Download</a>
+        </div>
+      </article>
+
+      <!-- add as many cards as you want; grid will handle the layout -->
+    </section>
+
+    <footer class="site-footer">
+      &copy; 2025 Potentia Systems — Drop secured.<br>
+      Universe™ is a trademark of Potentia Systems.
+    </footer>
+
+  </main>
+
+  <!-- MODAL / POPUP -->
+  <div id="modalBackdrop" class="modal-backdrop" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal-head">
+        <h2 id="modalTitle">Title</h2>
+        <button class="modal-close" id="modalClose">&times;</button>
+      </div>
+      <div class="modal-body" id="modalBody">
+        <!-- dynamic content -->
+      </div>
+      <div style="display:flex;gap:10px;margin-top:16px;justify-content:flex-end">
+        <button class="btn-ghost" id="modalClose2">Close</button>
+        <a id="modalDownload" class="btn-gold" href="#" style="text-decoration:none">Download / Action</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCRIPTS -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({ once: true, duration: 520 });
+
+    /* ---------- Modal handling ---------- */
+    const modalBackdrop = document.getElementById('modalBackdrop');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalBody = document.getElementById('modalBody');
+    const modalClose = document.getElementById('modalClose');
+    const modalClose2 = document.getElementById('modalClose2');
+    const modalDownload = document.getElementById('modalDownload');
+
+    function openModal(title, htmlContent, downloadHref){
+      modalTitle.innerText = title || 'Details';
+      modalBody.innerHTML = htmlContent || '<p>No details provided.</p>';
+      if(downloadHref){
+        modalDownload.style.display = 'inline-block';
+        modalDownload.href = downloadHref;
+      } else {
+        modalDownload.style.display = 'none';
+      }
+      modalBackdrop.classList.add('active');
+      modalBackdrop.setAttribute('aria-hidden','false');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal(){
+      modalBackdrop.classList.remove('active');
+      modalBackdrop.setAttribute('aria-hidden','true');
+      document.body.style.overflow = '';
+      modalBody.innerHTML = '';
+    }
+
+    modalClose.addEventListener('click', closeModal);
+    modalClose2.addEventListener('click', closeModal);
+    modalBackdrop.addEventListener('click', (e)=>{ if(e.target === modalBackdrop) closeModal(); });
+
+    // attach to all .btn-gold buttons
+    document.querySelectorAll('.btn-gold').forEach(btn=>{
+      btn.addEventListener('click', (e)=>{
+        const title = btn.getAttribute('data-modal-title') || 'Details';
+        const content = btn.getAttribute('data-modal-content') || '<p>No content</p>';
+        openModal(title, content, null);
+      });
+    });
+
+    /* ---------- Accessibility: keyboard close ---------- */
+    window.addEventListener('keydown', (e)=>{
+      if(e.key === 'Escape') closeModal();
+    });
+
+    /* ---------- Improve treadmill smoothness: duplicate track width check ---------- */
+    // Ensure animation distance adapts to track width for smoother loop (optional)
+    (function adaptTread(){
+      const track = document.getElementById('treadTrack');
+      if(!track) return;
+      // If track width is less than viewport we duplicate content (done in markup), this is an additional safety.
+      // No manual resizing required; animation keyframes set to -40% which works fine with the repeats.
+    })();
+
+    /* ---------- Simple mobile fix: reduce transform scale if viewport small ---------- */
+    (function mobileZoomFix(){
+      // if content feels zoomed-in on some mobile browsers we can force viewport scale: already set in meta
+      // Additional fallback: reduce base font-size on tiny screens
+      if(window.innerWidth < 360){
+        document.documentElement.style.fontSize = '14px';
+      }
+    })();
+
+  </script>
+</body>
+            </html>    <a href="/" class="text-yellow-400 hover:text-yellow-300 transition">🏠 Home</a>
   </header>
 
   <!-- 🔹 Fixed Nav Panel -->
