@@ -457,9 +457,12 @@
         <div class="drop-title">Network Setup Kit</div>
         <div class="drop-desc">Small business network install guide + device checklist. CCNA-backed setup steps.</div>
         <div class="drop-actions">
-          <button class="btn-gold" data-modal-title="Network Setup Kit" data-modal-content="<p>What you get:</p><ul><li>Topology diagram</li><li>Device config samples</li><li>On-site checklist</li></ul>">Details</button>
-          <a class="btn-ghost" href="/latenspotentia/drops/files/network-kit.zip" download>Download</a>
-        </div>
+          <button class="btn-gold"
+  data-popup-title="Universe™ Drop"
+  data-popup-content="<p><strong>Release:</strong> Universe v1.0</p><ul><li>Telegram bot</li><li>Install guide</li></ul>"
+  data-popup-action="/latenspotentia/drops/files/universe.zip">
+  Details
+          </button></div>
       </article>
 
 
@@ -683,7 +686,22 @@
       <p><a href="mailto:admin@latenslink.co.ke" class="text-gold underline">chief@latenslink.co.ke</a></p>
     </div>
   </main>
-
+<!-- 🔹 Dynamic Popup Modal -->
+<div id="popupBackdrop" class="fixed inset-0 z-[9999] bg-black/80 hidden items-center justify-center px-4">
+  <div class="bg-[#1a1a1f] rounded-xl max-w-2xl w-full p-6 shadow-2xl overflow-y-auto max-h-[90vh]">
+    <div class="flex justify-between items-center mb-4">
+      <h2 id="popupTitle" class="text-yellow-400 text-xl font-bold">Title</h2>
+      <button onclick="closePopup()" class="text-yellow-300 text-2xl font-bold">&times;</button>
+    </div>
+    <div id="popupContent" class="text-gray-200 text-sm leading-relaxed">
+      <!-- dynamic content -->
+    </div>
+    <div class="flex justify-end gap-4 mt-6">
+      <button onclick="closePopup()" class="btn-ghost">Close</button>
+      <a id="popupAction" href="#" class="btn-gold hidden">Download / Action</a>
+    </div>
+  </div>
+</div>
   <!-- SCRIPTS -->
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script>
@@ -730,6 +748,42 @@
         openModal(title, content, null);
       });
     });
+
+
+    // 🔹 Dynamic Popup Logic
+const popupBackdrop = document.getElementById('popupBackdrop');
+const popupTitle = document.getElementById('popupTitle');
+const popupContent = document.getElementById('popupContent');
+const popupAction = document.getElementById('popupAction');
+
+function openPopup(title, html, actionUrl) {
+  popupTitle.textContent = title || 'Details';
+  popupContent.innerHTML = html || '<p>No content provided.</p>';
+  if (actionUrl) {
+    popupAction.href = actionUrl;
+    popupAction.classList.remove('hidden');
+  } else {
+    popupAction.classList.add('hidden');
+  }
+  popupBackdrop.classList.remove('hidden');
+  document.body.style.overflow = 'hidden';
+}
+
+function closePopup() {
+  popupBackdrop.classList.add('hidden');
+  document.body.style.overflow = '';
+  popupContent.innerHTML = '';
+}
+
+// Attach to buttons with data attributes
+document.querySelectorAll('.btn-gold[data-popup-title]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const title = btn.getAttribute('data-popup-title');
+    const content = btn.getAttribute('data-popup-content');
+    const action = btn.getAttribute('data-popup-action');
+    openPopup(title, content, action);
+  });
+});
 
     /* ---------- Accessibility: keyboard close ---------- */
     window.addEventListener('keydown', (e)=>{
