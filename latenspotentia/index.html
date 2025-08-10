@@ -243,26 +243,48 @@
   background-color: transparent;
 }
 
+/* Duplicate for right side button/logo */
+.logo-container-right {
+  position: fixed;
+  top: 1rem;
+  right: 1rem; /* <-- changed */
+  z-index: 9999;
+}
+
+.brand-logo-right {
+  width: 64px;
+  height: auto;
+  object-fit: contain;
+  background-color: transparent;
+}
+
 /* Responsive scaling */
 @media (max-width: 768px) {
-  .brand-logo {
+  .brand-logo,
+  .brand-logo-right {
     width: 48px;
   }
 }
 
 @media (max-width: 480px) {
-  .brand-logo {
+  .brand-logo,
+  .brand-logo-right {
     width: 36px;
   }
 }
-
-    
-  </style>
+</style>
 </head>
 <body class="bg-black text-white font-sans">
-    <a href="/" class="logo-container">
+
+<!-- Left Logo -->
+<a href="/" class="logo-container">
   <img src="/latenspotentia/assets/img/Picon.png" alt="Latens Potentia Logo" class="brand-logo" />
-    </a>
+</a>
+
+<!-- Right Logo/Button -->
+<a href="/latenspotentia/PMarket" class="logo-container-right">
+  <img src="/latenspotentia/assets/img/Picon.png" alt="Home" class="brand-logo-right" />
+</a>
   <!-- Parallax Hero Section -->
   <section class="hero-parallax">
     <div class="parallax-bg"></div>
