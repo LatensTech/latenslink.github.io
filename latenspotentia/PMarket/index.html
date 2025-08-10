@@ -231,14 +231,34 @@
       border-radius:10px;
       cursor:pointer;
     }
-
-    /* Small / mobile card sizing fix (reduces 'zoomed' effect) */
-    @media(max-width:420px){
-      .drop-card{ padding:18px; min-height:220px; }
-      .drop-title{ font-size:1.15rem; }
-      .header-title h1{ font-size:18px; }
-      .tread-viewport{ height:44px; }
-    }
+/* Force zoomed-out view and multiple cards on small screens */
+@media (max-width: 768px) {
+  html {
+    font-size: 14px; /* scales everything down */
+  }
+  .drops-grid {
+    grid-template-columns: repeat(2, 1fr) !important; /* 2 cards side by side on mobile */
+    gap: 16px;
+  }
+  .drop-card {
+    padding: 16px;
+    min-height: 200px;
+  }
+  header.site-header {
+    height: 60px;
+    padding: 0 10px;
+  }
+  .brand-logo {
+    width: 36px;
+    height: 36px;
+  }
+  .header-title h1 {
+    font-size: 16px;
+  }
+  .header-title .sub {
+    font-size: 9px;
+  }
+}
 
     /* Footer small */
     footer.site-footer{
