@@ -124,21 +124,22 @@
   transform: translateY(0);
   transition: transform 0.2s;
 }
-
-/* Desktop optimization: Show full image without zoom/crop or repeat */
+/* Desktop: Switch to landscape image and optimize */
 @media (min-width: 768px) {
   .parallax-bg {
-    background-size: contain;
-    background-repeat: no-repeat; /* NEW: Prevents tiling */
-    background-position: center center;
+    background-image: url('./assets/img/HeroBgLandscape.jpg'); /* Your new landscape image */
+    background-size: cover; /* Fills the wide screen without gaps */
+    background-position: center center; /* Centers the key elements */
+    background-repeat: no-repeat;
   }
 }
 
 @media (min-width: 1280px) {
   .parallax-bg {
-    background-size: contain;
-    background-repeat: no-repeat; /* NEW: Prevents tiling */
+    background-image: url('./assets/img/HeroBgLandscape.jpg');
+    background-size: cover;
     background-position: center center;
+    background-repeat: no-repeat;
   }
 }
 
