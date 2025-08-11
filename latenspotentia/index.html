@@ -112,23 +112,24 @@
       background: linear-gradient(120deg, #070e1e 0%, #151c2a 100%);
     }
     .parallax-bg, .parallax-fg {
-      position: absolute;
-      left: 0; top: 0; width: 100%; height: 100%;
-      pointer-events: none;
-    }
-    .parallax-bg {
+  position: absolute;
+  left: 0; top: 0; width: 100%; height: 100%;
+  pointer-events: none;
+}
+
+.parallax-bg {
   background: url('./assets/img/HeroBg1.jpg') center/cover;
-  opacity: 1.20;
+  opacity: 1.20; /* Note: Opacity > 1 is invalid; browsers clamp to 1. Consider adjusting to 1 or lower if unintended */
   z-index: 1;
   transform: translateY(0);
   transition: transform 0.2s;
+}
 
-    }
-
-    /* Desktop optimization: Show full image without zoom/crop */
+/* Desktop optimization: Show full image without zoom/crop or repeat */
 @media (min-width: 768px) {
   .parallax-bg {
     background-size: contain;
+    background-repeat: no-repeat; /* NEW: Prevents tiling */
     background-position: center center;
   }
 }
@@ -136,6 +137,7 @@
 @media (min-width: 1280px) {
   .parallax-bg {
     background-size: contain;
+    background-repeat: no-repeat; /* NEW: Prevents tiling */
     background-position: center center;
   }
 }
