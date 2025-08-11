@@ -124,6 +124,23 @@
   transition: transform 0.2s;
 
     }
+
+    /* Desktop optimization: Show full image without zoom/crop */
+@media (min-width: 768px) {
+  .parallax-bg {
+    background-size: contain;
+    background-position: center center;
+  }
+}
+
+@media (min-width: 1280px) {
+  .parallax-bg {
+    background-size: contain;
+    background-position: center center;
+  }
+}
+
+    
     .parallax-fg {
       background: radial-gradient(circle at 70% 30%, #FFD70022 0%, transparent 80%);
       z-index: 2;
