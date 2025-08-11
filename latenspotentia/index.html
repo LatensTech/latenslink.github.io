@@ -117,12 +117,16 @@
       pointer-events: none;
     }
     .parallax-bg {
-  background: url('./assets/img/HeroBg1.jpg') center/cover;
-  opacity: 1.20;
+  background-image: url('./assets/img/HeroBg1.jpg');
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 1.2;
   z-index: 1;
   transform: translateY(0);
   transition: transform 0.2s;
-    }
+}
+
 /* Desktop fix: zoom out the background */
 @media(min-width: 600px) {
   .parallax-bg {
