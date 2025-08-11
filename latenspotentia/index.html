@@ -122,6 +122,24 @@
   z-index: 1;
   transform: translateY(0);
   transition: transform 0.2s;
+
+/* Desktop fix: zoom out the background */
+@media(min-width: 768px) {
+  .parallax-bg {
+    background-size: 120%; /* zoomed out slightly */
+    background-position: center top; /* adjust framing */
+  }
+}
+
+/* Ultra-wide screens */
+@media(min-width: 1280px) {
+  .parallax-bg {
+    background-size: 100%; /* full image */
+    background-position: center top;
+  }
+}
+
+
     }
     .parallax-fg {
       background: radial-gradient(circle at 70% 30%, #FFD70022 0%, transparent 80%);
