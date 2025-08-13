@@ -60,6 +60,14 @@
       "free": true,
       "teaser": "Power, Control, Systems, Simplicity",
       "file_url": "https://latenslink.co.ke/latenspotentia/PMarket/files/Understanding_Potentia.pdf"
+    },
+    {
+      "id": "btcwatch.zip",
+      "title": "BITCOIN WATCHER — NEW DROP",
+      "category": "scripts",
+      "free": true,
+      "teaser": "A stealth node that logs Bitcoin price every hour. Deploy in Termux. No backend. No gatekeepers. Just signal.",
+      "file_url": "https://latenslink.co.ke/latenspotentia/PMarket/files/btcwatch.zip"
     }
 
     
