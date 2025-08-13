@@ -16,13 +16,14 @@
       "learn_more": "https://latenslink.co.ke/latenspotentia/drops/files/termux_full.pdf"
     },
     {
-      "id": "universe_script",
+      "id": "universe.zip",
       "title": "Universe Script",
       "category": "scripts",
       "free": true,
       "teaser": "Hourly ‘universe secrets’ via notifications.",
       "repo_url": "https://github.com/LatensTech/universe",
       "install_snippet": "git clone https://github.com/LatensTech/universe && cd universe && bash install.sh"
+      "file_url": "https://latenslink.co.ke//latenspotentia/drops/files/universe.zip"
     },
     {
       "id": "potentia_code_101",
