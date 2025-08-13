@@ -25,12 +25,12 @@
       "install_snippet": "git clone https://github.com/LatensTech/universe && cd universe && bash install.sh"
     },
     {
-      "id": "code_of_ops",
+      "id": "Potentia code",
       "title": "Potentia Code of Ops",
       "category": "guides",
       "free": true,
       "teaser": "How we move. Quiet build. Loud results.",
-      "file_url": "https://your-cdn-or-gh-pages/code_of_ops.pdf"
+      "file_url": "https://latenslink.co.ke/latenspotentia/PMarket/files/Potentia Code.pdf"
     },
     {
       "id": "student_pdf_toolkit",
@@ -40,7 +40,7 @@
       "price": 199,
       "currency": "KES",
       "teaser": "Merge, split, compress, brand. Assignment-ready in 60s.",
-      "buy_link": "https://latenslink.co.ke/latenspotentia/payment.html?item=student_pdf_toolkit"
+      "buy_link": "https://latenslink.co.ke/latenspotentia/PMarket/payments.html"
     }
   ]
 }
