@@ -1,0 +1,46 @@
+{
+  "categories": [
+    {"key": "scripts", "label": "🛠 Scripts"},
+    {"key": "guides", "label": "📚 Guides"},
+    {"key": "systems", "label": "⚡ Systems"},
+    {"key": "misc", "label": "✨ Misc"}
+  ],
+  "drops": [
+    {
+      "id": "termux_install",
+      "title": "Termux – Quick Install",
+      "category": "guides",
+      "free": true,
+      "teaser": "Android → Dev console in 3 mins. Zero friction.",
+      "file_url": "https://your-cdn-or-gh-pages/termux_quick_install.pdf",
+      "learn_more": "https://latenslink.co.ke/latenspotentia/drops/files/termux_full.pdf"
+    },
+    {
+      "id": "universe_script",
+      "title": "Universe Script",
+      "category": "scripts",
+      "free": true,
+      "teaser": "Hourly ‘universe secrets’ via notifications.",
+      "repo_url": "https://github.com/LatensTech/universe",
+      "install_snippet": "git clone https://github.com/LatensTech/universe && cd universe && bash install.sh"
+    },
+    {
+      "id": "code_of_ops",
+      "title": "Potentia Code of Ops",
+      "category": "guides",
+      "free": true,
+      "teaser": "How we move. Quiet build. Loud results.",
+      "file_url": "https://your-cdn-or-gh-pages/code_of_ops.pdf"
+    },
+    {
+      "id": "student_pdf_toolkit",
+      "title": "Student PDF Toolkit",
+      "category": "systems",
+      "free": false,
+      "price": 199,
+      "currency": "KES",
+      "teaser": "Merge, split, compress, brand. Assignment-ready in 60s.",
+      "buy_link": "https://latenslink.co.ke/latenspotentia/payment.html?item=student_pdf_toolkit"
+    }
+  ]
+}
