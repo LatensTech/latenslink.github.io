@@ -25,12 +25,12 @@
       "install_snippet": "git clone https://github.com/LatensTech/universe && cd universe && bash install.sh"
     },
     {
-      "id": "potentia_code",
+      "id": "Potentia_code_101",
       "title": "Potentia Code of Ops",
       "category": "guides",
       "free": true,
       "teaser": "How we move. Quiet build. Loud results.",
-      "file_url": "https://latenslink.co.ke/latenspotentia/PMarket/files/Potentia Code.pdf"
+      "file_url": "https://latenslink.co.ke/latenspotentia/PMarket/files/Potentia_Code.pdf"
     },
     {
       "id": "student_pdf_toolkit",
