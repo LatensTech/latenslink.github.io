@@ -25,7 +25,7 @@
       "install_snippet": "git clone https://github.com/LatensTech/universe && cd universe && bash install.sh"
     },
     {
-      "id": "Potentia code",
+      "id": "potentia_code",
       "title": "Potentia Code of Ops",
       "category": "guides",
       "free": true,
