@@ -12,9 +12,9 @@
       "title": "Termux – Quick Install",
       "category": "guides",
       "free": true,
-      "teaser": "Android → Dev console in 3 mins. Zero friction.",
-      "file_url": "https://your-cdn-or-gh-pages/termux_quick_install.pdf",
-      "learn_more": "https://latenslink.co.ke/latenspotentia/drops/files/termux_full.pdf"
+      "teaser": "Android to Dev console in 3 mins. Zero friction.",
+      "file_url": "https://f-droid.org/repo/com.termux_1022.apk",
+      "learn_more": "https://latenslink.co.ke/latenspotentia/PMarket/files/Termux_Installation.pdf"
     },
     {
       "id": "universe.zip",
@@ -24,10 +24,11 @@
       "teaser": "Hourly ‘universe secrets’ via notifications.",
       "repo_url": "https://github.com/LatensTech/universe",
       "install_snippet": "git clone https://github.com/LatensTech/universe && cd universe && bash install.sh",
-      "file_url": "https://latenslink.co.ke//latenspotentia/drops/files/universe.zip"
+      "file_url": "https://latenslink.co.ke//latenspotentia/drops/files/universe.zip",
+      "learn_more": "https://latenslink.co.ke/latenspotentia/PMarket/files/Deploy_the_Universe.pdf"
     },
     {
-      "id": "potentia_code_101",
+      "id": "Potentia_code",
       "title": "Potentia Code of Ops",
       "category": "guides",
       "free": true,
@@ -39,10 +40,28 @@
       "title": "Student PDF Toolkit",
       "category": "systems",
       "free": false,
-      "price": 199,
+      "price": 499,
       "currency": "KES",
       "teaser": "Merge, split, compress, brand. Assignment-ready in 60s.",
       "buy_link": "https://latenslink.co.ke/latenspotentia/PMarket/payments.html"
+    },
+    {
+      "id": "nav_the_market",
+      "title": "How to Navigate the Market",
+      "category": "guides",
+      "free": true,
+      "teaser": "Where you shop for Power and get control back.",
+      "file_url": "https://latenslink.co.ke/latenspotentia/PMarket/files/Navigating_the_Potentia_Market.pdf"
+    },
+    {
+      "id": "understand_potentia",
+      "title": "Understanding The Potentia System",
+      "category": "guides",
+      "free": true,
+      "teaser": "Power, Control, Systems, Simplicity",
+      "file_url": "https://latenslink.co.ke/latenspotentia/PMarket/files/Understanding_Potentia.pdf"
     }
+
+    
   ]
 }
