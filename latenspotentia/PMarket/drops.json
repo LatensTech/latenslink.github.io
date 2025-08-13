@@ -3,6 +3,7 @@
     {"key": "scripts", "label": "🛠 Scripts"},
     {"key": "guides", "label": "📚 Guides"},
     {"key": "systems", "label": "⚡ Systems"},
+    {"key": "bots", "label": "👾 Bots"},
     {"key": "misc", "label": "✨ Misc"}
   ],
   "drops": [
