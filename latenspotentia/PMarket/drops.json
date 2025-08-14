@@ -68,6 +68,14 @@
       "free": true,
       "teaser": "A stealth node that logs Bitcoin price every hour. Deploy in Termux. No backend. No gatekeepers. Just signal.",
       "file_url": "https://latenslink.co.ke/latenspotentia/PMarket/files/btcwatch.zip"
+    },
+    {
+      "id": "pdftool.zip",
+      "title": "POTENTIA PDF TOOL — Your documents, your rules",
+      "category": "scripts",
+      "free": true,
+      "teaser": "Convert, merge, split & compress PDFs offline. Branded, clean, and 100% yours. Runs in Termux, Gives you back Control.",
+      "file_url": "https://latenslink.co.ke/latenspotentia/PMarket/files/pdftool.zip"
     }
 
     
