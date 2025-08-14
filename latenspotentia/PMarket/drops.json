@@ -76,7 +76,16 @@
       "free": true,
       "teaser": "Convert, merge, split & compress PDFs offline. Branded, clean, and 100% yours. Runs in Termux, Gives you back Control.",
       "file_url": "https://latenslink.co.ke/latenspotentia/PMarket/files/pdftool.zip"
+    },
+    {
+      "id": "potentia_session.html",
+      "title": "POTENTIA SESSION — Learn What Matters, Fast",
+      "category": "services",
+      "free": false,
+      "teaser": "One-on-one, action-first learning in AI, Tech, Crypto & more. Your own human ChatGPT, on call.",
+      "buy_link": "https://latenslink.co.ke/latenspotentia/PMarket/tutor.html"
     }
+
 
     
   ]
