@@ -1,12 +1,44 @@
 {
   "marketing": [
     {
-      "headline": "Unlock Premium Tools Now!",
-      "body": "Join Potentia Systems and get early access to scripts, guides, and exclusive drops."
+      "headline": "Unlock Your Digital Edge",
+      "body": "Potentia Systems gives you access to tools and scripts that cut hours off your workflow. Work smarter, not harder."
     },
     {
-      "headline": "Boost Your Workflow",
-      "body": "Automate tedious tasks with our curated Termux scripts and templates."
+      "headline": "Stop Wasting Time",
+      "body": "Tired of manual processes? Our curated Termux scripts and templates handle the heavy lifting for you."
+    },
+    {
+      "headline": "Your Productivity, Supercharged",
+      "body": "Automate, optimize, and elevate your daily grind with Potentia’s exclusive resources."
+    },
+    {
+      "headline": "Access Tools Only Insiders Have",
+      "body": "Get early drops, guides, and scripts that most people will never see. Be ahead, always."
+    },
+    {
+      "headline": "Level Up Your Hustle",
+      "body": "Why struggle with repetitive tasks? Potentia Systems equips you with the shortcuts and hacks pros use."
+    },
+    {
+      "headline": "From Chaos to Control",
+      "body": "Organize your digital workflow, automate tasks, and reclaim your time with our step-by-step resources."
+    },
+    {
+      "headline": "Exclusive Access, Maximum Impact",
+      "body": "Our drops and guides aren’t for everyone—they’re for those ready to dominate their space."
+    },
+    {
+      "headline": "Your Shortcut to Efficiency",
+      "body": "Potentia Systems gives you actionable scripts and templates to get results faster and smarter."
+    },
+    {
+      "headline": "Stop Doing, Start Automating",
+      "body": "Let the system handle repetitive work. You focus on growth, creativity, and strategy."
+    },
+    {
+      "headline": "The Tools You Need, When You Need Them",
+      "body": "From Termux scripts to guides and templates, Potentia ensures you’re always a step ahead of the pack."
     }
   ]
 }
