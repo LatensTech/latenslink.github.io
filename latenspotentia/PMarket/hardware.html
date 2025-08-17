@@ -206,6 +206,7 @@
 
     /* Card */
     .drop-card{
+      position:relative
       background: var(--card-bg);
       border-radius:18px;
       padding:26px;
@@ -230,6 +231,22 @@
 
     .drop-actions{ margin-top:auto; display:flex; gap:10px; align-items:center; }
 
+.drop-price-tag {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  background: linear-gradient(90deg, var(--gold1), var(--gold2));
+  color: #111;
+  font-weight: 800;
+  font-size: 0.85rem;
+  padding: 6px 10px;
+  border-radius: 9999px;
+  box-shadow: 0 4px 14px rgba(184,134,11,0.25);
+  z-index: 10;
+}
+
+
+    
     .btn-gold{
       background: linear-gradient(90deg, var(--gold1) 0%, var(--gold2) 100%);
       color:#111;
@@ -483,6 +500,8 @@
 
 <!-- POTENTIA SESSION DROP CARD -->
 <article class="drop-card" data-aos="zoom-in">
+
+  <div class="drop-price-tag">KES 4,500</div>
   <div style="display:flex;align-items:center;gap:12px">
     <img src="/latenspotentia/assets/img/Picon.jpg" class="brand-logo" alt="logo">
     <div>
