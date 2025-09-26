@@ -1,275 +1,477 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>🔗LatensLink by Latens Potentia Systems™</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>LatensLink — Local Wing of Latens Potentia Systems™</title>
+  <meta name="description" content="LatensLink (Latens Potentia Systems) — we design, build, and deploy systems: Digital Ops, IT Consulting, Systems Build and Local Deployment. Pitch your problem, get a solution." />
+  <meta name="theme-color" content="#0b0b0b" />
+  <meta property="og:title" content="LatensLink — Local Wing of Latens Potentia Systems™" />
+  <meta property="og:description" content="From local challenges to global systems — LatensLink builds what the modern era demands: automation, cyber, systems, and on-site deployments." />
+  <meta property="og:image" content="/latenspotentia/assets/img/Picon.png" />
+  <meta property="og:url" content="https://latenslink.co.ke" />
+  <meta name="twitter:card" content="summary_large_image" />
 
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-W8B3Y0P333"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-W8B3Y0P333');
+  <!-- Performance / fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Fira+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind (CDN build) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- AOS for subtle animation -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+  <script defer src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+  <!-- lucide icons -->
+  <script defer src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- JSON-LD org (basic) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "LatensLink (Latens Potentia Systems™)",
+    "url": "https://latenslink.co.ke",
+    "logo": "https://latenslink.co.ke/latenspotentia/assets/img/Picon.png",
+    "sameAs": []
+  }
   </script>
 
-  <!-- SEO -->
-  <meta name="description" content="LatensLink — The Local Wing of Latens Potentia Systems. Systems design, IT consulting, automation, local deployment, and more.">
-  <meta property="og:title" content="LatensLink by Latens Potentia Systems™">
-  <meta property="og:description" content="From local challenges to global systems — we build what the modern era demands.">
-  <meta property="og:image" content="/latenspotentia/assets/img/Picon.png">
-  <meta property="og:url" content="https://latenslink.co.ke">
-  <meta property="og:type" content="website">
-
-  <!-- Fonts & Styles -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css"/>
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
-  <script src="https://unpkg.com/lucide@latest"></script>
   <style>
-    body { font-family: 'Inter', sans-serif; background: #000; color: #fff; }
-
-    .text-gold { color: #FFD700; }
-    .bg-gold { background-color: #FFD700; }
-    .border-gold { border-color: #FFD700; }
-
-    .gold-btn {
-      background: linear-gradient(90deg, #B8860B 0%, #FFD700 100%);
-      color: #111; font-weight: 700; border-radius: 9999px;
-      transition: 0.3s; box-shadow: 0 0 24px 5px #FFD70044;
-      display: inline-block;
-    }
-    .gold-btn:hover {
-      background: linear-gradient(90deg, #FFD700 0%, #B8860B 100%);
-      box-shadow: 0 0 40px #FFD70088, 0 2px 32px rgba(0,0,0,0.18);
-      transform: scale(1.05);
+    :root{
+      --gold: #FFD700;
+      --gold-deep: #B8860B;
+      --bg-dark: #07070b;
+      --panel: rgba(20,24,30,0.48);
+      --glass-border: rgba(255,215,0,0.10);
+      --muted: #bfc6cf;
+      --accent: linear-gradient(90deg,var(--gold-deep),var(--gold));
+      --max-width: 1180px;
     }
 
-    .glass-panel {
-      background: rgba(30,42,54,0.4);
-      border-radius: 1.5rem;
-      border: 1px solid rgba(255,255,255,0.15);
-      box-shadow: 0 4px 32px rgba(255,215,0,0.15);
-      backdrop-filter: blur(15px);
-      padding: 2.5rem;
-      margin: 2rem auto;
-      max-width: 1100px;
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: linear-gradient(180deg,#020204 0%, #0d0f14 100%);
+      color: #e6eef6;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      -webkit-text-size-adjust:100%;
+      line-height:1.45;
     }
 
+    /* Top nav */
+    .nav{
+      backdrop-filter: blur(6px);
+      background: linear-gradient(180deg, rgba(3,3,5,0.6), rgba(3,3,5,0.35));
+      border-bottom: 1px solid rgba(255,215,0,0.06);
+      position: sticky;
+      top:0; z-index:60;
+    }
+    .logo-badge{
+      display:inline-flex; align-items:center; gap:.65rem;
+    }
+    .brand-name{ color:var(--gold); font-weight:700; letter-spacing:.6px; font-size:1.05rem;}
+    .sub-brand{ color: #98a0a6; font-size:0.82rem; margin-left:.5rem; }
+
+    /* Hero */
     .hero {
-      height: 100vh;
-      display: flex; align-items: center; justify-content: center;
-      text-align: center; position: relative; overflow: hidden;
+      min-height: 100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding:4.5rem 1rem 6rem;
+      position:relative;
+      overflow:hidden;
     }
-    .hero-bg {
-      position: absolute; inset: 0;
-      background: radial-gradient(ellipse at center, #FFD70022 0%, transparent 70%),
-                  url('/latenspotentia/assets/img/HeroBg1.jpg') center/cover;
-      opacity: 0.15;
-      z-index: 0;
+    .hero-bg{
+      position:absolute; inset:0;
+      background-image: url('/latenspotentia/assets/img/HeroBg1.jpg');
+      background-size:cover; background-position:center;
+      opacity:0.10; filter:grayscale(10%);
+      z-index:0;
     }
-    .hero-title {
-      font-size: clamp(2.5rem, 6vw, 4rem);
-      font-weight: 800;
-      letter-spacing: -1px;
-      color: #FFD700;
-      text-shadow: 0 0 20px #FFD70099;
+    .hero-radial{ position:absolute; inset: -20% -10% auto auto; width:60vw; height:60vw; background:radial-gradient(closest-side, rgba(255,215,0,0.06), transparent 40%); transform:translate(10%, -10%); z-index:1; pointer-events:none; }
+    .hero-card{
+      position:relative; z-index:10; max-width:var(--max-width); width:100%;
+      padding:3rem; border-radius:1.1rem; margin:0 auto;
+      background: linear-gradient(180deg, rgba(12,12,14,0.55), rgba(8,9,12,0.35));
+      border: 1px solid var(--glass-border);
+      box-shadow: 0 10px 50px rgba(0,0,0,0.6), 0 0 48px rgba(255,215,0,0.03);
     }
-    .hero-sub {
-      font-size: 1.1rem; color: #FFD700; text-shadow: 0 0 6px #FFD70055;
+    .hero-title{
+      color:var(--gold); font-weight:800; font-size:clamp(1.8rem, 4.6vw, 3.25rem);
+      line-height:1.03; text-shadow: 0 0 22px rgba(255,215,0,0.08);
+      letter-spacing:-0.6px;
+      margin:0 0 .8rem;
     }
+    .hero-sub{ color: #d6e1ea; font-weight:600; margin-bottom:1.25rem; font-size:1.02rem; opacity:.95; }
 
-    .service-card {
-      background: rgba(20,20,20,0.85);
-      border: 2px solid #FFD70033;
+    /* CTAs */
+    .cta-row{ display:flex; gap: .8rem; justify-content:center; flex-wrap:wrap; margin-top:1rem; }
+    .cta-main{ padding:.95rem 1.25rem; border-radius:999px; font-weight:700; color:#111; background:var(--accent); box-shadow:0 8px 40px rgba(255,215,0,0.06); display:inline-flex; align-items:center; gap:.7rem; text-decoration:none;}
+    .cta-ghost{ padding:.9rem 1.2rem; border-radius:999px; color:var(--gold); border:1.5px solid rgba(255,215,0,0.14); background:transparent; font-weight:700; text-decoration:none; display:inline-flex; align-items:center; gap:.6rem; }
+
+    /* Glass panels */
+    .glass {
+      max-width: var(--max-width);
+      margin: 3rem auto;
+      padding: 2.2rem;
       border-radius: 1rem;
-      padding: 2rem;
-      transition: 0.3s;
-    }
-    .service-card:hover {
-      transform: translateY(-6px) scale(1.03);
-      box-shadow: 0 0 30px #FFD70055;
+      background: var(--panel);
+      border: 1px solid var(--glass-border);
+      box-shadow: 0 8px 40px rgba(2,6,12,0.6);
     }
 
-    .timeline {
-      position: relative;
-      margin: 2rem 0;
-    }
-    .timeline::before {
-      content: ''; position: absolute;
-      top: 0; left: 50%; transform: translateX(-50%);
-      width: 3px; height: 100%;
-      background: linear-gradient(to bottom, #FFD700, transparent);
-    }
-    .timeline-step {
-      position: relative;
-      margin: 2rem 0;
-      width: 50%;
-      padding: 1rem 2rem;
-    }
-    .timeline-step.left { left: 0; text-align: right; }
-    .timeline-step.right { left: 50%; }
-    .timeline-circle {
-      position: absolute; top: 50%; left: -14px;
-      width: 28px; height: 28px; border-radius: 50%;
-      background: #FFD700; box-shadow: 0 0 12px #FFD70088;
-    }
+    /* Services grid */
+    .services-grid{ display:grid; gap:1.25rem; grid-template-columns: repeat(1,1fr); }
+    @media(min-width:740px){ .services-grid{ grid-template-columns: repeat(2,1fr); } }
+    @media(min-width:1060px){ .services-grid{ grid-template-columns: repeat(4,1fr); } }
 
-    .case-card {
-      position: relative;
-      border-radius: 1rem;
-      overflow: hidden;
-      min-height: 220px;
-      background: #111;
-      border: 1px solid #FFD70033;
+    .service {
+      background: linear-gradient(180deg, rgba(9,11,14,0.6), rgba(6,7,9,0.55));
+      border:1px solid rgba(255,215,0,0.06);
+      padding:1.5rem;
+      border-radius:.9rem;
+      transition:transform .22s ease, box-shadow .22s ease;
+      min-height:160px;
+      display:flex; flex-direction:column; gap:.8rem;
     }
-    .case-card img { width: 100%; height: 100%; object-fit: cover; opacity: 0.3; }
-    .case-overlay {
-      position: absolute; inset: 0;
-      background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
-      display: flex; align-items: flex-end; padding: 1.5rem;
-    }
-    .case-title { font-size: 1.2rem; color: #FFD700; font-weight: bold; }
+    .service:hover{ transform:translateY(-6px); box-shadow:0 8px 40px rgba(0,0,0,0.6), 0 0 24px rgba(255,215,0,0.06); }
+    .service .icon{ width:56px; height:56px; display:inline-flex; align-items:center; justify-content:center; border-radius:12px; background: linear-gradient(180deg, rgba(255,215,0,0.06), rgba(255,215,0,0.02)); color:var(--gold); }
+    .service h4{ color:var(--gold); margin:0; font-weight:700; font-size:1.06rem; }
+    .service p{ color:var(--muted); margin:0; font-size:.95rem; }
 
-    footer { font-size: 0.9rem; color: #aaa; }
+    /* Problem/Solution/Benefit subrows */
+    .psb{ display:flex; gap:1rem; margin-top:.8rem; flex-wrap:wrap; }
+    .psb .pill{ background:rgba(255,255,255,0.03); border-radius:8px; padding:.45rem .6rem; color:#dfe7ef; font-size:.83rem; border:1px solid rgba(255,255,255,0.02); }
+
+    /* Quick credentials row */
+    .cred-row{ display:flex; gap:1rem; align-items:center; justify-content:center; flex-wrap:wrap; margin-top:.8rem; color:var(--muted); font-size:.92rem; }
+
+    /* Timeline (Approach) */
+    .approach-wrap{ display:flex; gap:1rem; align-items:flex-start; justify-content:center; flex-wrap:wrap; }
+    .approach-step{ width:260px; padding:1.1rem; border-radius:12px; background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.02); text-align:center; }
+    .approach-step .num{ background:var(--gold); color:#111; width:42px; height:42px; display:inline-flex; align-items:center; justify-content:center; border-radius:50%; font-weight:800; margin-bottom:.6rem; box-shadow:0 6px 22px rgba(255,215,0,0.08); }
+
+    /* Cases grid */
+    .cases-grid{ display:grid; gap:1rem; grid-template-columns: repeat(1,1fr); }
+    @media(min-width:900px){ .cases-grid{ grid-template-columns: repeat(3,1fr); } }
+    .case {
+      border-radius:12px; overflow:hidden; min-height:220px;
+      background:#0b0d10; position:relative; border:1px solid rgba(255,215,0,0.06);
+    }
+    .case .thumb{ width:100%; height:100%; object-fit:cover; opacity:.18; filter:grayscale(20%); }
+    .case .case-inner{ position:absolute; inset:0; display:flex; align-items:flex-end; padding:1.25rem; }
+    .case h5{ color:var(--gold); margin:0; font-size:1.05rem; }
+
+    /* Contact grid */
+    .contact-grid{ display:grid; gap:1rem; grid-template-columns:1fr; }
+    @media(min-width:920px){ .contact-grid{ grid-template-columns: repeat(3,1fr); } }
+    .contact-card{ padding:1rem; border-radius:10px; background:linear-gradient(180deg, rgba(12,12,15,0.6), rgba(8,8,10,0.5)); border:1px solid rgba(255,215,0,0.04); text-align:center; }
+    .contact-card .small{ color:var(--muted); font-size:.88rem; }
+    .contact-card a{ display:inline-block; margin-top:.55rem; padding:.5rem .9rem; border-radius:999px; background:transparent; border:1px solid rgba(255,215,0,0.08); color:var(--gold); text-decoration:none; font-weight:700; }
+
+    footer{ border-top:1px solid rgba(255,215,0,0.04); padding:2rem 1rem; text-align:center; color:#9fb0bd; font-size:.92rem; }
+
+    /* small helpers */
+    .container{ max-width:var(--max-width); margin:0 auto; padding:0 1rem; }
+    .muted{ color:var(--muted); }
+
   </style>
 </head>
-<body class="leading-relaxed">
+<body>
 
-  <!-- Navbar -->
-  <nav class="fixed top-0 left-0 right-0 z-50 bg-black/70 backdrop-blur border-b border-gold px-6 py-3 flex justify-between items-center">
-    <div class="flex items-center space-x-2">
-      <img src="/latenspotentia/assets/img/Picon.png" class="w-8 h-8 rounded-full border border-gold"/>
-      <span class="text-gold font-bold text-lg">🔗LatensLink</span>
-      <span class="text-gray-400 text-sm hidden md:inline">by Latens Potentia Systems™</span>
-    </div>
-    <a href="/latenspotentia" class="text-gold text-sm font-mono hover:underline">Mothership</a>
-  </nav>
-
-  <!-- Hero -->
-  <section class="hero">
-    <div class="hero-bg"></div>
-    <div class="relative z-10 px-6">
-      <div class="hero-sub mb-3">LatensLink by Latens Potentia Systems™</div>
-      <h1 class="hero-title mb-6" data-aos="zoom-in">From local challenges to global systems — we build what the modern era demands.</h1>
-      <div class="flex flex-col md:flex-row gap-4 justify-center">
-        <a href="#contact" class="gold-btn px-8 py-3">🚀 Pitch Your Problem</a>
-        <a href="#contact" class="gold-btn px-8 py-3">⚡ Request a Solution</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Services -->
-  <section id="capabilities" class="py-20 px-6">
-    <div class="glass-panel" data-aos="fade-up">
-      <h2 class="text-3xl font-bold text-gold mb-10 text-center">Our Capabilities</h2>
-      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-        <div class="service-card" data-aos="fade-up">
-          <i data-lucide="database" class="w-10 h-10 text-gold mb-3"></i>
-          <h3 class="text-xl font-semibold text-gold mb-2">Digital Ops</h3>
-          <p class="text-gray-300 text-sm">Bulk outreach, email infrastructure, databases — your digital backbone.</p>
-        </div>
-        <div class="service-card" data-aos="fade-up" data-aos-delay="100">
-          <i data-lucide="shield" class="w-10 h-10 text-gold mb-3"></i>
-          <h3 class="text-xl font-semibold text-gold mb-2">IT Consulting</h3>
-          <p class="text-gray-300 text-sm">Cybersecurity, AI, automation — future-proof operations.</p>
-        </div>
-        <div class="service-card" data-aos="fade-up" data-aos-delay="200">
-          <i data-lucide="layers" class="w-10 h-10 text-gold mb-3"></i>
-          <h3 class="text-xl font-semibold text-gold mb-2">Systems Build</h3>
-          <p class="text-gray-300 text-sm">Websites, CRMs, backend systems, BI — built for scale and speed.</p>
-        </div>
-        <div class="service-card" data-aos="fade-up" data-aos-delay="300">
-          <i data-lucide="wifi" class="w-10 h-10 text-gold mb-3"></i>
-          <h3 class="text-xl font-semibold text-gold mb-2">Local Deployment</h3>
-          <p class="text-gray-300 text-sm">CCTV, networking, on-site solutions — boots on the ground, systems in the sky.</p>
+  <!-- NAV -->
+  <header class="nav">
+    <div class="container flex items-center justify-between py-3">
+      <div class="logo-badge" aria-hidden="false">
+        <img src="/latenspotentia/assets/img/Picon.png" alt="Latens Potentia" class="w-9 h-9 rounded-full border border-gold" />
+        <div>
+          <div class="brand-name">LatensLink</div>
+          <div class="sub-brand">by Latens Potentia Systems™</div>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- Approach -->
-  <section id="approach" class="py-20 px-6">
-    <div class="glass-panel" data-aos="fade-up">
-      <h2 class="text-3xl font-bold text-gold text-center mb-10">Our Approach</h2>
-      <div class="timeline">
-        <div class="timeline-step left" data-aos="fade-right">
-          <div class="timeline-circle"></div>
-          <h3 class="text-gold font-semibold mb-1">Identify</h3>
-          <p class="text-gray-300 text-sm">We listen and clarify your unique problem or goal.</p>
-        </div>
-        <div class="timeline-step right" data-aos="fade-left">
-          <div class="timeline-circle"></div>
-          <h3 class="text-gold font-semibold mb-1">Design</h3>
-          <p class="text-gray-300 text-sm">We architect custom solutions leveraging proven systems and new tech.</p>
-        </div>
-        <div class="timeline-step left" data-aos="fade-right">
-          <div class="timeline-circle"></div>
-          <h3 class="text-gold font-semibold mb-1">Deploy</h3>
-          <p class="text-gray-300 text-sm">We build, deliver, and support — on-site or remote, start to finish.</p>
+      <nav aria-label="Main navigation" class="flex items-center gap-4">
+        <a href="#capabilities" class="muted hover:text-white">Services</a>
+        <a href="#approach" class="muted hover:text-white">Approach</a>
+        <a href="#cases" class="muted hover:text-white">Proof</a>
+        <a href="#contact" class="muted hover:text-white">Contact</a>
+        <a href="/latenspotentia" class="text-gold font-mono ml-2">LPS Hub</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <main>
+    <section class="hero" role="region" aria-label="Hero — LatensLink">
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="hero-radial" aria-hidden="true"></div>
+
+      <div class="hero-card" data-aos="fade-up">
+        <div style="max-width:980px;margin:0 auto">
+          <div class="hero-sub">LatensLink — Local Wing of Latens Potentia Systems™</div>
+          <h1 class="hero-title">We turn local problems into deployed systems — fast.</h1>
+          <p class="muted" style="margin-top:.6rem; font-size:1rem;">
+            From outreach engines and CRM builds to CCTV & on-site deployment — we design, build and deliver systems that keep your business running and growing.
+          </p>
+
+          <div class="cta-row" style="margin-top:1.4rem">
+            <a href="mailto:chief@latenslink.co.ke?subject=Pitch%20My%20Problem" class="cta-main" title="Pitch your problem via email">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none"><path d="M2 4.5L9 9.25 16 4.5" stroke="#111" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Pitch Your Problem
+            </a>
+            <a href="#capabilities" class="cta-ghost">Explore Solutions</a>
+          </div>
+
+          <div class="cred-row" style="margin-top:1.6rem" aria-hidden="true">
+            <div class="muted">Proven in the field • Local delivery • Rapid pilots</div>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Case Snapshots -->
-  <section id="cases" class="py-20 px-6">
-    <div class="glass-panel" data-aos="fade-up">
-      <h2 class="text-3xl font-bold text-gold text-center mb-10">Case Snapshots</h2>
-      <div class="grid md:grid-cols-3 gap-6">
-        <div class="case-card" data-aos="zoom-in">
-          <img src="/latenspotentia/assets/img/case1.jpg" alt="CCTV case">
-          <div class="case-overlay"><div class="case-title">CCTV Install & Local Network</div></div>
+    <!-- Services / Capabilities -->
+    <section id="capabilities" class="glass" aria-labelledby="capabilities-heading">
+      <div class="container">
+        <h2 id="capabilities-heading" class="text-2xl md:text-3xl font-bold text-gold text-center" data-aos="fade-up">Our Capabilities — What we deliver</h2>
+        <p class="muted text-center mt-2" data-aos="fade-up" data-aos-delay="80">Each capability is a plug-and-play offering — we can run pilots or integrate into your internal teams.</p>
+
+        <div class="services-grid mt-6" role="list">
+          <!-- Digital Ops -->
+          <article class="service" data-aos="fade-up" role="listitem" aria-labelledby="svc-digitalops">
+            <div class="icon" aria-hidden="true"><i data-lucide="database" class="w-6 h-6"></i></div>
+            <h4 id="svc-digitalops">Digital Ops</h4>
+            <p>Bulk outreach systems, email infrastructure, lead pipelines and database workflows so you capture and convert consistently.</p>
+
+            <div class="psb" aria-hidden="false">
+              <span class="pill">Problem: low lead conversion</span>
+              <span class="pill">Solution: targeted outreach engine</span>
+              <span class="pill">Benefit: higher response rate, faster deals</span>
+            </div>
+          </article>
+
+          <!-- IT Consulting -->
+          <article class="service" data-aos="fade-up" data-aos-delay="80" role="listitem" aria-labelledby="svc-itconsult">
+            <div class="icon" aria-hidden="true"><i data-lucide="shield" class="w-6 h-6"></i></div>
+            <h4 id="svc-itconsult">IT Consulting</h4>
+            <p>Cybersecurity assessments, AI integrations, automation playbooks and actionable roadmaps — we align tech to business outcomes.</p>
+
+            <div class="psb">
+              <span class="pill">Problem: insecure or manual ops</span>
+              <span class="pill">Solution: audits & automated playbooks</span>
+              <span class="pill">Benefit: resilient & efficient systems</span>
+            </div>
+          </article>
+
+          <!-- Systems Build -->
+          <article class="service" data-aos="fade-up" data-aos-delay="160" role="listitem" aria-labelledby="svc-systems">
+            <div class="icon" aria-hidden="true"><i data-lucide="layers" class="w-6 h-6"></i></div>
+            <h4 id="svc-systems">Systems Build</h4>
+            <p>Websites, CRMs, backend integrations and BI dashboards — productized and built for scale with local realities in mind.</p>
+
+            <div class="psb">
+              <span class="pill">Problem: fragile toolchains</span>
+              <span class="pill">Solution: robust builds</span>
+              <span class="pill">Benefit: measurable KPI improvements</span>
+            </div>
+          </article>
+
+          <!-- Local Deployment -->
+          <article class="service" data-aos="fade-up" data-aos-delay="240" role="listitem" aria-labelledby="svc-local">
+            <div class="icon" aria-hidden="true"><i data-lucide="wifi" class="w-6 h-6"></i></div>
+            <h4 id="svc-local">Local Deployment</h4>
+            <p>On-site work: CCTV, networking, device configuration and hands-on installs — we get boots on the ground fast.</p>
+
+            <div class="psb">
+              <span class="pill">Problem: no local support</span>
+              <span class="pill">Solution: trained deployment teams</span>
+              <span class="pill">Benefit: fast, reliable rollouts</span>
+            </div>
+          </article>
         </div>
-        <div class="case-card" data-aos="zoom-in" data-aos-delay="150">
-          <img src="/latenspotentia/assets/img/case2.jpg" alt="Outreach case">
-          <div class="case-overlay"><div class="case-title">SME Bulk Email Outreach</div></div>
-        </div>
-        <div class="case-card" data-aos="zoom-in" data-aos-delay="300">
-          <img src="/latenspotentia/assets/img/case3.jpg" alt="CRM case">
-          <div class="case-overlay"><div class="case-title">Community System Build</div></div>
+
+        <!-- Short CTA -->
+        <div class="text-center mt-8" data-aos="fade-up" data-aos-delay="320">
+          <a href="mailto:chief@latenslink.co.ke?subject=Pilot%20Request" class="cta-main">Start a Pilot</a>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Contact -->
-  <section id="contact" class="py-20 px-6">
-    <div class="glass-panel" data-aos="fade-up">
-      <h2 class="text-3xl font-bold text-gold text-center mb-10">Direct Channels</h2>
-      <div class="grid md:grid-cols-3 gap-6">
-        <a href="https://wa.me/+254789108058" target="_blank" class="service-card text-center">
-          <i data-lucide="message-circle" class="w-10 h-10 text-gold mx-auto mb-3"></i>
-          <h3 class="text-lg font-semibold text-gold">WhatsApp</h3>
-          <p class="text-gray-400 text-sm">+254 789 108 058</p>
-        </a>
-        <a href="https://t.me/Latens_potentia" target="_blank" class="service-card text-center">
-          <i data-lucide="send" class="w-10 h-10 text-gold mx-auto mb-3"></i>
-          <h3 class="text-lg font-semibold text-gold">Telegram</h3>
-          <p class="text-gray-400 text-sm">@Latens_potentia</p>
-        </a>
-        <a href="mailto:admin@latenslink.co.ke" class="service-card text-center">
-          <i data-lucide="mail" class="w-10 h-10 text-gold mx-auto mb-3"></i>
-          <h3 class="text-lg font-semibold text-gold">Email</h3>
-          <p class="text-gray-400 text-sm">admin@latenslink.co.ke</p>
-        </a>
+    <!-- WHY US / Value props (pre-close) -->
+    <section class="container mt-10">
+      <div class="glass" data-aos="fade-up">
+        <div style="display:flex;gap:1.25rem;align-items:center;flex-wrap:wrap;justify-content:space-between">
+          <div style="flex:1;min-width:260px">
+            <h3 class="text-gold text-xl font-bold">Why LatensLink?</h3>
+            <ul style="margin-top:.6rem; color:var(--muted); line-height:1.6;">
+              <li><strong>We move fast:</strong> pilots in days, not months.</li>
+              <li><strong>Local-first:</strong> we design for Kenyan realities and deploy locally.</li>
+              <li><strong>End-to-end:</strong> strategy, build, and boots-on-ground delivery.</li>
+              <li><strong>Repeatable systems:</strong> productised engines you can reuse across projects.</li>
+            </ul>
+          </div>
+
+          <div style="flex:0 0 320px; text-align:right;">
+            <div class="muted">Trusted workflows & quick wins</div>
+            <div style="margin-top:.8rem; font-weight:700; color:var(--gold); font-size:1.35rem">Rapid pilots • Local delivery • Measurable impact</div>
+          </div>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Footer -->
-  <footer class="py-10 text-center border-t border-gold/30">
-    <p class="mb-1">&copy; 2025 LatensLink. All rights reserved.</p>
-    <p class="mb-1"><span class="text-gold">LatensLink</span> — Local Wing of <a href="/latenspotentia" class="text-gold underline">Latens Potentia Systems™</a>.</p>
-    <p>Contact: <a href="mailto:admin@latenslink.co.ke" class="text-gold underline">admin@latenslink.co.ke</a></p>
-  </footer>
+    <!-- Approach / Timeline -->
+    <section id="approach" class="container mt-10">
+      <div class="glass" data-aos="fade-up">
+        <h3 class="text-gold text-2xl font-bold text-center">Our Approach — Identify → Design → Deploy</h3>
+        <p class="muted text-center mt-2">We turn a problem into a mapped solution, prototype, and production rollout.</p>
 
-  <!-- Scripts -->
-  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+        <div class="approach-wrap mt-6">
+          <div class="approach-step" data-aos="fade-up">
+            <div class="num">1</div>
+            <h4 class="text-gold mt-2">Identify</h4>
+            <p class="muted">Rapid discovery, pain quantification and outcome KPIs — we only build what matters.</p>
+          </div>
+
+          <div class="approach-step" data-aos="fade-up" data-aos-delay="120">
+            <div class="num">2</div>
+            <h4 class="text-gold mt-2">Design</h4>
+            <p class="muted">Lean prototypes, integrations & compliance checks — practical architecture that ships.</p>
+          </div>
+
+          <div class="approach-step" data-aos="fade-up" data-aos-delay="240">
+            <div class="num">3</div>
+            <h4 class="text-gold mt-2">Deploy</h4>
+            <p class="muted">Pilot, measure, scale — on-site or remote delivery with training and handover.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Case snapshots / proof -->
+    <section id="cases" class="container mt-10">
+      <div class="glass" data-aos="fade-up">
+        <h3 class="text-gold text-2xl font-bold text-center">Proof — Case Snapshots</h3>
+        <p class="muted text-center mt-2">Real micro-results from rapid pilots and local deployments.</p>
+
+        <div class="cases-grid mt-6">
+          <article class="case" data-aos="zoom-in">
+            <img src="/latenspotentia/assets/img/case1.jpg" alt="" class="thumb" />
+            <div class="case-inner">
+              <div>
+                <h5>CCTV & Local Network — Retail</h5>
+                <p class="muted" style="margin-top:.45rem">48-hour deployment, cloud monitoring, and central alerts for branch security.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="case" data-aos="zoom-in" data-aos-delay="140">
+            <img src="/latenspotentia/assets/img/case2.jpg" alt="" class="thumb" />
+            <div class="case-inner">
+              <div>
+                <h5>SME Outreach Engine</h5>
+                <p class="muted" style="margin-top:.45rem">Automated outreach & tracking — 3x reply rates on initial campaign.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="case" data-aos="zoom-in" data-aos-delay="280">
+            <img src="/latenspotentia/assets/img/case3.jpg" alt="" class="thumb" />
+            <div class="case-inner">
+              <div>
+                <h5>Community CRM Build</h5>
+                <p class="muted" style="margin-top:.45rem">Custom CRM for a local group — simplified workflows, no recurring fees.</p>
+              </div>
+            </div>
+          </article>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Direct Channels / Cockpit quick actions -->
+    <section id="contact" class="container mt-10">
+      <div class="glass" data-aos="fade-up">
+        <h3 class="text-gold text-2xl font-bold text-center">Contact — Quick Actions</h3>
+        <p class="muted text-center mt-2">Pick a direct channel to reach us. If you have a problem, pitch it — we’ll reply with a pilot plan.</p>
+
+        <div class="contact-grid mt-6">
+          <div class="contact-card" data-aos="fade-up">
+            <div class="small">Instant</div>
+            <div style="font-weight:700; color:var(--gold); margin-top:.5rem">WhatsApp</div>
+            <div class="muted" style="margin-top:.45rem">Fastest for short problem pitches</div>
+            <a href="https://wa.me/+254789108058" target="_blank" rel="noopener">Open WhatsApp</a>
+          </div>
+
+          <div class="contact-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="small">Secure Chat</div>
+            <div style="font-weight:700; color:var(--gold); margin-top:.5rem">Telegram</div>
+            <div class="muted" style="margin-top:.45rem">@Latens_potentia — for file-based briefs</div>
+            <a href="https://t.me/Latens_potentia" target="_blank" rel="noopener">Open Telegram</a>
+          </div>
+
+          <div class="contact-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="small">Formal</div>
+            <div style="font-weight:700; color:var(--gold); margin-top:.5rem">Email</div>
+            <div class="muted" style="margin-top:.45rem">Detailed proposals & NDA requests</div>
+            <a href="mailto:chief@latenslink.co.ke?subject=Pitch%20-%20[Company]">Email Chief</a>
+          </div>
+        </div>
+
+        <div class="text-center mt-6">
+          <a class="cta-ghost" href="/latenspotentia">Explore Latens Potentia (full systems)</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="mt-12">
+      <div class="container">
+        <div style="display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap">
+          <img src="/latenspotentia/assets/img/Picon.png" alt="LatensLogo" style="width:36px;height:36px;border-radius:8px;border:1px solid rgba(255,215,0,0.06)"/>
+          <div style="text-align:left">
+            <div style="font-weight:700;color:var(--gold)">LatensLink</div>
+            <div style="color:var(--muted);font-size:.92rem">The local wing of Latens Potentia Systems™ — Nairobi • Kenya</div>
+          </div>
+        </div>
+
+        <div style="margin-top:1rem;color:#97a9b6">
+          &copy; <span id="yr"></span> LatensLink. All rights reserved. &nbsp;•&nbsp; <a href="/latenspotentia" class="text-gold">Latens Potentia</a>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <!-- Scripts: init AOS & small UX -->
   <script>
-    AOS.init({ once: true, duration: 800 });
-    lucide.createIcons();
+    document.getElementById('yr').innerText = new Date().getFullYear();
+    AOS.init({ once:true, duration:700, easing: 'ease-out-cubic' });
+    // lucide icons
+    if(window.lucide) lucide.createIcons();
+
+    // Smooth scroll for internal links
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        const href = a.getAttribute('href');
+        if(href.length>1){
+          e.preventDefault();
+          const el = document.querySelector(href);
+          if(el) el.scrollIntoView({behavior:'smooth', block:'center'});
+        }
+      });
+    });
+
+    // Lightweight focus trap for keyboard users on hero CTAs (accessibility)
+    const ctas = document.querySelectorAll('.cta-main, .cta-ghost');
+    ctas.forEach(b=>{
+      b.addEventListener('keydown', (e)=>{
+        if(e.key==='Enter') b.click();
+      });
+    });
   </script>
 </body>
 </html>
