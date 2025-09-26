@@ -4,112 +4,248 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=1024" />
 
+  <title>LatensLink by Latens Potentia Systems™</title>
+
   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-W8B3Y0P333"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-W8B3Y0P333"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-W8B3Y0P333');
+  </script>
+  <!-- SEO -->
+  <meta name="description" content="LatensLink — The Local Wing of Latens Potentia Systems. Systems design, IT consulting, automation, local deployment, and more.">
+  <meta property="og:title" content="LatensLink by Latens Potentia Systems™">
+  <meta property="og:description" content="From local challenges to global systems — we build what the modern era demands.">
+  <meta property="og:image" content="https://latenslink.co.ke/latenspotentia/assets/img/Picon.png">
+  <meta property="og:url" content="https://latenslink.co.ke">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="LatensLink — The Local Wing of Latens Potentia Systems™">
+  <meta name="twitter:description" content="From local challenges to global systems — we build what the modern era demands.">
+  <meta name="twitter:image" content="https://latenslink.co.ke/latenspotentia/assets/img/Picon.png">
 
-  gtag('config', 'G-W8B3Y0P333');
-</script>
-  
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/site.webmanifest">
-<link rel="shortcut icon" href="/favicon.ico">
-  
-  <title>LatensLink™ — Trusted Connections</title>
-
-<link rel="preload" as="image" href="/assets/Evidence/Evidence9.jpg">
-<link rel="preload" as="image" href="/assets/Evidence/Evidence10.jpg">
-<link rel="preload" as="image" href="/assets/Evidence/Evidence8.jpg">
-
-<!-- SEO -->
-<title>LatensLink™ —Trusted Connections,Across The Globe</title>
-<meta name="description" content="LatensLink™ connects you directly to decision-makers who can unlock your next opportunity.">
-
-<!-- Open Graph / Facebook / LinkedIn -->
-<meta property="og:title" content="LatensLink™ — Trusted Connections,Across The Globe">
-<meta property="og:description" content="LatensLink™ connects you directly to decision-makers who can unlock your next opportunity.">
-<meta property="og:image" content="https://latenslink.co.ke/assets/images/Logo.png">
-<meta property="og:url" content="https://latenslink.co.ke">
-<meta property="og:type" content="website">
-
-<!-- Twitter -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="LatensLink™ — Trusted Connections,Across The Globe">
-<meta name="twitter:description" content="LatensLink™ connects you directly to decision-makers who can unlock your next opportunity.">
-<meta name="twitter:image" content="https://latenslink.co.ke/assets/images/Logo.png">
-
-  
-  <!-- Tailwind CSS via CDN -->
+  <!-- Fonts & Styles -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- AOS.js for scroll animations -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
-<style>
-  @media (max-width: 767px) {
-    html {
-      font-size: 14px;
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    body { font-family: 'Inter', 'Segoe UI', Arial, sans-serif; }
+    .text-gold  { color: #FFD700; }
+    .bg-gold    { background-color: #FFD700; }
+    .border-gold { border-color: #FFD700 !important; }
+    .gold-btn {
+      background: linear-gradient(90deg, #B8860B 0%, #FFD700 100%);
+      color: #111;
+      font-weight: 700;
+      border-radius: 9999px;
+      transition: background 0.3s, box-shadow 0.3s, transform 0.2s;
+      box-shadow: 0 0 24px 5px #FFD70044;
+      display: inline-block;
     }
-    section, header, footer, div, img, h1, h2, h3, p, a, button {
-      transform: scale(0.95);
-      transform-origin: top center;
+    .gold-btn:hover {
+      background: linear-gradient(90deg, #FFD700 0%, #B8860B 100%);
+      box-shadow: 0 0 40px #FFD70088, 0 2px 32px 0 rgba(0,0,0,0.18);
+      transform: scale(1.045);
+      color: #000;
+      text-shadow: 0 0 8px #FFD70033;
     }
-  }
-  @keyframes slideDown {
-    0% { transform: translateY(-10%); opacity: 0; }
-    100% { transform: translateY(0); opacity: 1; }
-  }
-
-  .animate-slide-down {
-    animation: slideDown 0.3s ease-out forwards;
-  }
-  
-</style>
-
-<script src="https://unpkg.com/lucide@latest"></script>
-  
+    .glass-panel {
+      background: rgba(30,42,54,0.43);
+      border-radius: 1.3rem;
+      border: 1.5px solid rgba(255,255,255,0.16);
+      box-shadow: 0 4px 32px 0 rgba(255,215,0,0.13);
+      backdrop-filter: blur(15px);
+      padding: 2.5rem 2rem;
+      margin: 2.5rem auto;
+      max-width: 720px;
+      position: relative;
+    }
+    .step-circle {
+      display: inline-block;
+      width: 42px; height: 42px;
+      background: linear-gradient(90deg, #FFD700 70%, #B8860B 100%);
+      color: #222; font-weight: 700; font-size: 1.3rem;
+      border-radius: 50%; margin-bottom: 0.4rem;
+      box-shadow: 0 0 10px #FFD70055;
+      line-height: 42px; text-align: center;
+    }
+    .icon-gold svg, .icon-gold i { color: #FFD700 !important; }
+    .scroll-card {
+      min-width: 320px;
+      background: rgba(38,42,53,0.95);
+      border-radius: 1.5rem;
+      scroll-snap-align: center;
+      box-shadow: 0 4px 24px 0 rgba(8,20,44,0.18);
+      transition: transform 0.22s cubic-bezier(.27,1.25,.55,1), box-shadow 0.18s;
+      border: 2px solid #FFD70022;
+      position: relative;
+      z-index: 1;
+      margin: 0 0.5rem;
+    }
+    .scroll-card:hover {
+      transform: scale(1.045) perspective(700px) rotateY(7deg);
+      box-shadow: 0 8px 36px 0 #FFD70066, 0 2px 32px 0 rgba(0,0,0,0.18);
+      z-index: 2;
+    }
+    .scroll-cards { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 2rem; padding: 2rem 1rem 2.5rem 1rem; }
+    .hero-title {
+      font-size: clamp(2.1rem, 6vw, 2.85rem);
+      font-weight: 800;
+      letter-spacing: -1.5px;
+      color: #FFD700;
+      text-shadow: 0 0 16px #FFD70099;
+      margin-bottom: 1rem;
+    }
+    .brand-sub { color: #FFD700; text-shadow: 0 0 5px #FFD70044; font-size: 1.05rem; }
+    .card-icon { width: 52px; height: 52px; margin: 0 auto 1rem auto; display: flex; align-items: center; justify-content: center;}
+    /* Responsive Tweaks */
+    @media (max-width: 800px) { .glass-panel { max-width: 98vw; padding: 1.5rem 0.6rem; } }
+    @media (max-width: 600px) {
+      .scroll-card { min-width: 220px !important; }
+      .hero-title { font-size: clamp(1.2rem, 8vw, 2.1rem); }
+    }
+  </style>
 </head>
-<body class="bg-gray-900 text-white font-sans leading-relaxed">
-  <!-- Navigation Bar -->
-  <nav class="absolute top-0 left-0 right-0 flex items-center justify-between p-4 md:p-5 bg-transparent z-50">
-    <!-- Rebuilt Logo with Lucide icon -->
-<div class="flex items-center space-x-2 text-white text-xl font-bold">
-  <i data-lucide="link" class="w-6 h-6"></i>
-  <span>LatensLink<span class="text-sm align-top">™</span></span>
-</div>
-
-<!-- Mobile Nav Button -->
-<button class="md:hidden text-white focus:outline-none" onclick="toggleMenu()">
-  <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"
-    viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-    <path stroke-linecap="round" stroke-linejoin="round"
-      d="M4 6h16M4 12h16M4 18h16"></path>
-  </svg>
-</button>
-
-    <!-- Desktop Menu -->
-    <div class="hidden md:flex space-x-6">
-      <a href="/" class="text-white hover:text-gray-400">Home</a>
-      <a href="#services" class="text-white hover:text-gray-400">Our Services</a>
-      <a href="#industries" class="text-white hover:text-gray-400">Industries</a>
-      <a href="#testimonials" class="text-white hover:text-gray-400">Testimonials</a>
-      <a href="#contact" class="text-white hover:text-gray-400">Contact</a>
+<body class="bg-black text-white font-sans leading-relaxed">
+  <!-- Optional Top Bar / Logo -->
+  <nav class="flex items-center justify-between px-6 py-4 bg-black/70 z-50 relative">
+    <div class="flex items-center space-x-2">
+      <img src="/latenspotentia/assets/img/Picon.png" alt="Potentia Logo" class="w-8 h-8 rounded-full border-gold border-2" />
+      <span class="text-xl font-bold tracking-tight text-gold">LatensLink</span>
+      <span class="text-sm text-gray-400 font-light ml-2 hidden md:inline">by Latens Potentia Systems™</span>
     </div>
+    <a href="/latenspotentia/" class="text-gold text-sm hover:underline font-mono">Main Brand</a>
   </nav>
 
- <!-- Mobile Menu -->
-<div id="mobile-menu" class="hidden md:hidden absolute top-16 left-0 w-full bg-[#0a0a0a] z-50 text-center py-4 border-t border-gray-700 animate-slide-down">
-  <a href="#home" class="block px-4 py-2 text-white hover:text-teal-400 transition duration-200 flex items-center justify-center gap-2">
-    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2"
-      viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round"
-      d="M3 12l2-2m0 0l7-7 7 7M13 5v13"></path></svg>
-    Home
-  </a>
-  <a href="#channels" class="block px-4 py-2 text-white hover:text-teal-400 transition duration-200 flex items-center justify-center gap-2">
-    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2"
+  <!-- Hero Section -->
+  <section class="relative overflow-hidden hero-parallax min-h-[50vh] flex items-center justify-center" style="background:linear-gradient(120deg,#070e1e 0%,#151c2a 100%)">
+    <div class="absolute inset-0 z-0" style="background: url('/latenspotentia/assets/img/HeroBg1.jpg') center/cover; opacity:0.19"></div>
+    <div class="absolute inset-0 z-10" style="background:radial-gradient(ellipse at 65% 15%,#FFD70022 0%,transparent 70%)"></div>
+    <div class="relative z-20 text-center w-full max-w-xl mx-auto px-4 py-12" data-aos="zoom-in">
+      <div class="brand-sub mb-2 tracking-widest font-mono">LatensLink by Latens Potentia Systems™</div>
+      <div class="hero-title">From local challenges to global systems —<br>we build what the modern era demands.</div>
+      <div class="mt-7 flex flex-col md:flex-row gap-4 justify-center">
+        <a href="#contact" class="gold-btn px-8 py-3 text-lg shadow-lg">Pitch Your Problem</a>
+        <a href="#contact" class="gold-btn px-8 py-3 text-lg shadow-lg">Request a Solution</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Capabilities Section -->
+  <section id="capabilities" class="py-16 px-2 md:px-0">
+    <div class="glass-panel" data-aos="fade-up">
+      <h2 class="text-3xl font-bold text-gold mb-8 text-center">Our Capabilities</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-7">
+        <div class="border-2 border-gold rounded-xl p-7 text-center scroll-card" data-aos="fade-up">
+          <div class="card-icon icon-gold"><i data-lucide="database" class="w-10 h-10"></i></div>
+          <h3 class="text-xl font-semibold mb-2 text-gold">Digital Ops</h3>
+          <p class="text-gray-200 text-sm">Bulk outreach, email infrastructure, databases — we build your digital backbone.</p>
+        </div>
+        <div class="border-2 border-gold rounded-xl p-7 text-center scroll-card" data-aos="fade-up" data-aos-delay="80">
+          <div class="card-icon icon-gold"><i data-lucide="shield" class="w-10 h-10"></i></div>
+          <h3 class="text-xl font-semibold mb-2 text-gold">IT Consulting</h3>
+          <p class="text-gray-200 text-sm">Cybersecurity, AI integrations, automation workflows — future-proof your operations.</p>
+        </div>
+        <div class="border-2 border-gold rounded-xl p-7 text-center scroll-card" data-aos="fade-up" data-aos-delay="160">
+          <div class="card-icon icon-gold"><i data-lucide="layers" class="w-10 h-10"></i></div>
+          <h3 class="text-xl font-semibold mb-2 text-gold">Systems Build</h3>
+          <p class="text-gray-200 text-sm">Websites, CRMs, backend systems, business intelligence — built for scale and speed.</p>
+        </div>
+        <div class="border-2 border-gold rounded-xl p-7 text-center scroll-card" data-aos="fade-up" data-aos-delay="240">
+          <div class="card-icon icon-gold"><i data-lucide="wifi" class="w-10 h-10"></i></div>
+          <h3 class="text-xl font-semibold mb-2 text-gold">Local Deployment</h3>
+          <p class="text-gray-200 text-sm">CCTV, networking, on-site solutions, device setup — boots on the ground, systems in the sky.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Approach Section -->
+  <section id="approach" class="py-16 px-2 md:px-0">
+    <div class="glass-panel" data-aos="slide-right">
+      <h2 class="text-3xl font-bold text-gold mb-6 text-center">Our Approach</h2>
+      <div class="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-16 mt-6">
+        <div class="flex flex-col items-center" data-aos="fade-up">
+          <span class="step-circle">1</span>
+          <div class="text-gold font-semibold text-lg mt-2 mb-1">Identify</div>
+          <div class="text-gray-200 text-sm text-center">We listen and clarify your unique problem or goal.</div>
+        </div>
+        <div class="flex flex-col items-center" data-aos="fade-up" data-aos-delay="90">
+          <span class="step-circle">2</span>
+          <div class="text-gold font-semibold text-lg mt-2 mb-1">Design</div>
+          <div class="text-gray-200 text-sm text-center">We architect custom solutions, leveraging proven systems and new tech.</div>
+        </div>
+        <div class="flex flex-col items-center" data-aos="fade-up" data-aos-delay="180">
+          <span class="step-circle">3</span>
+          <div class="text-gold font-semibold text-lg mt-2 mb-1">Deploy</div>
+          <div class="text-gray-200 text-sm text-center">We build, deliver, and support — on-site or remote, from start to finish.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Case Snapshots / Testimonials Placeholder -->
+  <section id="cases" class="py-16 px-2 md:px-0">
+    <div class="glass-panel" data-aos="fade-up">
+      <h2 class="text-3xl font-bold text-gold mb-8 text-center">Case Snapshots</h2>
+      <div class="flex flex-col md:flex-row gap-7 justify-center">
+        <div class="scroll-card p-6" data-aos="flip-left">
+          <div class="text-gold font-semibold mb-2">CCTV Install & Local Network</div>
+          <p class="text-gray-300 text-sm">Small business, rapid deployment — secure, connected, and cloud-monitored. <span class="italic text-gray-500">[Details coming soon]</span></p>
+        </div>
+        <div class="scroll-card p-6" data-aos="flip-left" data-aos-delay="80">
+          <div class="text-gold font-semibold mb-2">SME Bulk Email Outreach</div>
+          <p class="text-gray-300 text-sm">Automated hundreds of contacts, analytics dashboard included. <span class="italic text-gray-500">[Details coming soon]</span></p>
+        </div>
+        <div class="scroll-card p-6" data-aos="flip-left" data-aos-delay="160">
+          <div class="text-gold font-semibold mb-2">Community System Build</div>
+          <p class="text-gray-300 text-sm">Custom CRM for a local group, zero recurring fees. <span class="italic text-gray-500">[Details coming soon]</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Direct Channels Section -->
+  <section id="contact" class="py-16 px-2 md:px-0">
+    <div class="glass-panel" data-aos="fade-up">
+      <h2 class="text-3xl font-bold text-gold mb-8 text-center">Direct Channels</h2>
+      <div class="flex flex-col md:flex-row gap-8 justify-center items-center">
+        <a href="https://wa.me/+254789108058" target="_blank" class="flex flex-col items-center gold-btn px-6 py-4 w-60 mb-3 md:mb-0 hover:shadow-gold transition">
+          <i data-lucide="message-circle" class="w-8 h-8 mb-2 icon-gold"></i>
+          <span class="text-lg font-semibold text-gold">WhatsApp</span>
+          <span class="text-xs text-gray-700">+254 789 108 058</span>
+        </a>
+        <a href="https://t.me/Latens_potentia" target="_blank" class="flex flex-col items-center gold-btn px-6 py-4 w-60 mb-3 md:mb-0 hover:shadow-gold transition">
+          <i data-lucide="send" class="w-8 h-8 mb-2 icon-gold"></i>
+          <span class="text-lg font-semibold text-gold">Telegram</span>
+          <span class="text-xs text-gray-700">@Latens_potentia</span>
+        </a>
+        <a href="mailto:admin@latenslink.co.ke" class="flex flex-col items-center gold-btn px-6 py-4 w-60 hover:shadow-gold transition">
+          <i data-lucide="mail" class="w-8 h-8 mb-2 icon-gold"></i>
+          <span class="text-lg font-semibold text-gold">Email</span>
+          <span class="text-xs text-gray-700">admin@latenslink.co.ke</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-8 text-center text-gray-400 mt-8">
+    <p class="mb-1">&copy; 2025 LatensLink. All rights reserved.</p>
+    <p class="mb-1"><span class="text-gold">LatensLink</span> is the Local Wing of <a href="/latenspotentia" class="text-gold underline hover:text-yellow-400">Latens Potentia Systems™</a>.</p>
+    <p class="mb-1">Contact: <a href="mailto:admin@latenslink.co.ke" class="text-gold underline">admin@latenslink.co.ke</a></p>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({ once:true, duration:800 });
+    lucide.createIcons();
+  </script>
+</body>
+</html>    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2"
       viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round"
       d="M8 10h.01M12 10h.01M16 10h.01M9 16h6"></path></svg>
     Channels
