@@ -2,11 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=1024" />
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>LatensLink by Latens Potentia Systems™</title>
 
-  <!-- Google tag (gtag.js) -->
+  <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-W8B3Y0P333"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -14,17 +13,14 @@
     gtag('js', new Date());
     gtag('config', 'G-W8B3Y0P333');
   </script>
+
   <!-- SEO -->
   <meta name="description" content="LatensLink — The Local Wing of Latens Potentia Systems. Systems design, IT consulting, automation, local deployment, and more.">
   <meta property="og:title" content="LatensLink by Latens Potentia Systems™">
   <meta property="og:description" content="From local challenges to global systems — we build what the modern era demands.">
-  <meta property="og:image" content="https://latenslink.co.ke/latenspotentia/assets/img/Picon.png">
+  <meta property="og:image" content="/latenspotentia/assets/img/Picon.png">
   <meta property="og:url" content="https://latenslink.co.ke">
   <meta property="og:type" content="website">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="LatensLink — The Local Wing of Latens Potentia Systems™">
-  <meta name="twitter:description" content="From local challenges to global systems — we build what the modern era demands.">
-  <meta name="twitter:image" content="https://latenslink.co.ke/latenspotentia/assets/img/Picon.png">
 
   <!-- Fonts & Styles -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -32,216 +28,247 @@
   <link href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/lucide@latest"></script>
   <style>
-    body { font-family: 'Inter', 'Segoe UI', Arial, sans-serif; }
-    .text-gold  { color: #FFD700; }
-    .bg-gold    { background-color: #FFD700; }
-    .border-gold { border-color: #FFD700 !important; }
+    body { font-family: 'Inter', sans-serif; background: #000; color: #fff; }
+
+    .text-gold { color: #FFD700; }
+    .bg-gold { background-color: #FFD700; }
+    .border-gold { border-color: #FFD700; }
+
     .gold-btn {
       background: linear-gradient(90deg, #B8860B 0%, #FFD700 100%);
-      color: #111;
-      font-weight: 700;
-      border-radius: 9999px;
-      transition: background 0.3s, box-shadow 0.3s, transform 0.2s;
-      box-shadow: 0 0 24px 5px #FFD70044;
+      color: #111; font-weight: 700; border-radius: 9999px;
+      transition: 0.3s; box-shadow: 0 0 24px 5px #FFD70044;
       display: inline-block;
     }
     .gold-btn:hover {
       background: linear-gradient(90deg, #FFD700 0%, #B8860B 100%);
-      box-shadow: 0 0 40px #FFD70088, 0 2px 32px 0 rgba(0,0,0,0.18);
-      transform: scale(1.045);
-      color: #000;
-      text-shadow: 0 0 8px #FFD70033;
+      box-shadow: 0 0 40px #FFD70088, 0 2px 32px rgba(0,0,0,0.18);
+      transform: scale(1.05);
     }
+
     .glass-panel {
-      background: rgba(30,42,54,0.43);
-      border-radius: 1.3rem;
-      border: 1.5px solid rgba(255,255,255,0.16);
-      box-shadow: 0 4px 32px 0 rgba(255,215,0,0.13);
-      backdrop-filter: blur(15px);
-      padding: 2.5rem 2rem;
-      margin: 2.5rem auto;
-      max-width: 720px;
-      position: relative;
-    }
-    .step-circle {
-      display: inline-block;
-      width: 42px; height: 42px;
-      background: linear-gradient(90deg, #FFD700 70%, #B8860B 100%);
-      color: #222; font-weight: 700; font-size: 1.3rem;
-      border-radius: 50%; margin-bottom: 0.4rem;
-      box-shadow: 0 0 10px #FFD70055;
-      line-height: 42px; text-align: center;
-    }
-    .icon-gold svg, .icon-gold i { color: #FFD700 !important; }
-    .scroll-card {
-      min-width: 320px;
-      background: rgba(38,42,53,0.95);
+      background: rgba(30,42,54,0.4);
       border-radius: 1.5rem;
-      scroll-snap-align: center;
-      box-shadow: 0 4px 24px 0 rgba(8,20,44,0.18);
-      transition: transform 0.22s cubic-bezier(.27,1.25,.55,1), box-shadow 0.18s;
-      border: 2px solid #FFD70022;
-      position: relative;
-      z-index: 1;
-      margin: 0 0.5rem;
+      border: 1px solid rgba(255,255,255,0.15);
+      box-shadow: 0 4px 32px rgba(255,215,0,0.15);
+      backdrop-filter: blur(15px);
+      padding: 2.5rem;
+      margin: 2rem auto;
+      max-width: 1100px;
     }
-    .scroll-card:hover {
-      transform: scale(1.045) perspective(700px) rotateY(7deg);
-      box-shadow: 0 8px 36px 0 #FFD70066, 0 2px 32px 0 rgba(0,0,0,0.18);
-      z-index: 2;
+
+    .hero {
+      height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      text-align: center; position: relative; overflow: hidden;
     }
-    .scroll-cards { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 2rem; padding: 2rem 1rem 2.5rem 1rem; }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at center, #FFD70022 0%, transparent 70%),
+                  url('/latenspotentia/assets/img/HeroBg1.jpg') center/cover;
+      opacity: 0.15;
+      z-index: 0;
+    }
     .hero-title {
-      font-size: clamp(2.1rem, 6vw, 2.85rem);
+      font-size: clamp(2.5rem, 6vw, 4rem);
       font-weight: 800;
-      letter-spacing: -1.5px;
+      letter-spacing: -1px;
       color: #FFD700;
-      text-shadow: 0 0 16px #FFD70099;
-      margin-bottom: 1rem;
+      text-shadow: 0 0 20px #FFD70099;
     }
-    .brand-sub { color: #FFD700; text-shadow: 0 0 5px #FFD70044; font-size: 1.05rem; }
-    .card-icon { width: 52px; height: 52px; margin: 0 auto 1rem auto; display: flex; align-items: center; justify-content: center;}
-    /* Responsive Tweaks */
-    @media (max-width: 800px) { .glass-panel { max-width: 98vw; padding: 1.5rem 0.6rem; } }
-    @media (max-width: 600px) {
-      .scroll-card { min-width: 220px !important; }
-      .hero-title { font-size: clamp(1.2rem, 8vw, 2.1rem); }
+    .hero-sub {
+      font-size: 1.1rem; color: #FFD700; text-shadow: 0 0 6px #FFD70055;
     }
+
+    .service-card {
+      background: rgba(20,20,20,0.85);
+      border: 2px solid #FFD70033;
+      border-radius: 1rem;
+      padding: 2rem;
+      transition: 0.3s;
+    }
+    .service-card:hover {
+      transform: translateY(-6px) scale(1.03);
+      box-shadow: 0 0 30px #FFD70055;
+    }
+
+    .timeline {
+      position: relative;
+      margin: 2rem 0;
+    }
+    .timeline::before {
+      content: ''; position: absolute;
+      top: 0; left: 50%; transform: translateX(-50%);
+      width: 3px; height: 100%;
+      background: linear-gradient(to bottom, #FFD700, transparent);
+    }
+    .timeline-step {
+      position: relative;
+      margin: 2rem 0;
+      width: 50%;
+      padding: 1rem 2rem;
+    }
+    .timeline-step.left { left: 0; text-align: right; }
+    .timeline-step.right { left: 50%; }
+    .timeline-circle {
+      position: absolute; top: 50%; left: -14px;
+      width: 28px; height: 28px; border-radius: 50%;
+      background: #FFD700; box-shadow: 0 0 12px #FFD70088;
+    }
+
+    .case-card {
+      position: relative;
+      border-radius: 1rem;
+      overflow: hidden;
+      min-height: 220px;
+      background: #111;
+      border: 1px solid #FFD70033;
+    }
+    .case-card img { width: 100%; height: 100%; object-fit: cover; opacity: 0.3; }
+    .case-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+      display: flex; align-items: flex-end; padding: 1.5rem;
+    }
+    .case-title { font-size: 1.2rem; color: #FFD700; font-weight: bold; }
+
+    footer { font-size: 0.9rem; color: #aaa; }
   </style>
 </head>
-<body class="bg-black text-white font-sans leading-relaxed">
-  <!-- Optional Top Bar / Logo -->
-  <nav class="flex items-center justify-between px-6 py-4 bg-black/70 z-50 relative">
+<body class="leading-relaxed">
+
+  <!-- Navbar -->
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-black/70 backdrop-blur border-b border-gold px-6 py-3 flex justify-between items-center">
     <div class="flex items-center space-x-2">
-      <img src="/latenspotentia/assets/img/Picon.png" alt="Potentia Logo" class="w-8 h-8 rounded-full border-gold border-2" />
-      <span class="text-xl font-bold tracking-tight text-gold">LatensLink</span>
-      <span class="text-sm text-gray-400 font-light ml-2 hidden md:inline">by Latens Potentia Systems™</span>
+      <img src="/latenspotentia/assets/img/Picon.png" class="w-8 h-8 rounded-full border border-gold"/>
+      <span class="text-gold font-bold text-lg">LatensLink</span>
+      <span class="text-gray-400 text-sm hidden md:inline">by Latens Potentia Systems™</span>
     </div>
-    <a href="/latenspotentia/" class="text-gold text-sm hover:underline font-mono">Main Brand</a>
+    <a href="/latenspotentia" class="text-gold text-sm font-mono hover:underline">Main Brand</a>
   </nav>
 
-  <!-- Hero Section -->
-  <section class="relative overflow-hidden hero-parallax min-h-[50vh] flex items-center justify-center" style="background:linear-gradient(120deg,#070e1e 0%,#151c2a 100%)">
-    <div class="absolute inset-0 z-0" style="background: url('/latenspotentia/assets/img/HeroBg1.jpg') center/cover; opacity:0.19"></div>
-    <div class="absolute inset-0 z-10" style="background:radial-gradient(ellipse at 65% 15%,#FFD70022 0%,transparent 70%)"></div>
-    <div class="relative z-20 text-center w-full max-w-xl mx-auto px-4 py-12" data-aos="zoom-in">
-      <div class="brand-sub mb-2 tracking-widest font-mono">LatensLink by Latens Potentia Systems™</div>
-      <div class="hero-title">From local challenges to global systems —<br>we build what the modern era demands.</div>
-      <div class="mt-7 flex flex-col md:flex-row gap-4 justify-center">
-        <a href="#contact" class="gold-btn px-8 py-3 text-lg shadow-lg">Pitch Your Problem</a>
-        <a href="#contact" class="gold-btn px-8 py-3 text-lg shadow-lg">Request a Solution</a>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="relative z-10 px-6">
+      <div class="hero-sub mb-3">LatensLink by Latens Potentia Systems™</div>
+      <h1 class="hero-title mb-6" data-aos="zoom-in">From local challenges to global systems — we build what the modern era demands.</h1>
+      <div class="flex flex-col md:flex-row gap-4 justify-center">
+        <a href="#contact" class="gold-btn px-8 py-3">🚀 Pitch Your Problem</a>
+        <a href="#contact" class="gold-btn px-8 py-3">⚡ Request a Solution</a>
       </div>
     </div>
   </section>
 
-  <!-- Our Capabilities Section -->
-  <section id="capabilities" class="py-16 px-2 md:px-0">
+  <!-- Services -->
+  <section id="capabilities" class="py-20 px-6">
     <div class="glass-panel" data-aos="fade-up">
-      <h2 class="text-3xl font-bold text-gold mb-8 text-center">Our Capabilities</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-7">
-        <div class="border-2 border-gold rounded-xl p-7 text-center scroll-card" data-aos="fade-up">
-          <div class="card-icon icon-gold"><i data-lucide="database" class="w-10 h-10"></i></div>
-          <h3 class="text-xl font-semibold mb-2 text-gold">Digital Ops</h3>
-          <p class="text-gray-200 text-sm">Bulk outreach, email infrastructure, databases — we build your digital backbone.</p>
+      <h2 class="text-3xl font-bold text-gold mb-10 text-center">Our Capabilities</h2>
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="service-card" data-aos="fade-up">
+          <i data-lucide="database" class="w-10 h-10 text-gold mb-3"></i>
+          <h3 class="text-xl font-semibold text-gold mb-2">Digital Ops</h3>
+          <p class="text-gray-300 text-sm">Bulk outreach, email infrastructure, databases — your digital backbone.</p>
         </div>
-        <div class="border-2 border-gold rounded-xl p-7 text-center scroll-card" data-aos="fade-up" data-aos-delay="80">
-          <div class="card-icon icon-gold"><i data-lucide="shield" class="w-10 h-10"></i></div>
-          <h3 class="text-xl font-semibold mb-2 text-gold">IT Consulting</h3>
-          <p class="text-gray-200 text-sm">Cybersecurity, AI integrations, automation workflows — future-proof your operations.</p>
+        <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+          <i data-lucide="shield" class="w-10 h-10 text-gold mb-3"></i>
+          <h3 class="text-xl font-semibold text-gold mb-2">IT Consulting</h3>
+          <p class="text-gray-300 text-sm">Cybersecurity, AI, automation — future-proof operations.</p>
         </div>
-        <div class="border-2 border-gold rounded-xl p-7 text-center scroll-card" data-aos="fade-up" data-aos-delay="160">
-          <div class="card-icon icon-gold"><i data-lucide="layers" class="w-10 h-10"></i></div>
-          <h3 class="text-xl font-semibold mb-2 text-gold">Systems Build</h3>
-          <p class="text-gray-200 text-sm">Websites, CRMs, backend systems, business intelligence — built for scale and speed.</p>
+        <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+          <i data-lucide="layers" class="w-10 h-10 text-gold mb-3"></i>
+          <h3 class="text-xl font-semibold text-gold mb-2">Systems Build</h3>
+          <p class="text-gray-300 text-sm">Websites, CRMs, backend systems, BI — built for scale and speed.</p>
         </div>
-        <div class="border-2 border-gold rounded-xl p-7 text-center scroll-card" data-aos="fade-up" data-aos-delay="240">
-          <div class="card-icon icon-gold"><i data-lucide="wifi" class="w-10 h-10"></i></div>
-          <h3 class="text-xl font-semibold mb-2 text-gold">Local Deployment</h3>
-          <p class="text-gray-200 text-sm">CCTV, networking, on-site solutions, device setup — boots on the ground, systems in the sky.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Our Approach Section -->
-  <section id="approach" class="py-16 px-2 md:px-0">
-    <div class="glass-panel" data-aos="slide-right">
-      <h2 class="text-3xl font-bold text-gold mb-6 text-center">Our Approach</h2>
-      <div class="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-16 mt-6">
-        <div class="flex flex-col items-center" data-aos="fade-up">
-          <span class="step-circle">1</span>
-          <div class="text-gold font-semibold text-lg mt-2 mb-1">Identify</div>
-          <div class="text-gray-200 text-sm text-center">We listen and clarify your unique problem or goal.</div>
-        </div>
-        <div class="flex flex-col items-center" data-aos="fade-up" data-aos-delay="90">
-          <span class="step-circle">2</span>
-          <div class="text-gold font-semibold text-lg mt-2 mb-1">Design</div>
-          <div class="text-gray-200 text-sm text-center">We architect custom solutions, leveraging proven systems and new tech.</div>
-        </div>
-        <div class="flex flex-col items-center" data-aos="fade-up" data-aos-delay="180">
-          <span class="step-circle">3</span>
-          <div class="text-gold font-semibold text-lg mt-2 mb-1">Deploy</div>
-          <div class="text-gray-200 text-sm text-center">We build, deliver, and support — on-site or remote, from start to finish.</div>
+        <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+          <i data-lucide="wifi" class="w-10 h-10 text-gold mb-3"></i>
+          <h3 class="text-xl font-semibold text-gold mb-2">Local Deployment</h3>
+          <p class="text-gray-300 text-sm">CCTV, networking, on-site solutions — boots on the ground, systems in the sky.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Case Snapshots / Testimonials Placeholder -->
-  <section id="cases" class="py-16 px-2 md:px-0">
+  <!-- Approach -->
+  <section id="approach" class="py-20 px-6">
     <div class="glass-panel" data-aos="fade-up">
-      <h2 class="text-3xl font-bold text-gold mb-8 text-center">Case Snapshots</h2>
-      <div class="flex flex-col md:flex-row gap-7 justify-center">
-        <div class="scroll-card p-6" data-aos="flip-left">
-          <div class="text-gold font-semibold mb-2">CCTV Install & Local Network</div>
-          <p class="text-gray-300 text-sm">Small business, rapid deployment — secure, connected, and cloud-monitored. <span class="italic text-gray-500">[Details coming soon]</span></p>
+      <h2 class="text-3xl font-bold text-gold text-center mb-10">Our Approach</h2>
+      <div class="timeline">
+        <div class="timeline-step left" data-aos="fade-right">
+          <div class="timeline-circle"></div>
+          <h3 class="text-gold font-semibold mb-1">Identify</h3>
+          <p class="text-gray-300 text-sm">We listen and clarify your unique problem or goal.</p>
         </div>
-        <div class="scroll-card p-6" data-aos="flip-left" data-aos-delay="80">
-          <div class="text-gold font-semibold mb-2">SME Bulk Email Outreach</div>
-          <p class="text-gray-300 text-sm">Automated hundreds of contacts, analytics dashboard included. <span class="italic text-gray-500">[Details coming soon]</span></p>
+        <div class="timeline-step right" data-aos="fade-left">
+          <div class="timeline-circle"></div>
+          <h3 class="text-gold font-semibold mb-1">Design</h3>
+          <p class="text-gray-300 text-sm">We architect custom solutions leveraging proven systems and new tech.</p>
         </div>
-        <div class="scroll-card p-6" data-aos="flip-left" data-aos-delay="160">
-          <div class="text-gold font-semibold mb-2">Community System Build</div>
-          <p class="text-gray-300 text-sm">Custom CRM for a local group, zero recurring fees. <span class="italic text-gray-500">[Details coming soon]</span></p>
+        <div class="timeline-step left" data-aos="fade-right">
+          <div class="timeline-circle"></div>
+          <h3 class="text-gold font-semibold mb-1">Deploy</h3>
+          <p class="text-gray-300 text-sm">We build, deliver, and support — on-site or remote, start to finish.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Direct Channels Section -->
-  <section id="contact" class="py-16 px-2 md:px-0">
+  <!-- Case Snapshots -->
+  <section id="cases" class="py-20 px-6">
     <div class="glass-panel" data-aos="fade-up">
-      <h2 class="text-3xl font-bold text-gold mb-8 text-center">Direct Channels</h2>
-      <div class="flex flex-col md:flex-row gap-8 justify-center items-center">
-        <a href="https://wa.me/+254789108058" target="_blank" class="flex flex-col items-center gold-btn px-6 py-4 w-60 mb-3 md:mb-0 hover:shadow-gold transition">
-          <i data-lucide="message-circle" class="w-8 h-8 mb-2 icon-gold"></i>
-          <span class="text-lg font-semibold text-gold">WhatsApp</span>
-          <span class="text-xs text-gray-700">+254 789 108 058</span>
+      <h2 class="text-3xl font-bold text-gold text-center mb-10">Case Snapshots</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="case-card" data-aos="zoom-in">
+          <img src="/latenspotentia/assets/img/case1.jpg" alt="CCTV case">
+          <div class="case-overlay"><div class="case-title">CCTV Install & Local Network</div></div>
+        </div>
+        <div class="case-card" data-aos="zoom-in" data-aos-delay="150">
+          <img src="/latenspotentia/assets/img/case2.jpg" alt="Outreach case">
+          <div class="case-overlay"><div class="case-title">SME Bulk Email Outreach</div></div>
+        </div>
+        <div class="case-card" data-aos="zoom-in" data-aos-delay="300">
+          <img src="/latenspotentia/assets/img/case3.jpg" alt="CRM case">
+          <div class="case-overlay"><div class="case-title">Community System Build</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="py-20 px-6">
+    <div class="glass-panel" data-aos="fade-up">
+      <h2 class="text-3xl font-bold text-gold text-center mb-10">Direct Channels</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <a href="https://wa.me/+254789108058" target="_blank" class="service-card text-center">
+          <i data-lucide="message-circle" class="w-10 h-10 text-gold mx-auto mb-3"></i>
+          <h3 class="text-lg font-semibold text-gold">WhatsApp</h3>
+          <p class="text-gray-400 text-sm">+254 789 108 058</p>
         </a>
-        <a href="https://t.me/Latens_potentia" target="_blank" class="flex flex-col items-center gold-btn px-6 py-4 w-60 mb-3 md:mb-0 hover:shadow-gold transition">
-          <i data-lucide="send" class="w-8 h-8 mb-2 icon-gold"></i>
-          <span class="text-lg font-semibold text-gold">Telegram</span>
-          <span class="text-xs text-gray-700">@Latens_potentia</span>
+        <a href="https://t.me/Latens_potentia" target="_blank" class="service-card text-center">
+          <i data-lucide="send" class="w-10 h-10 text-gold mx-auto mb-3"></i>
+          <h3 class="text-lg font-semibold text-gold">Telegram</h3>
+          <p class="text-gray-400 text-sm">@Latens_potentia</p>
         </a>
-        <a href="mailto:admin@latenslink.co.ke" class="flex flex-col items-center gold-btn px-6 py-4 w-60 hover:shadow-gold transition">
-          <i data-lucide="mail" class="w-8 h-8 mb-2 icon-gold"></i>
-          <span class="text-lg font-semibold text-gold">Email</span>
-          <span class="text-xs text-gray-700">admin@latenslink.co.ke</span>
+        <a href="mailto:admin@latenslink.co.ke" class="service-card text-center">
+          <i data-lucide="mail" class="w-10 h-10 text-gold mx-auto mb-3"></i>
+          <h3 class="text-lg font-semibold text-gold">Email</h3>
+          <p class="text-gray-400 text-sm">admin@latenslink.co.ke</p>
         </a>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="py-8 text-center text-gray-400 mt-8">
+  <footer class="py-10 text-center border-t border-gold/30">
     <p class="mb-1">&copy; 2025 LatensLink. All rights reserved.</p>
-    <p class="mb-1"><span class="text-gold">LatensLink</span> is the Local Wing of <a href="/latenspotentia" class="text-gold underline hover:text-yellow-400">Latens Potentia Systems™</a>.</p>
-    <p class="mb-1">Contact: <a href="mailto:admin@latenslink.co.ke" class="text-gold underline">admin@latenslink.co.ke</a></p>
+    <p class="mb-1"><span class="text-gold">LatensLink</span> — Local Wing of <a href="/latenspotentia" class="text-gold underline">Latens Potentia Systems™</a>.</p>
+    <p>Contact: <a href="mailto:admin@latenslink.co.ke" class="text-gold underline">admin@latenslink.co.ke</a></p>
   </footer>
 
+  <!-- Scripts -->
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script>
-    AOS.init({ once:true, duration:800 });
+    AOS.init({ once: true, duration: 800 });
     lucide.createIcons();
   </script>
 </body>
