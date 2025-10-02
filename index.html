@@ -4,81 +4,66 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>LatensLink — Local Wing of Latens Potentia Systems™</title>
-  <meta name="description" content="LatensLink (Latens Potentia Systems) — we design, build, and deploy systems: Digital Ops, IT Consulting, Systems Build and Local Deployment. Pitch your problem, get a solution." />
+  <meta name="description" content="LatensLink — Local Wing of Latens Potentia Systems. We design, build and deploy systems: Digital Ops, IT Consulting, Systems Build and Local Deployment. Pitch your problem, get a pilot." />
   <meta name="theme-color" content="#0b0b0b" />
   <meta property="og:title" content="LatensLink — Local Wing of Latens Potentia Systems™" />
-  <meta property="og:description" content="From local challenges to global systems — LatensLink builds what the modern era demands: automation, cyber, systems, and on-site deployments." />
+  <meta property="og:description" content="From local challenges to global systems — LatensLink builds what the modern era demands." />
   <meta property="og:image" content="/latenspotentia/assets/img/Picon.png" />
   <meta property="og:url" content="https://latenslink.co.ke" />
   <meta name="twitter:card" content="summary_large_image" />
-
-  <!-- Performance / fonts -->
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Fira+Mono:wght@400;700&display=swap" rel="stylesheet">
-
-  <!-- Tailwind (CDN build) -->
+  <!-- Tailwind CDN for quick production use (ok for GitHub Pages) -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- AOS for subtle animation -->
+  <!-- Swiper (carousel / swipe support) -->
+  <link rel="stylesheet" href="https://unpkg.com/swiper@9/swiper-bundle.min.css" />
+  <script src="https://unpkg.com/swiper@9/swiper-bundle.min.js" defer></script>
+
+  <!-- AOS (scroll animations) -->
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
-  <script defer src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js" defer></script>
 
-  <!-- lucide icons -->
-  <script defer src="https://unpkg.com/lucide@latest"></script>
-
-  <!-- JSON-LD org (basic) -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "LatensLink (Latens Potentia Systems™)",
-    "url": "https://latenslink.co.ke",
-    "logo": "https://latenslink.co.ke/latenspotentia/assets/img/Picon.png",
-    "sameAs": []
-  }
-  </script>
+  <!-- Lucide icons -->
+  <script src="https://unpkg.com/lucide@latest" defer></script>
 
   <style>
     :root{
       --gold: #FFD700;
       --gold-deep: #B8860B;
-      --bg-dark: #07070b;
-      --panel: rgba(20,24,30,0.48);
-      --glass-border: rgba(255,215,0,0.10);
+      --bg-dark: #060609;
+      --panel: rgba(18,18,22,0.5);
+      --glass-border: rgba(255,215,0,0.08);
       --muted: #bfc6cf;
-      --accent: linear-gradient(90deg,var(--gold-deep),var(--gold));
+      --accent-gradient: linear-gradient(90deg,var(--gold-deep),var(--gold));
       --max-width: 1180px;
     }
-
     html,body{height:100%}
     body{
       margin:0;
-      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
       background: linear-gradient(180deg,#020204 0%, #0d0f14 100%);
       color: #e6eef6;
       -webkit-font-smoothing:antialiased;
       -moz-osx-font-smoothing:grayscale;
-      -webkit-text-size-adjust:100%;
       line-height:1.45;
     }
 
-    /* Top nav */
-    .nav{
+    /* NAV */
+    .nav {
       backdrop-filter: blur(6px);
       background: linear-gradient(180deg, rgba(3,3,5,0.6), rgba(3,3,5,0.35));
       border-bottom: 1px solid rgba(255,215,0,0.06);
       position: sticky;
       top:0; z-index:60;
     }
-    .logo-badge{
-      display:inline-flex; align-items:center; gap:.65rem;
-    }
-    .brand-name{ color:var(--gold); font-weight:700; letter-spacing:.6px; font-size:1.05rem;}
-    .sub-brand{ color: #98a0a6; font-size:0.82rem; margin-left:.5rem; }
+    .brand-name { color: var(--gold); font-weight:700; letter-spacing:.6px; font-size:1.05rem; }
+    .sub-brand { color: #98a0a6; font-size:0.82rem; margin-left:.45rem; }
 
     /* Hero */
     .hero {
-      min-height: 100vh;
+      min-height: 92vh;
       display:flex;
       align-items:center;
       justify-content:center;
@@ -91,387 +76,645 @@
       position:absolute; inset:0;
       background-image: url('/latenspotentia/assets/img/HeroBg1.jpg');
       background-size:cover; background-position:center;
-      opacity:0.10; filter:grayscale(10%);
+      opacity:0.10; filter:grayscale(6%);
       z-index:0;
     }
-    .hero-radial{ position:absolute; inset: -20% -10% auto auto; width:60vw; height:60vw; background:radial-gradient(closest-side, rgba(255,215,0,0.06), transparent 40%); transform:translate(10%, -10%); z-index:1; pointer-events:none; }
+    .hero-radial{ position:absolute; inset:-15% -10% auto auto; width:60vw; height:60vw; background:radial-gradient(closest-side, rgba(255,215,0,0.05), transparent 40%); transform:translate(10%, -10%); z-index:1; pointer-events:none; }
     .hero-card{
       position:relative; z-index:10; max-width:var(--max-width); width:100%;
-      padding:3rem; border-radius:1.1rem; margin:0 auto;
+      padding:3rem; border-radius:1rem; margin:0 auto;
       background: linear-gradient(180deg, rgba(12,12,14,0.55), rgba(8,9,12,0.35));
       border: 1px solid var(--glass-border);
       box-shadow: 0 10px 50px rgba(0,0,0,0.6), 0 0 48px rgba(255,215,0,0.03);
     }
-    .hero-title{
-      color:var(--gold); font-weight:800; font-size:clamp(1.8rem, 4.6vw, 3.25rem);
-      line-height:1.03; text-shadow: 0 0 22px rgba(255,215,0,0.08);
-      letter-spacing:-0.6px;
-      margin:0 0 .8rem;
-    }
-    .hero-sub{ color: #d6e1ea; font-weight:600; margin-bottom:1.25rem; font-size:1.02rem; opacity:.95; }
+    .hero-title{ color:var(--gold); font-weight:800; font-size:clamp(1.9rem, 4.2vw, 3rem); letter-spacing:-0.6px; margin:0 0 .6rem; text-shadow:0 0 20px rgba(255,215,0,0.08);}
+    .hero-sub { color:#d6e1ea; font-weight:600; margin-bottom:1.2rem; opacity:.95; }
 
-    /* CTAs */
-    .cta-row{ display:flex; gap: .8rem; justify-content:center; flex-wrap:wrap; margin-top:1rem; }
-    .cta-main{ padding:.95rem 1.25rem; border-radius:999px; font-weight:700; color:#111; background:var(--accent); box-shadow:0 8px 40px rgba(255,215,0,0.06); display:inline-flex; align-items:center; gap:.7rem; text-decoration:none;}
-    .cta-ghost{ padding:.9rem 1.2rem; border-radius:999px; color:var(--gold); border:1.5px solid rgba(255,215,0,0.14); background:transparent; font-weight:700; text-decoration:none; display:inline-flex; align-items:center; gap:.6rem; }
+    /* CTA */
+    .cta-main{ padding:.9rem 1.2rem; border-radius:999px; font-weight:700; color:#111; background:var(--accent-gradient); box-shadow:0 10px 40px rgba(255,215,0,0.06); display:inline-flex; align-items:center; gap:.6rem; text-decoration:none; }
+    .cta-ghost{ padding:.85rem 1.1rem; border-radius:999px; color:var(--gold); border:1.5px solid rgba(255,215,0,0.12); background:transparent; font-weight:700; text-decoration:none; display:inline-flex; align-items:center; gap:.5rem;}
 
-    /* Glass panels */
-    .glass {
-      max-width: var(--max-width);
-      margin: 3rem auto;
-      padding: 2.2rem;
-      border-radius: 1rem;
-      background: var(--panel);
-      border: 1px solid var(--glass-border);
-      box-shadow: 0 8px 40px rgba(2,6,12,0.6);
-    }
+    /* Glass section wrapper */
+    .glass { max-width: var(--max-width); margin: 2.25rem auto; padding:1.6rem; border-radius: 12px; background: var(--panel); border:1px solid var(--glass-border); box-shadow: 0 8px 40px rgba(2,6,12,0.6); }
 
-    /* Services grid */
-    .services-grid{ display:grid; gap:1.25rem; grid-template-columns: repeat(1,1fr); }
-    @media(min-width:740px){ .services-grid{ grid-template-columns: repeat(2,1fr); } }
-    @media(min-width:1060px){ .services-grid{ grid-template-columns: repeat(4,1fr); } }
+    /* Capabilities layout */
+    .cap-tabs .active { color: var(--gold); border-color: rgba(255,215,0,0.18); background: transparent; }
+    .cap-tabs button { transition: all .18s; }
+    .service { background: linear-gradient(180deg, rgba(8,8,10,0.6), rgba(6,6,8,0.5)); border:1px solid rgba(255,215,0,0.06); padding:1rem; border-radius:10px; }
 
-    .service {
-      background: linear-gradient(180deg, rgba(9,11,14,0.6), rgba(6,7,9,0.55));
-      border:1px solid rgba(255,215,0,0.06);
-      padding:1.5rem;
-      border-radius:.9rem;
-      transition:transform .22s ease, box-shadow .22s ease;
-      min-height:160px;
-      display:flex; flex-direction:column; gap:.8rem;
-    }
-    .service:hover{ transform:translateY(-6px); box-shadow:0 8px 40px rgba(0,0,0,0.6), 0 0 24px rgba(255,215,0,0.06); }
-    .service .icon{ width:56px; height:56px; display:inline-flex; align-items:center; justify-content:center; border-radius:12px; background: linear-gradient(180deg, rgba(255,215,0,0.06), rgba(255,215,0,0.02)); color:var(--gold); }
-    .service h4{ color:var(--gold); margin:0; font-weight:700; font-size:1.06rem; }
-    .service p{ color:var(--muted); margin:0; font-size:.95rem; }
+    /* Why Us split */
+    .why-left .item { display:flex; gap:.7rem; align-items:flex-start; margin-bottom:.9rem; }
+    .why-left .ico { min-width:44px; min-height:44px; border-radius:10px; background:linear-gradient(180deg, rgba(255,215,0,0.07), rgba(255,215,0,0.02)); display:flex; align-items:center; justify-content:center; color:#111; }
 
-    /* Problem/Solution/Benefit subrows */
-    .psb{ display:flex; gap:1rem; margin-top:.8rem; flex-wrap:wrap; }
-    .psb .pill{ background:rgba(255,255,255,0.03); border-radius:8px; padding:.45rem .6rem; color:#dfe7ef; font-size:.83rem; border:1px solid rgba(255,255,255,0.02); }
+    /* Products carousel quick style */
+    .product-card { min-height:170px; background:#0b0d10; border-radius:12px; padding:1rem; border:1px solid rgba(255,215,0,0.04); display:flex; flex-direction:column; gap:.6rem; }
+    .case-card { border-radius:12px; overflow:hidden; min-height:200px; background:#0b0d10; border:1px solid rgba(255,215,0,0.06); }
 
-    /* Quick credentials row */
-    .cred-row{ display:flex; gap:1rem; align-items:center; justify-content:center; flex-wrap:wrap; margin-top:.8rem; color:var(--muted); font-size:.92rem; }
-
-    /* Timeline (Approach) */
-    .approach-wrap{ display:flex; gap:1rem; align-items:flex-start; justify-content:center; flex-wrap:wrap; }
-    .approach-step{ width:260px; padding:1.1rem; border-radius:12px; background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.02); text-align:center; }
-    .approach-step .num{ background:var(--gold); color:#111; width:42px; height:42px; display:inline-flex; align-items:center; justify-content:center; border-radius:50%; font-weight:800; margin-bottom:.6rem; box-shadow:0 6px 22px rgba(255,215,0,0.08); }
-
-    /* Cases grid */
-    .cases-grid{ display:grid; gap:1rem; grid-template-columns: repeat(1,1fr); }
-    @media(min-width:900px){ .cases-grid{ grid-template-columns: repeat(3,1fr); } }
-    .case {
-      border-radius:12px; overflow:hidden; min-height:220px;
-      background:#0b0d10; position:relative; border:1px solid rgba(255,215,0,0.06);
-    }
-    .case .thumb{ width:100%; height:100%; object-fit:cover; opacity:.18; filter:grayscale(20%); }
-    .case .case-inner{ position:absolute; inset:0; display:flex; align-items:flex-end; padding:1.25rem; }
-    .case h5{ color:var(--gold); margin:0; font-size:1.05rem; }
-
-    /* Contact grid */
-    .contact-grid{ display:grid; gap:1rem; grid-template-columns:1fr; }
-    @media(min-width:920px){ .contact-grid{ grid-template-columns: repeat(3,1fr); } }
-    .contact-card{ padding:1rem; border-radius:10px; background:linear-gradient(180deg, rgba(12,12,15,0.6), rgba(8,8,10,0.5)); border:1px solid rgba(255,215,0,0.04); text-align:center; }
-    .contact-card .small{ color:var(--muted); font-size:.88rem; }
-    .contact-card a{ display:inline-block; margin-top:.55rem; padding:.5rem .9rem; border-radius:999px; background:transparent; border:1px solid rgba(255,215,0,0.08); color:var(--gold); text-decoration:none; font-weight:700; }
-
-    footer{ border-top:1px solid rgba(255,215,0,0.04); padding:2rem 1rem; text-align:center; color:#9fb0bd; font-size:.92rem; }
-
-    /* small helpers */
-    .container{ max-width:var(--max-width); margin:0 auto; padding:0 1rem; }
-    .muted{ color:var(--muted); }
-
+    footer { border-top:1px solid rgba(255,215,0,0.04); padding:2.2rem 1rem; text-align:center; color:#9fb0bd; font-size:.92rem; margin-top:2rem; }
   </style>
 </head>
 <body>
 
   <!-- NAV -->
   <header class="nav">
-    <div class="container flex items-center justify-between py-3">
-      <div class="logo-badge" aria-hidden="false">
-        <img src="/latenspotentia/assets/img/Picon.png" alt="Latens Potentia" class="w-9 h-9 rounded-full border border-gold" />
+    <div class="max-w-[1180px] mx-auto px-4 flex items-center justify-between py-3">
+      <div class="flex items-center gap-3">
+        <img src="/latenspotentia/assets/img/Picon.png" alt="Latens" class="w-10 h-10 rounded-full border border-[#FFD70033]" />
         <div>
           <div class="brand-name">LatensLink</div>
           <div class="sub-brand">by Latens Potentia Systems™</div>
         </div>
       </div>
 
-      <nav aria-label="Main navigation" class="flex items-center gap-4">
-        <a href="#capabilities" class="muted hover:text-white">Services</a>
-        <a href="#approach" class="muted hover:text-white">Approach</a>
-        <a href="#cases" class="muted hover:text-white">Proof</a>
-        <a href="#contact" class="muted hover:text-white">Contact</a>
-        <a href="/latenspotentia" class="text-gold font-mono ml-2">LPS Hub</a>
+      <nav class="flex items-center gap-4 text-sm">
+        <a href="#capabilities" class="text-gray-300 hover:text-white">Capabilities</a>
+        <a href="#products" class="text-gray-300 hover:text-white">Products</a>
+        <a href="#cases" class="text-gray-300 hover:text-white">Case Studies</a>
+        <a href="#contact" class="text-gray-300 hover:text-white">Contact</a>
+        <a href="/latenspotentia" class="text-[#FFD700] font-mono ml-2">LPS Hub</a>
       </nav>
     </div>
   </header>
 
   <!-- HERO -->
   <main>
-    <section class="hero" role="region" aria-label="Hero — LatensLink">
+    <section class="hero" aria-label="Hero">
       <div class="hero-bg" aria-hidden="true"></div>
       <div class="hero-radial" aria-hidden="true"></div>
-
       <div class="hero-card" data-aos="fade-up">
-        <div style="max-width:980px;margin:0 auto">
+        <div style="max-width:1000px;margin:0 auto;">
           <div class="hero-sub">LatensLink — Local Wing of Latens Potentia Systems™</div>
-          <h1 class="hero-title">We turn local problems into deployed systems — fast.</h1>
+
+          <!-- TODO: Replace headline if you want stronger one-liner -->
+          <h1 class="hero-title">Systems. Deployed. Fast.</h1>
+
+          <!-- TODO: Replace subcopy — concise value statement -->
           <p class="muted" style="margin-top:.6rem; font-size:1rem;">
-            From outreach engines and CRM builds to CCTV & on-site deployment — we design, build and deliver systems that keep your business running and growing.
+            From outreach engines and CRM builds to CCTV & on-site deployment — we design, build and deliver systems that keep businesses running and growing.
           </p>
 
-          <div class="cta-row" style="margin-top:1.4rem">
-            <a href="mailto:chief@latenslink.co.ke?subject=Pitch%20My%20Problem" class="cta-main" title="Pitch your problem via email">
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none"><path d="M2 4.5L9 9.25 16 4.5" stroke="#111" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              Pitch Your Problem
+          <div style="margin-top:1.2rem; display:flex; gap:.8rem; justify-content:center; flex-wrap:wrap;">
+            <!-- CTA: Pitch Your Problem (mailto + form modal fallback) -->
+            <a class="cta-main" href="mailto:chief@latenslink.co.ke?subject=Pitch%20My%20Problem" title="Pitch your problem">🚀 Pitch Your Problem</a>
+            <a class="cta-ghost" href="/latenspotentia">Explore LPS</a>
+          </div>
+
+          <div style="margin-top:1.1rem; color:var(--muted); font-size:.94rem;">Quick pilots • Local delivery • Measurable impact</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CAPABILITIES — Solana-style tabs + split panels -->
+    <section id="capabilities" class="py-12">
+      <div class="max-w-[1180px] mx-auto px-4">
+
+        <!-- Heading + tabs -->
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
+          <div>
+            <h2 class="text-3xl font-extrabold text-[#FFD700]" data-aos="fade-up">Our Capabilities</h2>
+            <p class="text-gray-300 mt-2 max-w-xl" data-aos="fade-up" data-aos-delay="80">Pick a capability to explore how we solve problems — each category includes swipeable info cards & deep links.</p>
+          </div>
+
+          <!-- Tabs -->
+          <div class="cap-tabs flex gap-3 flex-wrap" data-aos="fade-up" data-aos-delay="140" id="cap-tabs">
+            <button class="px-4 py-2 rounded-full border border-transparent text-sm font-semibold cap-tab active" data-index="0">Digital Ops</button>
+            <button class="px-4 py-2 rounded-full border border-transparent text-sm font-semibold cap-tab" data-index="1">IT Consulting</button>
+            <button class="px-4 py-2 rounded-full border border-transparent text-sm font-semibold cap-tab" data-index="2">Systems Build</button>
+            <button class="px-4 py-2 rounded-full border border-transparent text-sm font-semibold cap-tab" data-index="3">Local Deployment</button>
+          </div>
+        </div>
+
+        <!-- Main swiper -->
+        <div class="relative" data-aos="fade-up" data-aos-delay="200">
+          <div class="swiper cap-main-swiper">
+            <div class="swiper-wrapper">
+
+              <!-- Slide 0: Digital Ops -->
+              <div class="swiper-slide">
+                <div class="grid md:grid-cols-2 gap-6 items-center">
+                  <!-- Image (left) -->
+                  <div class="rounded-xl overflow-hidden border border-[#FFD70015]">
+                    <img src="/latenspotentia/assets/img/cap-digitalops-1.jpg" alt="Digital Ops" loading="lazy" class="w-full h-[360px] object-cover">
+                  </div>
+
+                  <!-- Content (right) -->
+                  <div>
+                    <h3 class="text-2xl font-bold text-[#FFD700] mb-2">Digital Ops — Outreach & Pipelines</h3>
+                    <p class="text-gray-300 mb-4">Automate outreach, set up email infrastructure and create data pipelines so you capture and convert consistently.</p>
+
+                    <!-- Inner swiper: cards -->
+                    <div class="swiper inner-swiper-dops mt-3">
+                      <div class="swiper-wrapper">
+                        <!-- Card A -->
+                        <div class="swiper-slide p-2">
+                          <div class="service p-4">
+                            <div class="flex gap-3">
+                              <div class="w-12 h-12 rounded-md flex items-center justify-center" style="background:var(--accent-gradient);"><i data-lucide="send" class="text-black"></i></div>
+                              <div>
+                                <h4 class="text-[#FFD700] font-semibold">Outreach Engine</h4>
+                                <p class="text-gray-300 text-sm mt-1">Targeted sequenced campaigns with tracked replies and CRM logging for faster closures. <!-- TODO: Replace with actual metric if available (e.g., 3x replies) --></p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <!-- Card B -->
+                        <div class="swiper-slide p-2">
+                          <div class="service p-4">
+                            <div class="flex gap-3">
+                              <div class="w-12 h-12 rounded-md flex items-center justify-center" style="background:var(--accent-gradient);"><i data-lucide="database" class="text-black"></i></div>
+                              <div>
+                                <h4 class="text-[#FFD700] font-semibold">Email Infrastructure</h4>
+                                <p class="text-gray-300 text-sm mt-1">SPF / DKIM / DMARC configuration + sending flows optimized for high deliverability. <!-- TODO: Put your ESP notes (Brevo/Zoho) here --> </p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <!-- Card C -->
+                        <div class="swiper-slide p-2">
+                          <div class="service p-4">
+                            <div class="flex gap-3">
+                              <div class="w-12 h-12 rounded-md flex items-center justify-center" style="background:var(--accent-gradient);"><i data-lucide="users" class="text-black"></i></div>
+                              <div>
+                                <h4 class="text-[#FFD700] font-semibold">Data Pipelines</h4>
+                                <p class="text-gray-300 text-sm mt-1">Data collection, enrichment and CRM sync — keep your pipeline fresh and actionable. <!-- TODO: link to /capabilities/digital-ops for details --> </p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- inner nav -->
+                      <div class="flex gap-2 mt-3 items-center">
+                        <button class="inner-prev px-3 py-2 rounded bg-transparent border border-[#FFD70010] text-gray-300">←</button>
+                        <div class="flex-1"></div>
+                        <button class="inner-next px-3 py-2 rounded bg-transparent border border-[#FFD70010] text-gray-300">→</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Slide 1: IT Consulting -->
+              <div class="swiper-slide">
+                <div class="grid md:grid-cols-2 gap-6 items-center">
+                  <div class="rounded-xl overflow-hidden border border-[#FFD70015]">
+                    <img src="/latenspotentia/assets/img/cap-itconsult-1.jpg" alt="IT Consulting" loading="lazy" class="w-full h-[360px] object-cover">
+                  </div>
+
+                  <div>
+                    <h3 class="text-2xl font-bold text-[#FFD700] mb-2">IT Consulting — Secure & Automated</h3>
+                    <p class="text-gray-300 mb-4">Security audits, AI integrations and automation playbooks — practical roadmaps that drive measurable outcomes.</p>
+
+                    <div class="swiper inner-swiper-it mt-3">
+                      <div class="swiper-wrapper">
+                        <div class="swiper-slide p-2">
+                          <div class="service p-4">
+                            <div class="flex gap-3">
+                              <div class="w-12 h-12 rounded-md flex items-center justify-center" style="background:var(--accent-gradient);"><i data-lucide="shield" class="text-black"></i></div>
+                              <div>
+                                <h4 class="text-[#FFD700] font-semibold">Security Audits</h4>
+                                <p class="text-gray-300 text-sm mt-1">Actionable vulnerability reports with prioritized remediation steps. <!-- TODO: insert sample finding or risk level if desired --> </p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="swiper-slide p-2">
+                          <div class="service p-4">
+                            <div class="flex gap-3">
+                              <div class="w-12 h-12 rounded-md flex items-center justify-center" style="background:var(--accent-gradient);"><i data-lucide="cpu" class="text-black"></i></div>
+                              <div>
+                                <h4 class="text-[#FFD700] font-semibold">AI Integrations</h4>
+                                <p class="text-gray-300 text-sm mt-1">Deploy practical agents and automations to reduce manual work and cut error rates.</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="flex gap-2 mt-3 items-center">
+                        <button class="inner-prev-it px-3 py-2 rounded bg-transparent border border-[#FFD70010] text-gray-300">←</button>
+                        <div class="flex-1"></div>
+                        <button class="inner-next-it px-3 py-2 rounded bg-transparent border border-[#FFD70010] text-gray-300">→</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Slide 2: Systems Build -->
+              <div class="swiper-slide">
+                <div class="grid md:grid-cols-2 gap-6 items-center">
+                  <div class="rounded-xl overflow-hidden border border-[#FFD70015]">
+                    <img src="/latenspotentia/assets/img/cap-systems-1.jpg" alt="Systems Build" loading="lazy" class="w-full h-[360px] object-cover">
+                  </div>
+
+                  <div>
+                    <h3 class="text-2xl font-bold text-[#FFD700] mb-2">Systems Build — Productised & Local</h3>
+                    <p class="text-gray-300 mb-4">CRMs, backends, BI dashboards and integration work — designed for local realities and future growth.</p>
+
+                    <div class="swiper inner-swiper-sys mt-3">
+                      <div class="swiper-wrapper">
+                        <div class="swiper-slide p-2">
+                          <div class="service p-4">
+                            <div class="flex gap-3">
+                              <div class="w-12 h-12 rounded-md flex items-center justify-center" style="background:var(--accent-gradient);"><i data-lucide="layers" class="text-black"></i></div>
+                              <div>
+                                <h4 class="text-[#FFD700] font-semibold">Custom CRMs</h4>
+                                <p class="text-gray-300 text-sm mt-1">Built around your workflow — not the other way around.</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="swiper-slide p-2">
+                          <div class="service p-4">
+                            <div class="flex gap-3">
+                              <div class="w-12 h-12 rounded-md flex items-center justify-center" style="background:var(--accent-gradient);"><i data-lucide="server" class="text-black"></i></div>
+                              <div>
+                                <h4 class="text-[#FFD700] font-semibold">Backends & APIs</h4>
+                                <p class="text-gray-300 text-sm mt-1">Stable, monitored, and easy to integrate with your tools.</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="flex gap-2 mt-3 items-center">
+                        <button class="inner-prev-sys px-3 py-2 rounded bg-transparent border border-[#FFD70010] text-gray-300">←</button>
+                        <div class="flex-1"></div>
+                        <button class="inner-next-sys px-3 py-2 rounded bg-transparent border border-[#FFD70010] text-gray-300">→</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Slide 3: Local Deployment -->
+              <div class="swiper-slide">
+                <div class="grid md:grid-cols-2 gap-6 items-center">
+                  <div class="rounded-xl overflow-hidden border border-[#FFD70015]">
+                    <img src="/latenspotentia/assets/img/cap-local-1.jpg" alt="Local Deployment" loading="lazy" class="w-full h-[360px] object-cover">
+                  </div>
+
+                  <div>
+                    <h3 class="text-2xl font-bold text-[#FFD700] mb-2">Local Deployment — Boots on Ground</h3>
+                    <p class="text-gray-300 mb-4">CCTV, networking, device setup, and local maintenance — we deploy teams fast and clean.</p>
+
+                    <div class="swiper inner-swiper-local mt-3">
+                      <div class="swiper-wrapper">
+                        <div class="swiper-slide p-2">
+                          <div class="service p-4">
+                            <div class="flex gap-3">
+                              <div class="w-12 h-12 rounded-md flex items-center justify-center" style="background:var(--accent-gradient);"><i data-lucide="video" class="text-black"></i></div>
+                              <div>
+                                <h4 class="text-[#FFD700] font-semibold">CCTV & Monitoring</h4>
+                                <p class="text-gray-300 text-sm mt-1">Rapid installs with cloud monitoring and central alerts.</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="swiper-slide p-2">
+                          <div class="service p-4">
+                            <div class="flex gap-3">
+                              <div class="w-12 h-12 rounded-md flex items-center justify-center" style="background:var(--accent-gradient);"><i data-lucide="wifi" class="text-black"></i></div>
+                              <div>
+                                <h4 class="text-[#FFD700] font-semibold">Networking</h4>
+                                <p class="text-gray-300 text-sm mt-1">Local network design and device configuration for reliable ops.</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="flex gap-2 mt-3 items-center">
+                        <button class="inner-prev-local px-3 py-2 rounded bg-transparent border border-[#FFD70010] text-gray-300">←</button>
+                        <div class="flex-1"></div>
+                        <button class="inner-next-local px-3 py-2 rounded bg-transparent border border-[#FFD70010] text-gray-300">→</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div> <!-- swiper-wrapper -->
+          </div>
+
+          <!-- main navigation arrows -->
+          <div class="absolute right-3 top-1/2 transform -translate-y-1/2 flex gap-2 z-20">
+            <button class="cap-prev px-3 py-2 rounded bg-[#0b0b0d] border border-[#FFD70012] text-gray-300">◀</button>
+            <button class="cap-next px-3 py-2 rounded bg-[#0b0b0d] border border-[#FFD70012] text-gray-300">▶</button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- WHY US section (split left list + right big closing pitch) -->
+    <section id="whyus" class="py-8">
+      <div class="max-w-[1180px] mx-auto px-4">
+        <div class="glass" data-aos="fade-up">
+          <div class="grid md:grid-cols-2 gap-8 items-start">
+            <!-- left: list with icons -->
+            <div class="why-left">
+              <h3 class="text-xl font-bold text-[#FFD700]">Our strengths</h3>
+              <p class="muted mb-4">Built for speed, built for results — your modern ops partner.</p>
+
+              <!-- TODO: Replace these items with any real strengths or short bullets -->
+              <div class="item">
+                <div class="ico"><i data-lucide="zap" class="w-5 h-5"></i></div>
+                <div>
+                  <div class="font-semibold">Rapid Pilots</div>
+                  <div class="muted text-sm">Pilot in days, not months. Quick wins prove value fast.</div>
+                </div>
+              </div>
+
+              <div class="item">
+                <div class="ico"><i data-lucide="map" class="w-5 h-5"></i></div>
+                <div>
+                  <div class="font-semibold">Local-first</div>
+                  <div class="muted text-sm">We design systems that work in Nairobi, not only in the cloud.</div>
+                </div>
+              </div>
+
+              <div class="item">
+                <div class="ico"><i data-lucide="layers" class="w-5 h-5"></i></div>
+                <div>
+                  <div class="font-semibold">End-to-end</div>
+                  <div class="muted text-sm">Strategy, build, deploy — one team, one promise.</div>
+                </div>
+              </div>
+
+              <div class="item">
+                <div class="ico"><i data-lucide="users" class="w-5 h-5"></i></div>
+                <div>
+                  <div class="font-semibold">Trusted Partners</div>
+                  <div class="muted text-sm">We work with local teams and bring global best practices.</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- right: big pitch/close -->
+            <div>
+              <h3 class="text-2xl font-bold text-[#FFD700]">Why LatensLink wins</h3>
+              <!-- TODO: Tweak this closing pitch copy to your voice. Strong CTA in the last line. -->
+              <p class="muted mt-3">
+                Companies waste time and money when systems are brittle. We bring productized engines and local deployment teams to remove friction. We don’t pitch theory — we ship pilots, measure impact, and scale what works.
+              </p>
+
+              <p class="muted mt-4">
+                <strong style="color:var(--gold)">Ready to stop fixing the same problems? </strong>
+                Tell us your problem and we’ll return a one-week pilot plan — or explore deeper systems via the LPS hub.
+              </p>
+
+              <div style="margin-top:1.2rem;">
+                <a class="cta-main" href="mailto:chief@latenslink.co.ke?subject=Pilot%20Request">Start a Pilot</a>
+                <a class="cta-ghost" href="/latenspotentia" style="margin-left:.6rem;">Explore LPS</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRODUCTS / Offerings carousel (scroll left-right) -->
+    <section id="products" class="py-10">
+      <div class="max-w-[1180px] mx-auto px-4">
+        <div class="glass" data-aos="fade-up">
+          <h3 class="text-2xl font-bold text-[#FFD700] text-center">Products & Tools</h3>
+          <p class="muted text-center mt-2">Reusable engines and productised systems you can plug into your business.</p>
+
+          <!-- simple horizontal swiper -->
+          <div class="swiper mt-6 products-swiper">
+            <div class="swiper-wrapper">
+              <!-- product card -->
+              <div class="swiper-slide">
+                <div class="product-card p-4">
+                  <div class="flex items-center justify-between">
+                    <div>
+                      <h4 class="text-[#FFD700] font-bold">Email Outreach Engine</h4>
+                      <p class="muted text-sm mt-1">Prebuilt outreach flows, templates and analytics.</p>
+                    </div>
+                    <div><i data-lucide="mail" class="w-6 h-6 text-[#FFD700]"></i></div>
+                  </div>
+                  <div style="margin-top:8px; margin-left:auto">
+                    <a href="/products/email-outreach.html" class="text-[#FFD700] font-semibold">Details →</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="swiper-slide">
+                <div class="product-card p-4">
+                  <div class="flex items-center justify-between">
+                    <div>
+                      <h4 class="text-[#FFD700] font-bold">CCTV + Monitor Kit</h4>
+                      <p class="muted text-sm mt-1">Local deployment bundle with cloud alerts and dashboard.</p>
+                    </div>
+                    <div><i data-lucide="video" class="w-6 h-6 text-[#FFD700]"></i></div>
+                  </div>
+                  <div style="margin-top:8px; margin-left:auto">
+                    <a href="/products/cctv-kit.html" class="text-[#FFD700] font-semibold">Details →</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="swiper-slide">
+                <div class="product-card p-4">
+                  <div class="flex items-center justify-between">
+                    <div>
+                      <h4 class="text-[#FFD700] font-bold">Starter CRM Pack</h4>
+                      <p class="muted text-sm mt-1">Zoho / Custom pipeline templates + onboarding kit.</p>
+                    </div>
+                    <div><i data-lucide="database" class="w-6 h-6 text-[#FFD700]"></i></div>
+                  </div>
+                  <div style="margin-top:8px; margin-left:auto">
+                    <a href="/products/crm-pack.html" class="text-[#FFD700] font-semibold">Details →</a>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+            <!-- nav -->
+            <div class="flex gap-2 mt-4 justify-center">
+              <button class="product-prev px-3 py-2 rounded bg-[#0b0b0d] border border-[#FFD70012] text-gray-300">◀</button>
+              <button class="product-next px-3 py-2 rounded bg-[#0b0b0d] border border-[#FFD70012] text-gray-300">▶</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CASE STUDIES -->
+    <section id="cases" class="py-10">
+      <div class="max-w-[1180px] mx-auto px-4">
+        <div class="glass" data-aos="fade-up">
+          <h3 class="text-2xl font-bold text-[#FFD700] text-center">Case Studies</h3>
+          <p class="muted text-center mt-2">Short snapshots — open the full story for the playbook and results.</p>
+
+          <div class="grid md:grid-cols-3 gap-6 mt-6">
+            <a href="/cases/cctv-retail.html" class="case-card p-4" data-aos="zoom-in">
+              <div style="height:140px; background-image:url('/latenspotentia/assets/img/case1.jpg'); background-size:cover; background-position:center; opacity:0.95; filter:grayscale(10%); border-radius:8px;"></div>
+              <h4 class="text-[#FFD700] font-bold mt-3">CCTV & Local Network — Retail</h4>
+              <p class="muted text-sm mt-1">48-hour deployment, monitoring and centralized alerts. <!-- TODO: Add short metric (e.g., theft reduction %) if available --></p>
             </a>
-            <a href="#capabilities" class="cta-ghost">Explore Solutions</a>
-          </div>
 
-          <div class="cred-row" style="margin-top:1.6rem" aria-hidden="true">
-            <div class="muted">Proven in the field • Local delivery • Rapid pilots</div>
-          </div>
-        </div>
-      </div>
-    </section>
+            <a href="/cases/outreach-sme.html" class="case-card p-4" data-aos="zoom-in" data-aos-delay="120">
+              <div style="height:140px; background-image:url('/latenspotentia/assets/img/case2.jpg'); background-size:cover; background-position:center; opacity:0.95; filter:grayscale(10%); border-radius:8px;"></div>
+              <h4 class="text-[#FFD700] font-bold mt-3">SME Outreach Engine</h4>
+              <p class="muted text-sm mt-1">Automated campaign with 3x reply rates on targeted segments.</p>
+            </a>
 
-    <!-- Services / Capabilities -->
-    <section id="capabilities" class="glass" aria-labelledby="capabilities-heading">
-      <div class="container">
-        <h2 id="capabilities-heading" class="text-2xl md:text-3xl font-bold text-gold text-center" data-aos="fade-up">Our Capabilities — What we deliver</h2>
-        <p class="muted text-center mt-2" data-aos="fade-up" data-aos-delay="80">Each capability is a plug-and-play offering — we can run pilots or integrate into your internal teams.</p>
+            <a href="/cases/community-crm.html" class="case-card p-4" data-aos="zoom-in" data-aos-delay="240">
+              <div style="height:140px; background-image:url('/latenspotentia/assets/img/case3.jpg'); background-size:cover; background-position:center; opacity:0.95; filter:grayscale(10%); border-radius:8px;"></div>
+              <h4 class="text-[#FFD700] font-bold mt-3">Community CRM Build</h4>
+              <p class="muted text-sm mt-1">Custom CRM for a local group — simplified workflows with zero recurring fees.</p>
+            </a>
 
-        <div class="services-grid mt-6" role="list">
-          <!-- Digital Ops -->
-          <article class="service" data-aos="fade-up" role="listitem" aria-labelledby="svc-digitalops">
-            <div class="icon" aria-hidden="true"><i data-lucide="database" class="w-6 h-6"></i></div>
-            <h4 id="svc-digitalops">Digital Ops</h4>
-            <p>Bulk outreach systems, email infrastructure, lead pipelines and database workflows so you capture and convert consistently.</p>
-
-            <div class="psb" aria-hidden="false">
-              <span class="pill">Problem: low lead conversion</span>
-              <span class="pill">Solution: targeted outreach engine</span>
-              <span class="pill">Benefit: higher response rate, faster deals</span>
-            </div>
-          </article>
-
-          <!-- IT Consulting -->
-          <article class="service" data-aos="fade-up" data-aos-delay="80" role="listitem" aria-labelledby="svc-itconsult">
-            <div class="icon" aria-hidden="true"><i data-lucide="shield" class="w-6 h-6"></i></div>
-            <h4 id="svc-itconsult">IT Consulting</h4>
-            <p>Cybersecurity assessments, AI integrations, automation playbooks and actionable roadmaps — we align tech to business outcomes.</p>
-
-            <div class="psb">
-              <span class="pill">Problem: insecure or manual ops</span>
-              <span class="pill">Solution: audits & automated playbooks</span>
-              <span class="pill">Benefit: resilient & efficient systems</span>
-            </div>
-          </article>
-
-          <!-- Systems Build -->
-          <article class="service" data-aos="fade-up" data-aos-delay="160" role="listitem" aria-labelledby="svc-systems">
-            <div class="icon" aria-hidden="true"><i data-lucide="layers" class="w-6 h-6"></i></div>
-            <h4 id="svc-systems">Systems Build</h4>
-            <p>Websites, CRMs, backend integrations and BI dashboards — productized and built for scale with local realities in mind.</p>
-
-            <div class="psb">
-              <span class="pill">Problem: fragile toolchains</span>
-              <span class="pill">Solution: robust builds</span>
-              <span class="pill">Benefit: measurable KPI improvements</span>
-            </div>
-          </article>
-
-          <!-- Local Deployment -->
-          <article class="service" data-aos="fade-up" data-aos-delay="240" role="listitem" aria-labelledby="svc-local">
-            <div class="icon" aria-hidden="true"><i data-lucide="wifi" class="w-6 h-6"></i></div>
-            <h4 id="svc-local">Local Deployment</h4>
-            <p>On-site work: CCTV, networking, device configuration and hands-on installs — we get boots on the ground fast.</p>
-
-            <div class="psb">
-              <span class="pill">Problem: no local support</span>
-              <span class="pill">Solution: trained deployment teams</span>
-              <span class="pill">Benefit: fast, reliable rollouts</span>
-            </div>
-          </article>
-        </div>
-
-        <!-- Short CTA -->
-        <div class="text-center mt-8" data-aos="fade-up" data-aos-delay="320">
-          <a href="mailto:chief@latenslink.co.ke?subject=Pilot%20Request" class="cta-main">Start a Pilot</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- WHY US / Value props (pre-close) -->
-    <section class="container mt-10">
-      <div class="glass" data-aos="fade-up">
-        <div style="display:flex;gap:1.25rem;align-items:center;flex-wrap:wrap;justify-content:space-between">
-          <div style="flex:1;min-width:260px">
-            <h3 class="text-gold text-xl font-bold">Why LatensLink?</h3>
-            <ul style="margin-top:.6rem; color:var(--muted); line-height:1.6;">
-              <li><strong>We move fast:</strong> pilots in days, not months.</li>
-              <li><strong>Local-first:</strong> we design for Kenyan realities and deploy locally.</li>
-              <li><strong>End-to-end:</strong> strategy, build, and boots-on-ground delivery.</li>
-              <li><strong>Repeatable systems:</strong> productised engines you can reuse across projects.</li>
-            </ul>
-          </div>
-
-          <div style="flex:0 0 320px; text-align:right;">
-            <div class="muted">Trusted workflows & quick wins</div>
-            <div style="margin-top:.8rem; font-weight:700; color:var(--gold); font-size:1.35rem">Rapid pilots • Local delivery • Measurable impact</div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Approach / Timeline -->
-    <section id="approach" class="container mt-10">
-      <div class="glass" data-aos="fade-up">
-        <h3 class="text-gold text-2xl font-bold text-center">Our Approach — Identify → Design → Deploy</h3>
-        <p class="muted text-center mt-2">We turn a problem into a mapped solution, prototype, and production rollout.</p>
+    <!-- CONTACT / CHANNELS -->
+    <section id="contact" class="py-10">
+      <div class="max-w-[1180px] mx-auto px-4">
+        <div class="glass" data-aos="fade-up">
+          <h3 class="text-2xl font-bold text-[#FFD700] text-center">Contact — Quick Actions</h3>
+          <p class="muted text-center mt-2">Tell us your problem — we’ll reply with a one-week pilot plan.</p>
 
-        <div class="approach-wrap mt-6">
-          <div class="approach-step" data-aos="fade-up">
-            <div class="num">1</div>
-            <h4 class="text-gold mt-2">Identify</h4>
-            <p class="muted">Rapid discovery, pain quantification and outcome KPIs — we only build what matters.</p>
+          <div class="grid md:grid-cols-3 gap-6 mt-6">
+            <div class="p-4 rounded-md" style="background:linear-gradient(180deg, rgba(255,215,0,0.02), transparent); border:1px solid rgba(255,215,0,0.03);">
+              <div class="font-semibold text-[#FFD700]">WhatsApp</div>
+              <div class="muted mt-1">Fastest for short problem pitches & quick replies</div>
+              <div style="margin-top:10px"><a href="https://wa.me/+254789108058" class="text-[#FFD700] font-semibold">Open WhatsApp →</a></div>
+            </div>
+
+            <div class="p-4 rounded-md" style="background:linear-gradient(180deg, rgba(255,215,0,0.02), transparent); border:1px solid rgba(255,215,0,0.03);">
+              <div class="font-semibold text-[#FFD700]">Telegram</div>
+              <div class="muted mt-1">For file-based briefs and structured chats</div>
+              <div style="margin-top:10px"><a href="https://t.me/Latens_potentia" class="text-[#FFD700] font-semibold">Open Telegram →</a></div>
+            </div>
+
+            <div class="p-4 rounded-md" style="background:linear-gradient(180deg, rgba(255,215,0,0.02), transparent); border:1px solid rgba(255,215,0,0.03);">
+              <div class="font-semibold text-[#FFD700]">Email</div>
+              <div class="muted mt-1">Formal proposals, attachments, NDAs</div>
+              <div style="margin-top:10px"><a href="mailto:chief@latenslink.co.ke?subject=Pitch%20-%20[Company]" class="text-[#FFD700] font-semibold">Email Chief →</a></div>
+            </div>
           </div>
 
-          <div class="approach-step" data-aos="fade-up" data-aos-delay="120">
-            <div class="num">2</div>
-            <h4 class="text-gold mt-2">Design</h4>
-            <p class="muted">Lean prototypes, integrations & compliance checks — practical architecture that ships.</p>
-          </div>
-
-          <div class="approach-step" data-aos="fade-up" data-aos-delay="240">
-            <div class="num">3</div>
-            <h4 class="text-gold mt-2">Deploy</h4>
-            <p class="muted">Pilot, measure, scale — on-site or remote delivery with training and handover.</p>
+          <div class="text-center mt-6">
+            <!-- Optional: Add small form modal or link to form page -->
+            <a href="mailto:chief@latenslink.co.ke?subject=Pilot%20Request" class="cta-main">Tell Us Your Problem</a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Case snapshots / proof -->
-    <section id="cases" class="container mt-10">
-      <div class="glass" data-aos="fade-up">
-        <h3 class="text-gold text-2xl font-bold text-center">Proof — Case Snapshots</h3>
-        <p class="muted text-center mt-2">Real micro-results from rapid pilots and local deployments.</p>
-
-        <div class="cases-grid mt-6">
-          <article class="case" data-aos="zoom-in">
-            <img src="/latenspotentia/assets/img/case1.jpg" alt="" class="thumb" />
-            <div class="case-inner">
-              <div>
-                <h5>CCTV & Local Network — Retail</h5>
-                <p class="muted" style="margin-top:.45rem">48-hour deployment, cloud monitoring, and central alerts for branch security.</p>
-              </div>
+    <!-- FOOTER -->
+    <footer>
+      <div class="max-w-[1180px] mx-auto px-4">
+        <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;">
+          <div style="display:flex; align-items:center; gap:12px;">
+            <img src="/latenspotentia/assets/img/Picon.png" alt="Latens" style="width:44px;height:44px;border-radius:8px;border:1px solid rgba(255,215,0,0.06)">
+            <div>
+              <div style="color:var(--gold); font-weight:700;">LatensLink</div>
+              <div style="color:var(--muted); font-size:.92rem">Local Wing of Latens Potentia Systems™ — Nairobi, Kenya</div>
             </div>
-          </article>
-
-          <article class="case" data-aos="zoom-in" data-aos-delay="140">
-            <img src="/latenspotentia/assets/img/case2.jpg" alt="" class="thumb" />
-            <div class="case-inner">
-              <div>
-                <h5>SME Outreach Engine</h5>
-                <p class="muted" style="margin-top:.45rem">Automated outreach & tracking — 3x reply rates on initial campaign.</p>
-              </div>
-            </div>
-          </article>
-
-          <article class="case" data-aos="zoom-in" data-aos-delay="280">
-            <img src="/latenspotentia/assets/img/case3.jpg" alt="" class="thumb" />
-            <div class="case-inner">
-              <div>
-                <h5>Community CRM Build</h5>
-                <p class="muted" style="margin-top:.45rem">Custom CRM for a local group — simplified workflows, no recurring fees.</p>
-              </div>
-            </div>
-          </article>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- Direct Channels / Cockpit quick actions -->
-    <section id="contact" class="container mt-10">
-      <div class="glass" data-aos="fade-up">
-        <h3 class="text-gold text-2xl font-bold text-center">Contact — Quick Actions</h3>
-        <p class="muted text-center mt-2">Pick a direct channel to reach us. If you have a problem, pitch it — we’ll reply with a pilot plan.</p>
-
-        <div class="contact-grid mt-6">
-          <div class="contact-card" data-aos="fade-up">
-            <div class="small">Instant</div>
-            <div style="font-weight:700; color:var(--gold); margin-top:.5rem">WhatsApp</div>
-            <div class="muted" style="margin-top:.45rem">Fastest for short problem pitches</div>
-            <a href="https://wa.me/+254789108058" target="_blank" rel="noopener">Open WhatsApp</a>
           </div>
 
-          <div class="contact-card" data-aos="fade-up" data-aos-delay="100">
-            <div class="small">Secure Chat</div>
-            <div style="font-weight:700; color:var(--gold); margin-top:.5rem">Telegram</div>
-            <div class="muted" style="margin-top:.45rem">@Latens_potentia — for file-based briefs</div>
-            <a href="https://t.me/Latens_potentia" target="_blank" rel="noopener">Open Telegram</a>
-          </div>
-
-          <div class="contact-card" data-aos="fade-up" data-aos-delay="200">
-            <div class="small">Formal</div>
-            <div style="font-weight:700; color:var(--gold); margin-top:.5rem">Email</div>
-            <div class="muted" style="margin-top:.45rem">Detailed proposals & NDA requests</div>
-            <a href="mailto:chief@latenslink.co.ke?subject=Pitch%20-%20[Company]">Email Chief</a>
+          <div style="display:flex; gap:8px; align-items:center;">
+            <!-- social icons (replace links) -->
+            <a href="https://x.com/" aria-label="X" class="text-[#FFD700]"><i data-lucide="twitter" class="w-5 h-5"></i></a>
+            <a href="https://instagram.com/" aria-label="Instagram" class="text-[#FFD700]"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+            <a href="https://linkedin.com/" aria-label="LinkedIn" class="text-[#FFD700]"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
+            <a href="mailto:chief@latenslink.co.ke" aria-label="Email" class="text-[#FFD700]"><i data-lucide="mail" class="w-5 h-5"></i></a>
           </div>
         </div>
 
-        <div class="text-center mt-6">
-          <a class="cta-ghost" href="/latenspotentia">Explore Latens Potentia (full systems)</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="mt-12">
-      <div class="container">
-        <div style="display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap">
-          <img src="/latenspotentia/assets/img/Picon.png" alt="LatensLogo" style="width:36px;height:36px;border-radius:8px;border:1px solid rgba(255,215,0,0.06)"/>
-          <div style="text-align:left">
-            <div style="font-weight:700;color:var(--gold)">LatensLink</div>
-            <div style="color:var(--muted);font-size:.92rem">The local wing of Latens Potentia Systems™ — Nairobi • Kenya</div>
-          </div>
-        </div>
-
-        <div style="margin-top:1rem;color:#97a9b6">
-          &copy; <span id="yr"></span> LatensLink. All rights reserved. &nbsp;•&nbsp; <a href="/latenspotentia" class="text-gold">Latens Potentia</a>
+        <div style="margin-top:12px; color:#97a9b6;">
+          &copy; <span id="yr"></span> LatensLink. All rights reserved. &nbsp;•&nbsp; <a href="/latenspotentia" class="text-[#FFD700]">Latens Potentia Systems™</a>
         </div>
       </div>
     </footer>
+
   </main>
 
-  <!-- Scripts: init AOS & small UX -->
+  <!-- SCRIPTS -->
   <script>
+    // Populate year
     document.getElementById('yr').innerText = new Date().getFullYear();
-    AOS.init({ once:true, duration:700, easing: 'ease-out-cubic' });
-    // lucide icons
-    if(window.lucide) lucide.createIcons();
+  </script>
 
-    // Smooth scroll for internal links
-    document.querySelectorAll('a[href^="#"]').forEach(a=>{
-      a.addEventListener('click', e=>{
-        const href = a.getAttribute('href');
-        if(href.length>1){
-          e.preventDefault();
-          const el = document.querySelector(href);
-          if(el) el.scrollIntoView({behavior:'smooth', block:'center'});
-        }
-      });
-    });
+  <!-- Init libraries & swipers -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // AOS init
+      if(window.AOS) AOS.init({ once:true, duration:700, easing:'ease-out-cubic' });
 
-    // Lightweight focus trap for keyboard users on hero CTAs (accessibility)
-    const ctas = document.querySelectorAll('.cta-main, .cta-ghost');
-    ctas.forEach(b=>{
-      b.addEventListener('keydown', (e)=>{
-        if(e.key==='Enter') b.click();
+      // lucide icons
+      if(window.lucide) lucide.createIcons();
+
+      // Main capabilities swiper
+      const main = new Swiper('.cap-main-swiper', {
+        slidesPerView: 1,
+        spaceBetween: 24,
+        navigation: {
+          nextEl: '.cap-next',
+          prevEl: '.cap-prev',
+        },
+        keyboard: { enabled: true },
+        a11y: true,
       });
+
+      // Hook tabs to main swiper
+      document.querySelectorAll('.cap-tab').forEach(btn=>{
+        btn.addEventListener('click', ()=>{
+          const idx = Number(btn.dataset.index || btn.getAttribute('data-index') || Array.from(document.querySelectorAll('.cap-tab')).indexOf(btn));
+          main.slideTo(idx);
+          // visual active
+          document.querySelectorAll('.cap-tab').forEach(b=>{
+            b.classList.remove('active');
+            b.classList.remove('text-[#FFD700]');
+            b.style.borderColor = 'transparent';
+            b.style.color = '#cbd5e1';
+            b.style.background = '#111014';
+          });
+          btn.classList.add('active');
+          btn.classList.add('text-[#FFD700]');
+          btn.style.borderColor = 'rgba(255,215,0,0.18)';
+          btn.style.background = 'transparent';
+          btn.style.color = 'var(--gold)';
+        });
+      });
+
+      // Sync tab when swiper changes
+      main.on('slideChange', function(){
+        const idx = main.activeIndex;
+        const tab = document.querySelector(`.cap-tab[data-index="${idx}"]`);
+        if(tab) tab.click();
+      });
+
+      // init inner swipers (cards per capability)
+      const innerDops = new Swiper('.inner-swiper-dops', { slidesPerView: 1.05, spaceBetween: 12, navigation: { nextEl: '.inner-next', prevEl: '.inner-prev' }, breakpoints: {720:{ slidesPerView:2 } } });
+      const innerIT   = new Swiper('.inner-swiper-it',   { slidesPerView: 1.05, spaceBetween: 12, navigation: { nextEl: '.inner-next-it', prevEl: '.inner-prev-it' }, breakpoints: {720:{ slidesPerView:2 } } });
+      const innerSys  = new Swiper('.inner-swiper-sys',  { slidesPerView: 1.05, spaceBetween: 12, navigation: { nextEl: '.inner-next-sys', prevEl: '.inner-prev-sys' }, breakpoints: {720:{ slidesPerView:2 } } });
+      const innerLoc  = new Swiper('.inner-swiper-local',{ slidesPerView: 1.05, spaceBetween: 12, navigation: { nextEl: '.inner-next-local', prevEl: '.inner-prev-local' }, breakpoints: {720:{ slidesPerView:2 } } });
+
+      // Products swiper
+      const products = new Swiper('.products-swiper', {
+        slidesPerView: 1.05,
+        spaceBetween: 12,
+        navigation: { nextEl: '.product-next', prevEl: '.product-prev' },
+        breakpoints: {720:{ slidesPerView:2 }, 1060:{ slidesPerView:3 } }
+      });
+
+      // Set initial active tab styles
+      const firstTab = document.querySelector('.cap-tab');
+      if(firstTab) firstTab.click();
     });
   </script>
 </body>
-</html>
+                                                                        </html>
