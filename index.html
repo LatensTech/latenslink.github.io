@@ -72,13 +72,41 @@
       position:relative;
       overflow:hidden;
     }
-    .hero-bg{
-      position:absolute; inset:0;
-      background-image: url('/latenspotentia/assets/img/HeroBg1.jpg');
-      background-size:cover; background-position:center;
-      opacity:0.10; filter:grayscale(6%);
-      z-index:0;
-    }
+    .hero {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFD700;
+  text-align: center;
+  overflow: hidden;
+}
+
+.slideshow {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: 0;
+}
+
+.slideshow img {
+  position: absolute;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  filter: brightness(0.35); /* darkens background */
+  opacity: 0;
+  transition: opacity 2s ease-in-out;
+}
+
+.slideshow img.active {
+  opacity: 1;
+}
+
+.hero-card {
+  position: relative;
+  z-index: 2;
+}
     .hero-radial{ position:absolute; inset:-15% -10% auto auto; width:60vw; height:60vw; background:radial-gradient(closest-side, rgba(255,215,0,0.05), transparent 40%); transform:translate(10%, -10%); z-index:1; pointer-events:none; }
     .hero-card{
       position:relative; z-index:10; max-width:var(--max-width); width:100%;
@@ -135,34 +163,49 @@
       </nav>
     </div>
   </header>
+<!-- HERO -->
+<main>
+  <section class="hero" aria-label="Hero">
+    <!-- Background Slideshow -->
+    <div class="slideshow" aria-hidden="true">
+      <img src="assets/images/ll01.jpg" class="active" alt="">
+      <img src="assets/images/ll02.jpg" alt="">
+      <img src="assets/images/ll03.jpg" alt="">
+      <img src="assets/images/ll04.jpg" alt="">
+      <img src="assets/images/ll05.jpg" alt="">
+      <img src="assets/images/ll06.jpg" alt="">
+      <img src="assets/images/ll07.jpg" alt="">
+      <img src="assets/images/ll08.jpg" alt="">
+      <img src="assets/images/ll09.jpg" alt="">
+      <img src="assets/images/ll10.jpg" alt="">
+    </div>
 
-  <!-- HERO -->
-  <main>
-    <section class="hero" aria-label="Hero">
-      <div class="hero-bg" aria-hidden="true"></div>
-      <div class="hero-radial" aria-hidden="true"></div>
-      <div class="hero-card" data-aos="fade-up">
-        <div style="max-width:1000px;margin:0 auto;">
-          <div class="hero-sub">LatensLink — Local Wing of Latens Potentia Systems™</div>
+    <!-- Optional overlay for radial effect -->
+    <div class="hero-radial" aria-hidden="true"></div>
 
-          <!-- TODO: Replace headline if you want stronger one-liner -->
-          <h1 class="hero-title">Systems. Deployed. Fast.</h1>
+    <!-- Foreground Content -->
+    <div class="hero-card" data-aos="fade-up">
+      <div style="max-width:1000px;margin:0 auto;">
+        <div class="hero-sub">LatensLink — Local Wing of Latens Potentia Systems™</div>
 
-          <!-- TODO: Replace subcopy — concise value statement -->
-          <p class="muted" style="margin-top:.6rem; font-size:1rem;">
-            From outreach engines and CRM builds to CCTV & on-site deployment — we design, build and deliver systems that keep businesses running and growing.
-          </p>
+        <h1 class="hero-title">Systems. Deployed. Fast.</h1>
 
-          <div style="margin-top:1.2rem; display:flex; gap:.8rem; justify-content:center; flex-wrap:wrap;">
-            <!-- CTA: Pitch Your Problem (mailto + form modal fallback) -->
-            <a class="cta-main" href="mailto:chief@latenslink.co.ke?subject=Pitch%20My%20Problem" title="Pitch your problem">🚀 Pitch Your Problem</a>
-            <a class="cta-ghost" href="/latenspotentia">Explore LPS</a>
-          </div>
+        <p class="muted" style="margin-top:.6rem; font-size:1rem;">
+          From outreach engines and CRM builds to CCTV & on-site deployment — we design, build and deliver systems that keep businesses running and growing.
+        </p>
 
-          <div style="margin-top:1.1rem; color:var(--muted); font-size:.94rem;">Quick pilots • Local delivery • Measurable impact</div>
+        <div style="margin-top:1.2rem; display:flex; gap:.8rem; justify-content:center; flex-wrap:wrap;">
+          <a class="cta-main" href="mailto:chief@latenslink.co.ke?subject=Pitch%20My%20Problem" title="Pitch your problem">🚀 Pitch Your Problem</a>
+          <a class="cta-ghost" href="/latenspotentia">Explore LPS</a>
+        </div>
+
+        <div style="margin-top:1.1rem; color:var(--muted); font-size:.94rem;">
+          Quick pilots • Local delivery • Measurable impact
         </div>
       </div>
-    </section>
+    </div>
+  </section>
+</main>
 
     <!-- CAPABILITIES — Solana-style tabs + split panels -->
     <section id="capabilities" class="py-12">
@@ -716,5 +759,21 @@
       if(firstTab) firstTab.click();
     });
   </script>
+
+  <script>
+  const slides = document.querySelectorAll('.slideshow img');
+  let index = 0;
+
+  function showSlide() {
+    slides.forEach((slide, i) => {
+      slide.classList.remove('active');
+      if (i === index) slide.classList.add('active');
+    });
+    index = (index + 1) % slides.length;
+  }
+
+  setInterval(showSlide, 6000); // every 6s
+  </script>
+  
 </body>
                                                                         </html>
