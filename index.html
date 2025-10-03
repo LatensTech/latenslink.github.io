@@ -814,8 +814,49 @@
     index = (index + 1) % slides.length;
   }
 
-  setInterval(showSlide, 10000); // every 10s
+  setInterval(showSlide, 20000); // every 10s
   </script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const capSwiper = new Swiper('.cap-main-swiper', {
+      loop: false,
+      autoHeight: true,
+      effect: 'fade',
+      fadeEffect: { crossFade: true },
+      navigation: {
+        nextEl: '.cap-next',
+        prevEl: '.cap-prev',
+      },
+    });
+
+    document.querySelectorAll('.cap-tab').forEach((tab, index) => {
+      tab.addEventListener('click', () => {
+        capSwiper.slideTo(index);
+        document.querySelectorAll('.cap-tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+      });
+    });
+
+    // Inner swipers
+    new Swiper('.inner-swiper-dops', {
+      navigation: { nextEl: '.inner-next', prevEl: '.inner-prev' },
+      autoHeight: true,
+    });
+    new Swiper('.inner-swiper-it', {
+      navigation: { nextEl: '.inner-next-it', prevEl: '.inner-prev-it' },
+      autoHeight: true,
+    });
+    new Swiper('.inner-swiper-sys', {
+      navigation: { nextEl: '.inner-next-sys', prevEl: '.inner-prev-sys' },
+      autoHeight: true,
+    });
+    new Swiper('.inner-swiper-local', {
+      navigation: { nextEl: '.inner-next-local', prevEl: '.inner-prev-local' },
+      autoHeight: true,
+    });
+  });
+</script>
   
 </body>
                                                                         </html>
