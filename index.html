@@ -692,32 +692,46 @@
       </div>
     </section>
 
-    <!-- FOOTER -->
-    <footer>
-      <div class="max-w-[1180px] mx-auto px-4">
-        <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;">
-          <div style="display:flex; align-items:center; gap:12px;">
-            <img src="/latenspotentia/assets/img/Picon.png" alt="Latens" style="width:44px;height:44px;border-radius:8px;border:1px solid rgba(255,215,0,0.06)">
-            <div>
-              <div style="color:var(--gold); font-weight:700;">LatensLink</div>
-              <div style="color:var(--muted); font-size:.92rem">Your Link to Potentia...</div>
-            </div>
-          </div>
-
-          <div style="display:flex; gap:8px; align-items:center;">
-            <!-- social icons (replace links) -->
-            <a href="https://x.com/" aria-label="X" class="text-[#FFD700]"><i data-lucide="twitter" class="w-5 h-5"></i></a>
-            <a href="https://instagram.com/" aria-label="Instagram" class="text-[#FFD700]"><i data-lucide="instagram" class="w-5 h-5"></i></a>
-            <a href="https://linkedin.com/" aria-label="LinkedIn" class="text-[#FFD700]"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
-            <a href="mailto:chief@latenslink.co.ke" aria-label="Email" class="text-[#FFD700]"><i data-lucide="mail" class="w-5 h-5"></i></a>
-          </div>
-        </div>
-
-        <div style="margin-top:12px; color:#97a9b6;">
-          &copy; <span id="yr"></span> LatensLink. All rights reserved. &nbsp;•&nbsp; <a href="/latenspotentia" class="text-[#FFD700]">Latens Potentia Systems™</a>
-        </div>
+<!-- FOOTER -->
+<footer class="mt-12 border-t border-[#FFD70010] py-8 text-sm text-[#97a9b6]">
+  <div class="max-w-[1180px] mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-6">
+    
+    <!-- Brand Info -->
+    <div class="flex items-center gap-4">
+      <img src="/latenspotentia/assets/img/Picon.png" alt="Latens" class="w-10 h-10 rounded-lg border border-[#FFD70033]" />
+      <div>
+        <div class="text-[#FFD700] font-bold text-base">LatensLink</div>
+        <div class="text-[#bfc6cf] text-xs">Your Link to Potentia...</div>
       </div>
-    </footer>
+    </div>
+
+    <!-- Social Icons -->
+    <div class="flex gap-4 items-center">
+      <a href="https://www.instagram.com/latens_potentia?igsh=NHBnaDBwdDhncGIy" aria-label="Instagram" class="hover:scale-110 transition-transform duration-200">
+        <i data-lucide="instagram" class="w-5 h-5 text-[#FFD700]"></i>
+      </a>
+      <a href="https://youtube.com/@Potentia_systems" aria-label="YouTube" class="hover:scale-110 transition-transform duration-200">
+        <i data-lucide="youtube" class="w-5 h-5 text-[#FFD700]"></i>
+      </a>
+      <a href="https://linkedin.com/company/Latens_potentia_systems" aria-label="LinkedIn" class="hover:scale-110 transition-transform duration-200">
+        <i data-lucide="linkedin" class="w-5 h-5 text-[#FFD700]"></i>
+      </a>
+      <a href="https://x.com/" aria-label="X" class="hover:scale-110 transition-transform duration-200">
+        <i data-lucide="twitter" class="w-5 h-5 text-[#FFD700]"></i>
+      </a>
+    </div>
+  </div>
+
+  <!-- Legal Line -->
+  <div class="mt-6 text-center text-xs">
+    &copy; <span id="yr"></span> LatensLink. All rights reserved. Powered by &nbsp;•&nbsp;
+    <a href="/latenspotentia" class="text-[#FFD700] hover:underline">Latens Potentia Systems™</a>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+</script>
 
   </main>
 
