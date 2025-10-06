@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LatensLink Reader</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --gold: #FFD700;
+      --muted: #bfc6cf;
+      --bg-dark: #060609;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(180deg, #020204 0%, #0d0f14 100%);
+      color: #e6eef6;
+    }
+
+    /* Fade animation for loaded content */
+    #content-panel {
+      opacity: 0;
+      transition: opacity 0.4s ease-in-out;
+    }
+    #content-panel.loaded {
+      opacity: 1;
+    }
+
+    /* Active link highlight */
+    .active-link {
+      background-color: rgba(255, 215, 0, 0.08);
+      border-left: 3px solid var(--gold);
+    }
+
+    /* Scrollbar tweak */
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #FFD70044;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- HEADER -->
+  <header class="flex items-center justify-between px-4 py-4 border-b border-[#FFD70010] bg-[#0b0b0d] sticky top-0 z-50">
+    <div class="flex items-center gap-3">
+      <img src="/latenspotentia/assets/img/Picon.png" alt="LatensLink" class="w-10 h-10 rounded-full border border-[#FFD70033]" />
+      <div>
+        <div class="text-[#FFD700] font-bold text-lg">LatensLink</div>
+        <div class="text-sm text-[#bfc6cf]">Your Link to Potentia...</div>
+      </div>
+    </div>
+    <a href="/" class="text-sm text-[#FFD700] hover:underline">← Back to Homepage</a>
+  </header>
+
+  <!-- LAYOUT -->
+  <div class="flex flex-col md:flex-row min-h-screen">
+    <!-- SIDEBAR -->
+    <aside class="md:w-64 w-full bg-[#0b0b0d] border-r border-[#FFD70010] p-4">
+      <nav class="space-y-4 text-sm">
+        <details open>
+          <summary class="text-[#FFD700] font-semibold cursor-pointer">Our Capabilities</summary>
+          <ul class="pl-3 mt-2 space-y-1">
+            <li><a href="reader.html?section=capabilities&page=digital-ops/crm-systems" class="block px-2 py-1 rounded hover:bg-[#1a1a1f]">Digital Ops</a></li>
+            <li><a href="reader.html?section=capabilities&page=it-consulting/audit" class="block px-2 py-1 rounded hover:bg-[#1a1a1f]">IT Consulting</a></li>
+          </ul>
+        </details>
+
+        <details>
+          <summary class="text-[#FFD700] font-semibold cursor-pointer">Why Us</summary>
+          <ul class="pl-3 mt-2 space-y-1">
+            <li><a href="reader.html?section=why-us&page=strengths" class="block px-2 py-1 rounded hover:bg-[#1a1a1f]">Strengths</a></li>
+          </ul>
+        </details>
+
+        <details>
+          <summary class="text-[#FFD700] font-semibold cursor-pointer">Products</summary>
+          <ul class="pl-3 mt-2 space-y-1">
+            <li><a href="reader.html?section=products&page=hardware" class="block px-2 py-1 rounded hover:bg-[#1a1a1f]">Hardware Drops</a></li>
+          </ul>
+        </details>
+
+        <details>
+          <summary class="text-[#FFD700] font-semibold cursor-pointer">Case Studies</summary>
+          <ul class="pl-3 mt-2 space-y-1">
+            <li><a href="reader.html?section=case-studies&page=zidi" class="block px-2 py-1 rounded hover:bg-[#1a1a1f]">Zidi Marketing</a></li>
+          </ul>
+        </details>
+
+        <details>
+          <summary class="text-[#FFD700] font-semibold cursor-pointer">Extras</summary>
+          <ul class="pl-3 mt-2 space-y-1">
+            <li><a href="reader.html?section=extras&page=faq" class="block px-2 py-1 rounded hover:bg-[#1a1a1f]">FAQ</a></li>
+            <li><a href="reader.html?section=extras&page=terms" class="block px-2 py-1 rounded hover:bg-[#1a1a1f]">Terms</a></li>
+          </ul>
+        </details>
+      </nav>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="flex-1 p-6 overflow-y-auto">
+      <nav class="text-sm text-[#bfc6cf] mb-4">
+        <span id="breadcrumb">Home</span>
+      </nav>
+
+      <div id="content-panel" class="prose prose-invert max-w-4xl">
+        <h1>Loading...</h1>
+        <p>This panel will load the requested document dynamically.</p>
+      </div>
+    </main>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="mt-12 border-t border-[#FFD70010] py-8 text-sm text-[#97a9b6]">
+    <div class="max-w-[1180px] mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-6">
+      <div class="flex items-center gap-4">
+        <img src="/latenspotentia/assets/img/Picon.png" alt="Latens" class="w-10 h-10 rounded-lg border border-[#FFD70033]" />
+        <div>
+          <div class="text-[#FFD700] font-bold text-base">LatensLink</div>
+          <div class="text-[#bfc6cf] text-xs">Your Link to Potentia...</div>
+        </div>
+      </div>
+
+      <div class="flex gap-4 items-center">
+        <a href="https://instagram.com/" aria-label="Instagram" class="hover:scale-110 transition-transform duration-200"><i data-lucide="instagram" class="w-5 h-5 text-[#FFD700]"></i></a>
+        <a href="https://youtube.com/" aria-label="YouTube" class="hover:scale-110 transition-transform duration-200"><i data-lucide="youtube" class="w-5 h-5 text-[#FFD700]"></i></a>
+        <a href="https://linkedin.com/" aria-label="LinkedIn" class="hover:scale-110 transition-transform duration-200"><i data-lucide="linkedin" class="w-5 h-5 text-[#FFD700]"></i></a>
+        <a href="https://x.com/" aria-label="X" class="hover:scale-110 transition-transform duration-200"><i data-lucide="twitter" class="w-5 h-5 text-[#FFD700]"></i></a>
+      </div>
+    </div>
+
+    <div class="mt-6 text-center text-xs">
+      &copy; <span id="yr"></span> LatensLink. All rights reserved. &nbsp;•&nbsp;
+      <a href="/latenspotentia" class="text-[#FFD700] hover:underline">Latens Potentia Systems™</a>
+    </div>
+  </footer>
+
+  <!-- SCRIPT -->
+  <script>
+  function getQueryParams() {
+    const params = new URLSearchParams(window.location.search);
+    return {
+      section: params.get('section') || 'home',
+      page: params.get('page') || 'intro'
+    };
+  }
+
+  async function loadContent() {
+    const { section, page } = getQueryParams();
+    const path = `./docs/${section}/${page}.html`;
+    const breadcrumb = `Home / ${section.replace(/-/g, ' ')} / ${page.split('/').pop().replace(/-/g, ' ')}`;
+    document.getElementById('breadcrumb').textContent = breadcrumb;
+
+    const contentPanel = document.getElementById('content-panel');
+    contentPanel.innerHTML = "<p>Loading...</p>";
+    contentPanel.classList.remove("loaded");
+
+    try {
+      const res = await fetch(path);
+      if (!res.ok) throw new Error("File not found");
+      const text = await res.text();
+      const html = path.endsWith(".md") ? marked.parse(text) : text;
+      contentPanel.innerHTML = html;
+      setTimeout(() => contentPanel.classList.add("loaded"), 100);
+
+      // Highlight active link
+      document.querySelectorAll("aside a").forEach(link => {
+        const url = new URL(link.href, window.location.origin);
+        const params = new URLSearchParams(url.search);
+        link.classList.toggle(
+          "active-link",
+          params.get("section") === section && params.get("page") === page
+        );
+      });
+
+    } catch (err) {
+      contentPanel.innerHTML = `<p class="text-red-500">Failed to load content.<br><small>${path}</small></p>`;
+    }
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    document.getElementById("yr").textContent = new Date().getFullYear();
+    loadContent();
+  });
+  </script>
+</body>
+</html>
