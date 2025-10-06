@@ -3,73 +3,127 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Services - LatensLink</title>
-  <link rel="stylesheet" href="assets/css/style.css" />
+  <title>LatensLink Reader</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest" defer></script>
+  <style>
+    :root {
+      --gold: #FFD700;
+      --muted: #bfc6cf;
+      --bg-dark: #060609;
+      --glass: rgba(18,18,22,0.5);
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(180deg,#020204 0%, #0d0f14 100%);
+      color: #e6eef6;
+    }
+    .active-link {
+      background-color: rgba(255,215,0,0.08);
+      border-left: 3px solid var(--gold);
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <div class="container nav-header">
-      <img src="assets/images/Logo.png" alt="LatensLink Logo" class="logo" />
-      <nav>
-        <ul class="nav-links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="services.html" class="active">Services</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </nav>
+
+  <!-- Top Bar -->
+  <header class="flex items-center justify-between px-6 py-4 border-b border-[#FFD70010] bg-[#0b0b0d]">
+    <div class="flex items-center gap-3">
+      <img src="/latenspotentia/assets/img/Picon.png" alt="LatensLink" class="w-10 h-10 rounded-full border border-[#FFD70033]" />
+      <div>
+        <div class="text-[#FFD700] font-bold text-lg">LatensLink</div>
+        <div class="text-sm text-[#bfc6cf]">Your Link to Potentia...</div>
+      </div>
     </div>
+    <nav class="text-sm text-[#bfc6cf]">
+      <span id="breadcrumb">Home</span>
+    </nav>
   </header>
 
-  <section class="hero">
-    <h1>Our Services</h1>
-    <p>Smart. Swift. Strategic. That’s how we deliver.</p>
-  </section>
+  <!-- Main Layout -->
+  <div class="flex min-h-screen">
+    
+    <!-- Sidebar -->
+    <aside class="w-64 bg-[#0b0b0d] border-r border-[#FFD70010] p-4 overflow-y-auto">
+      <nav class="space-y-4 text-sm">
+        <!-- Placeholder Sections -->
+        <div>
+          <div class="text-[#FFD700] font-semibold mb-2">Our Capabilities</div>
+          <ul class="space-y-1">
+            <li><a href="?section=capabilities&page=digital-ops/crm" class="block px-3 py-2 rounded hover:bg-[#1a1a1f]">Digital Ops</a></li>
+            <li><a href="?section=capabilities&page=it-consulting/audit" class="block px-3 py-2 rounded hover:bg-[#1a1a1f]">IT Consulting</a></li>
+            <!-- Add more links as needed -->
+          </ul>
+        </div>
 
-  <section class="section container">
-    <h2>Direct Opportunity Access</h2>
-    <p>
-      We simplify your journey. No portals. No job boards. We connect you directly with real businesses actively responding — through trusted, pre-qualified channels.
-    </p>
-  </section>
+        <div>
+          <div class="text-[#FFD700] font-semibold mb-2">Why Us</div>
+          <ul class="space-y-1">
+            <li><a href="?section=why-us&page=strengths" class="block px-3 py-2 rounded hover:bg-[#1a1a1f]">Strengths</a></li>
+          </ul>
+        </div>
 
-  <section class="section container">
-    <h2>Profile Positioning</h2>
-    <p>
-      Your presentation matters. We help craft resumes, emails, and messaging that get noticed — and taken seriously.
-    </p>
-  </section>
+        <div>
+          <div class="text-[#FFD700] font-semibold mb-2">Products</div>
+          <ul class="space-y-1">
+            <li><a href="?section=products&page=hardware" class="block px-3 py-2 rounded hover:bg-[#1a1a1f]">Hardware Drops</a></li>
+          </ul>
+        </div>
 
-  <section class="section container">
-    <h2>Lead Deployment</h2>
-    <p>
-      With precision targeting, we place you where it counts — not everywhere. No spam. No mass drops. Every lead is sent with intention and clarity.
-    </p>
-  </section>
+        <div>
+          <div class="text-[#FFD700] font-semibold mb-2">Case Studies</div>
+          <ul class="space-y-1">
+            <li><a href="?section=case-studies&page=zidi" class="block px-3 py-2 rounded hover:bg-[#1a1a1f]">Zidi Marketing</a></li>
+          </ul>
+        </div>
 
-  <section class="section container">
-    <h2>Follow-Up Management</h2>
-    <p>
-      You stay in motion. We help manage timely follow-ups, client confirmations, and delivery updates — so no opportunity gets lost.
-    </p>
-  </section>
+        <div>
+          <div class="text-[#FFD700] font-semibold mb-2">Extras</div>
+          <ul class="space-y-1">
+            <li><a href="?section=extras&page=faq" class="block px-3 py-2 rounded hover:bg-[#1a1a1f]">FAQ</a></li>
+            <li><a href="?section=extras&page=terms" class="block px-3 py-2 rounded hover:bg-[#1a1a1f]">Terms</a></li>
+          </ul>
+        </div>
+      </nav>
+    </aside>
 
-  <section class="section container">
-    <h2>Industry Insight</h2>
-    <p>
-      We work quietly in the background, analyzing where interest is rising, which sectors are moving, and what messaging hits. You get actionable advice — without asking.
-    </p>
-  </section>
+    <!-- Content Panel -->
+    <main class="flex-1 p-6 overflow-y-auto">
+      <div id="content-panel" class="prose prose-invert max-w-4xl">
+        <!-- Placeholder content -->
+        <h1>Loading...</h1>
+        <p>This panel will load the requested document dynamically.</p>
+      </div>
+    </main>
+  </div>
 
-  <footer>
-    <div class="footer-content">
-      <p>&copy; 2025 LatensLink™ — Trust. Access. Results.</p>
-      <p>
-        Reach us anytime at 
-        <a href="mailto:applyhub@latenslink.co.ke">applyhub@latenslink.co.ke</a> or join our channel on 
-        <a href="https://t.me/Latens_potentia" target="_blank">Telegram</a>.
-      </p>
-    </div>
-  </footer>
+  <!-- Script to load content -->
+  <script>
+    function getQueryParams() {
+      const params = new URLSearchParams(window.location.search);
+      return {
+        section: params.get('section') || 'home',
+        page: params.get('page') || 'intro'
+      };
+    }
+
+    async function loadContent() {
+      const { section, page } = getQueryParams();
+      const path = `/docs/${section}/${page}.html`;
+      const breadcrumb = `Home / ${section.replace(/-/g, ' ')} / ${page.split('/').pop().replace(/-/g, ' ')}`;
+      document.getElementById('breadcrumb').textContent = breadcrumb;
+
+      try {
+        const res = await fetch(path);
+        const html = await res.text();
+        document.getElementById('content-panel').innerHTML = html;
+      } catch (err) {
+        document.getElementById('content-panel').innerHTML = `<p class="text-red-500">Failed to load content. Check path: ${path}</p>`;
+      }
+    }
+
+    loadContent();
+  </script>
 </body>
 </html>
