@@ -4,15 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>LatensLink Reader</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/lucide@latest" defer></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --gold: #FFD700;
       --muted: #bfc6cf;
       --bg-dark: #060609;
-      --glass: rgba(18,18,22,0.5);
     }
     body {
       font-family: 'Inter', sans-serif;
@@ -27,8 +26,8 @@
 </head>
 <body>
 
-  <!-- Top Bar -->
-  <header class="flex items-center justify-between px-6 py-4 border-b border-[#FFD70010] bg-[#0b0b0d]">
+  <!-- Header -->
+  <header class="flex items-center justify-between px-4 py-4 border-b border-[#FFD70010] bg-[#0b0b0d]">
     <div class="flex items-center gap-3">
       <img src="/latenspotentia/assets/img/Picon.png" alt="LatensLink" class="w-10 h-10 rounded-full border border-[#FFD70033]" />
       <div>
@@ -36,60 +35,63 @@
         <div class="text-sm text-[#bfc6cf]">Your Link to Potentia...</div>
       </div>
     </div>
-    <nav class="text-sm text-[#bfc6cf]">
-      <span id="breadcrumb">Home</span>
-    </nav>
+    <a href="/" class="text-sm text-[#FFD700] hover:underline">← Back to Homepage</a>
   </header>
 
   <!-- Main Layout -->
-  <div class="flex min-h-screen">
-    
+  <div class="flex flex-col md:flex-row min-h-screen">
+
     <!-- Sidebar -->
-    <aside class="w-64 bg-[#0b0b0d] border-r border-[#FFD70010] p-4 overflow-y-auto">
+    <aside class="md:w-64 w-full bg-[#0b0b0d] border-r border-[#FFD70010] p-4">
       <nav class="space-y-4 text-sm">
-        <!-- Placeholder Sections -->
-        <div>
-          <div class="text-[#FFD700] font-semibold mb-2">Our Capabilities</div>
-          <ul class="space-y-1">
-            <li><a href="?section=capabilities&page=digital-ops/crm" class="block px-3 py-2 rounded hover:bg-[#1a1a1f]">Digital Ops</a></li>
-            <li><a href="?section=capabilities&page=it-consulting/audit" class="block px-3 py-2 rounded hover:bg-[#1a1a1f]">IT Consulting</a></li>
-            <!-- Add more links as needed -->
+        <!-- Dropdown Sections -->
+        <details open class="group">
+          <summary class="text-[#FFD700] font-semibold cursor-pointer">Our Capabilities</summary>
+          <ul class="pl-3 mt-2 space-y-1">
+            <li><a href="?section=capabilities&page=digital-ops/crm" class="block px-2 py-1 rounded hover:bg-[#1a1a1f]">Digital Ops</a></li>
+            <li><a href="?section=capabilities&page=it-consulting/audit" class="block px-2 py-1 rounded hover:bg-[#1a1a1f]">IT Consulting</a></li>
           </ul>
-        </div>
+        </details>
 
-        <div>
-          <div class="text-[#FFD700] font-semibold mb-2">Why Us</div>
-          <ul class="space-y-1">
-            <li><a href="?section=why-us&page=strengths" class="block px-3 py-2 rounded hover:bg-[#1a1a1f]">Strengths</a></li>
+        <details class="group">
+          <summary class="text-[#FFD700] font-semibold cursor-pointer">Why Us</summary>
+          <ul class="pl-3 mt-2 space-y-1">
+            <li><a href="?section=why-us&page=strengths" class="block px-2 py-1 rounded hover:bg-[#1a1a1f]">Strengths</a></li>
           </ul>
-        </div>
+        </details>
 
-        <div>
-          <div class="text-[#FFD700] font-semibold mb-2">Products</div>
-          <ul class="space-y-1">
-            <li><a href="?section=products&page=hardware" class="block px-3 py-2 rounded hover:bg-[#1a1a1f]">Hardware Drops</a></li>
+        <details class="group">
+          <summary class="text-[#FFD700] font-semibold cursor-pointer">Products</summary>
+          <ul class="pl-3 mt-2 space-y-1">
+            <li><a href="?section=products&page=hardware" class="block px-2 py-1 rounded hover:bg-[#1a1a1f]">Hardware Drops</a></li>
           </ul>
-        </div>
+        </details>
 
-        <div>
-          <div class="text-[#FFD700] font-semibold mb-2">Case Studies</div>
-          <ul class="space-y-1">
-            <li><a href="?section=case-studies&page=zidi" class="block px-3 py-2 rounded hover:bg-[#1a1a1f]">Zidi Marketing</a></li>
+        <details class="group">
+          <summary class="text-[#FFD700] font-semibold cursor-pointer">Case Studies</summary>
+          <ul class="pl-3 mt-2 space-y-1">
+            <li><a href="?section=case-studies&page=zidi" class="block px-2 py-1 rounded hover:bg-[#1a1a1f]">Zidi Marketing</a></li>
           </ul>
-        </div>
+        </details>
 
-        <div>
-          <div class="text-[#FFD700] font-semibold mb-2">Extras</div>
-          <ul class="space-y-1">
-            <li><a href="?section=extras&page=faq" class="block px-3 py-2 rounded hover:bg-[#1a1a1f]">FAQ</a></li>
-            <li><a href="?section=extras&page=terms" class="block px-3 py-2 rounded hover:bg-[#1a1a1f]">Terms</a></li>
+        <details class="group">
+          <summary class="text-[#FFD700] font-semibold cursor-pointer">Extras</summary>
+          <ul class="pl-3 mt-2 space-y-1">
+            <li><a href="?section=extras&page=faq" class="block px-2 py-1 rounded hover:bg-[#1a1a1f]">FAQ</a></li>
+            <li><a href="?section=extras&page=terms" class="block px-2 py-1 rounded hover:bg-[#1a1a1f]">Terms</a></li>
           </ul>
-        </div>
+        </details>
       </nav>
     </aside>
 
     <!-- Content Panel -->
     <main class="flex-1 p-6 overflow-y-auto">
+      <!-- Breadcrumbs -->
+      <nav class="text-sm text-[#bfc6cf] mb-4">
+        <span id="breadcrumb">Home</span>
+      </nav>
+
+      <!-- Content Area -->
       <div id="content-panel" class="prose prose-invert max-w-4xl">
         <!-- Placeholder content -->
         <h1>Loading...</h1>
