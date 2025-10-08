@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>LatensLink</title>
+  <title>LatensLink Reader</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/lucide@latest" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
@@ -35,6 +35,13 @@
       border-left: 3px solid var(--gold);
     }
 
+    details summary::-webkit-details-marker {
+      display: none;
+    }
+    details summary {
+      list-style: none;
+    }
+
     ::-webkit-scrollbar {
       width: 6px;
     }
@@ -44,6 +51,7 @@
     }
   </style>
 </head>
+
 <body>
   <!-- HEADER -->
   <header class="flex items-center justify-between px-4 py-4 border-b border-[#FFD70010] bg-[#0b0b0d] sticky top-0 z-50">
@@ -59,10 +67,89 @@
 
   <!-- LAYOUT -->
   <div class="flex flex-col md:flex-row min-h-screen">
+
     <!-- SIDEBAR -->
-    <aside class="md:w-64 w-full bg-[#0b0b0d] border-r border-[#FFD70010] p-4">
-      <nav id="sidebar" class="space-y-4 text-sm">
-        <!-- Dynamically populated -->
+    <aside class="md:w-72 w-full bg-[#0b0b0d] border-r border-[#FFD70010] p-4 overflow-y-auto">
+      <nav class="space-y-4 text-sm">
+
+        <!-- CAPABILITIES -->
+        <details open>
+          <summary class="text-[#FFD700] font-semibold cursor-pointer">Our Capabilities</summary>
+          <ul class="pl-3 mt-2 space-y-2">
+
+            <details>
+              <summary class="text-[#FFD700cc] cursor-pointer">Digital Ops</summary>
+              <ul class="pl-3 mt-1 space-y-1">
+                <li><a href="load.html?section=capabilities&page=digital-ops/crm-systems" class="block px-2 py-1 rounded hover:bg-[#1a1a1f]">CRM Systems</a></li>
+                <li><a href="load.html?section=capabilities&page=digital-ops/automation" class="block px-2 py-1 rounded hover:bg-[#1a1a1f]">Automation Tools</a></li>
+                <li><a href="load.html?section=capabilities&page=digital-ops/workflows" class="block px-2 py-1 rounded hover:bg-[#1a1a1f]">Workflow Engines</a></li>
+              </ul>
+            </details>
+
+            <details>
+              <summary class="text-[#FFD700cc] cursor-pointer">IT Consulting</summary>
+              <ul class="pl-3 mt-1 space-y-1">
+                <li><a href="load.html?section=capabilities&page=it-consulting/audit" class="block px-2 py-1 rounded hover:bg-[#1a1a1f]">Audit</a></li>
+                <li><a href="load.html?section=capabilities&page=it-consulting/strategy" class="block px-2 py-1 rounded hover:bg-[#1a1a1f]">IT Strategy</a></li>
+              </ul>
+            </details>
+
+            <details>
+              <summary class="text-[#FFD700cc] cursor-pointer">Systems</summary>
+              <ul class="pl-3 mt-1 space-y-1">
+                <li><a href="load.html?section=capabilities&page=systems/website-design" class="block px-2 py-1 rounded hover:bg-[#1a1a1f]">Website Design</a></li>
+                <li><a href="load.html?section=capabilities&page=systems/app-dev" class="block px-2 py-1 rounded hover:bg-[#1a1a1f]">App Development</a></li>
+                <li><a href="load.html?section=capabilities&page=systems/ai-integrations" class="block px-2 py-1 rounded hover:bg-[#1a1a1f]">AI Integrations</a></li>
+              </ul>
+            </details>
+
+            <details>
+              <summary class="text-[#FFD700cc] cursor-pointer">Local Deployment</summary>
+              <ul class="pl-3 mt-1 space-y-1">
+                <li><a href="load.html?section=capabilities&page=local-deployment/network-setup" class="block px-2 py-1 rounded hover:bg-[#1a1a1f]">Network Setup</a></li>
+                <li><a href="load.html?section=capabilities&page=local-deployment/security" class="block px-2 py-1 rounded hover:bg-[#1a1a1f]">Security Integration</a></li>
+                <li><a href="load.html?section=capabilities&page=local-deployment/maintenance" class="block px-2 py-1 rounded hover:bg-[#1a1a1f]">Maintenance</a></li>
+              </ul>
+            </details>
+
+          </ul>
+        </details>
+
+        <!-- WHY US -->
+        <details>
+          <summary class="text-[#FFD700] font-semibold cursor-pointer">Why Us</summary>
+          <ul class="pl-3 mt-2 space-y-1">
+            <li><a href="reader.html?section=why-us&page=strengths" class="block px-2 py-1 rounded hover:bg-[#1a1a1f]">Strengths</a></li>
+          </ul>
+        </details>
+
+        <!-- PRODUCTS -->
+        <details>
+          <summary class="text-[#FFD700] font-semibold cursor-pointer">Products</summary>
+          <ul class="pl-3 mt-2 space-y-1">
+            <li><a href="reader.html?section=products&page=hardware" class="block px-2 py-1 rounded hover:bg-[#1a1a1f]">Hardware Drops</a></li>
+            <li><a href="reader.html?section=products&page=software" class="block px-2 py-1 rounded hover:bg-[#1a1a1f]">Software Suites</a></li>
+          </ul>
+        </details>
+
+        <!-- CASE STUDIES -->
+        <details>
+          <summary class="text-[#FFD700] font-semibold cursor-pointer">Case Studies</summary>
+          <ul class="pl-3 mt-2 space-y-1">
+            <li><a href="reader.html?section=case-studies&page=zidi" class="block px-2 py-1 rounded hover:bg-[#1a1a1f]">Zidi Marketing</a></li>
+            <li><a href="reader.html?section=case-studies&page=deployments" class="block px-2 py-1 rounded hover:bg-[#1a1a1f]">Local Deployments</a></li>
+          </ul>
+        </details>
+
+        <!-- EXTRAS -->
+        <details>
+          <summary class="text-[#FFD700] font-semibold cursor-pointer">Extras</summary>
+          <ul class="pl-3 mt-2 space-y-1">
+            <li><a href="reader.html?section=extras&page=faq" class="block px-2 py-1 rounded hover:bg-[#1a1a1f]">FAQ</a></li>
+            <li><a href="reader.html?section=extras&page=terms" class="block px-2 py-1 rounded hover:bg-[#1a1a1f]">Terms</a></li>
+          </ul>
+        </details>
+
       </nav>
     </aside>
 
@@ -106,8 +193,6 @@
 
   <!-- SCRIPT -->
   <script>
-  const sidebarEl = document.getElementById("sidebar");
-
   function getQueryParams() {
     const params = new URLSearchParams(window.location.search);
     return {
@@ -134,86 +219,22 @@
       contentPanel.innerHTML = html;
       setTimeout(() => contentPanel.classList.add("loaded"), 100);
 
-      highlightActiveLink();
+      // highlight active link
+      document.querySelectorAll("aside a").forEach(link => {
+        const url = new URL(link.href, window.location.origin);
+        const params = new URLSearchParams(url.search);
+        link.classList.toggle(
+          "active-link",
+          params.get("section") === section && params.get("page") === page
+        );
+      });
     } catch (err) {
       contentPanel.innerHTML = `<p class="text-red-500">Failed to load content.<br><small>${path}</small></p>`;
     }
   }
 
-  // Helper to format names like 'crm-systems' => 'CRM Systems'
-  function formatName(name) {
-    return name.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
-  }
-
-  // Recursive function to build sidebar
-  function buildSidebar(obj, parentSection = "") {
-    const ul = document.createElement("ul");
-    ul.classList.add("pl-3", "mt-2", "space-y-1");
-
-    for (const key in obj) {
-      const value = obj[key];
-      const li = document.createElement("li");
-
-      if (Array.isArray(value) || Object.keys(value).length === 0) {
-        const files = Array.isArray(value) ? value : [];
-        if (files.length === 0) {
-          const a = document.createElement("a");
-          a.href = `load.html?section=${parentSection || key}&page=${key}`;
-          a.textContent = formatName(key);
-          a.className = "block px-2 py-1 rounded hover:bg-[#1a1a1f]";
-          li.appendChild(a);
-        } else {
-          files.forEach(file => {
-            const a = document.createElement("a");
-            a.href = `load.html?section=${parentSection || key}&page=${key}/${file}`;
-            a.textContent = formatName(file);
-            a.className = "block px-2 py-1 rounded hover:bg-[#1a1a1f]";
-            li.appendChild(a);
-          });
-        }
-      } else {
-        const details = document.createElement("details");
-        const summary = document.createElement("summary");
-        summary.textContent = formatName(key);
-        summary.className = "text-[#FFD700] font-semibold cursor-pointer";
-        details.appendChild(summary);
-        details.appendChild(buildSidebar(value, parentSection || key));
-        li.appendChild(details);
-      }
-
-      ul.appendChild(li);
-    }
-    return ul;
-  }
-
-  function highlightActiveLink() {
-    const { section, page } = getQueryParams();
-    document.querySelectorAll("#sidebar a").forEach(link => {
-      const url = new URL(link.href, window.location.origin);
-      const params = new URLSearchParams(url.search);
-      link.classList.toggle(
-        "active-link",
-        params.get("section") === section && params.get("page") === page
-      );
-    });
-  }
-
-  async function initSidebar() {
-    try {
-      const res = await fetch('./docs-map.json');
-      if (!res.ok) throw new Error("Could not fetch docs-map.json");
-      const docsMap = await res.json();
-      sidebarEl.appendChild(buildSidebar(docsMap));
-      highlightActiveLink();
-    } catch (err) {
-      sidebarEl.innerHTML = `<p class="text-red-500">Failed to load sidebar.</p>`;
-      console.error(err);
-    }
-  }
-
   document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("yr").textContent = new Date().getFullYear();
-    initSidebar();
     loadContent();
   });
   </script>
