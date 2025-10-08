@@ -197,51 +197,55 @@
   </footer>
 
   <!-- SCRIPT -->
-  <script>
-  function getQueryParams() {
-    const params = new URLSearchParams(window.location.search);
-    return {
-      section: params.get('section') || 'home',
-      page: params.get('page') || 'intro'
-    };
+<script>
+function getQueryParams() {
+  const params = new URLSearchParams(window.location.search);
+  return {
+    section: params.get('section') || 'home',
+    page: params.get('page') || 'intro'
+  };
+}
+
+async function loadContent() {
+  const { section, page } = getQueryParams();
+  const path = `./docs/${section}/${page}.html`;
+  const breadcrumb = `Home / ${section.replace(/-/g, ' ')} / ${page.split('/').pop().replace(/-/g, ' ')}`;
+  document.getElementById('breadcrumb').textContent = breadcrumb;
+
+  const contentPanel = document.getElementById('content-panel');
+  contentPanel.innerHTML = "<p>Loading...</p>";
+  contentPanel.classList.remove("loaded");
+
+  try {
+    const res = await fetch(path);
+    if (!res.ok) throw new Error("File not found");
+    const text = await res.text();
+    const html = path.endsWith(".md") ? marked.parse(text) : text;
+    contentPanel.innerHTML = html;
+    setTimeout(() => contentPanel.classList.add("loaded"), 100);
+
+    // Highlight active link
+    document.querySelectorAll("aside a").forEach(link => {
+      const url = new URL(link.href, window.location.origin);
+      const params = new URLSearchParams(url.search);
+      const isActive = params.get("section") === section && params.get("page") === page;
+      link.classList.toggle("active-link", isActive);
+
+      // Keep its dropdown open
+      const details = link.closest("details");
+      if (details) details.open = isActive;
+    });
+
+  } catch (err) {
+    contentPanel.innerHTML = `<p class="text-red-500">Failed to load content.<br><small>${path}</small></p>`;
   }
+}
 
-  async function loadContent() {
-    const { section, page } = getQueryParams();
-    const path = `./docs/${section}/${page}.html`;
-    const breadcrumb = `Home / ${section.replace(/-/g, ' ')} / ${page.split('/').pop().replace(/-/g, ' ')}`;
-    document.getElementById('breadcrumb').textContent = breadcrumb;
+document.addEventListener("DOMContentLoaded", () => {
+  document.getElementById("yr").textContent = new Date().getFullYear();
+  loadContent();
+});
+</script>
 
-    const contentPanel = document.getElementById('content-panel');
-    contentPanel.innerHTML = "<p>Loading...</p>";
-    contentPanel.classList.remove("loaded");
-
-    try {
-      const res = await fetch(path);
-      if (!res.ok) throw new Error("File not found");
-      const text = await res.text();
-      const html = path.endsWith(".md") ? marked.parse(text) : text;
-      contentPanel.innerHTML = html;
-      setTimeout(() => contentPanel.classList.add("loaded"), 100);
-
-      // highlight active link
-      document.querySelectorAll("aside a").forEach(link => {
-        const url = new URL(link.href, window.location.origin);
-        const params = new URLSearchParams(url.search);
-        link.classList.toggle(
-          "active-link",
-          params.get("section") === section && params.get("page") === page
-        );
-      });
-    } catch (err) {
-      contentPanel.innerHTML = `<p class="text-red-500">Failed to load content.<br><small>${path}</small></p>`;
-    }
-  }
-
-  document.addEventListener("DOMContentLoaded", () => {
-    document.getElementById("yr").textContent = new Date().getFullYear();
-    loadContent();
-  });
-  </script>
 </body>
 </html>
