@@ -1,0 +1,21 @@
+{
+  "capabilities": {
+    "digital-ops": ["crm-systems"],
+    "it-consulting": ["audit"],
+    "systems": ["website-design"],
+    "local-deployment": ["network-setup"]
+  },
+  "why-us": {
+    "strengths": []
+  },
+  "products": {
+    "hardware": []
+  },
+  "case-studies": {
+    "zidi": []
+  },
+  "extras": {
+    "faq": [],
+    "terms": []
+  }
+}
