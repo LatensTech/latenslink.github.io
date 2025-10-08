@@ -224,16 +224,28 @@ async function loadContent() {
     contentPanel.innerHTML = html;
     setTimeout(() => contentPanel.classList.add("loaded"), 100);
 
-    // Highlight active link
+    // --- Sidebar Highlight + Dropdown Control ---
     document.querySelectorAll("aside a").forEach(link => {
       const url = new URL(link.href, window.location.origin);
       const params = new URLSearchParams(url.search);
       const isActive = params.get("section") === section && params.get("page") === page;
+
+      // highlight link
       link.classList.toggle("active-link", isActive);
 
-      // Keep its dropdown open
-      const details = link.closest("details");
-      if (details) details.open = isActive;
+      // keep dropdown open for active link
+      const parentDetails = link.closest("details");
+      if (parentDetails) parentDetails.open = parentDetails.open || isActive;
+
+      // scroll active link into view smoothly if it's out of frame
+      if (isActive) {
+        setTimeout(() => {
+          link.scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+          });
+        }, 300);
+      }
     });
 
   } catch (err) {
@@ -244,8 +256,17 @@ async function loadContent() {
 document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("yr").textContent = new Date().getFullYear();
   loadContent();
+
+  // Handle internal navigation without full reload (optional smoothness)
+  document.querySelectorAll("aside a").forEach(link => {
+    link.addEventListener("click", e => {
+      // allow normal click behavior but ensure sidebar stays updated
+      setTimeout(loadContent, 100);
+    });
+  });
 });
 </script>
+
 
 </body>
 </html>
