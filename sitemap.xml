@@ -21,5 +21,19 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
+
+   <url>
+    <loc>https://latenslink.co.ke/intelt</loc>
+    <lastmod>2026-01-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+   <url>
+    <loc>https://latenslink.co.ke/intel/how-to-make-a-professional-cv-kenya/</loc>
+    <lastmod>2026-01-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
   
 </urlset>
