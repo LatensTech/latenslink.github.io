@@ -20,7 +20,7 @@
 
   <!-- Latens Potentia Market -->
   <url>
-    <loc>https://latenslink.co.ke/latenspotentia/pmarket/</loc>
+    <loc>https://latenslink.co.ke/latenspotentia/PMarket/</loc>
     <lastmod>2026-01-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -39,55 +39,6 @@
     <loc>https://latenslink.co.ke/intel/how-to-make-a-professional-cv-kenya/</loc>
     <lastmod>2026-01-20</lastmod>
     <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://latenslink.co.ke/intel/how-to-integrate-paystack-into-your-digital-business/</loc>
-    <lastmod>2026-01-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://latenslink.co.ke/intel/how-to-host-a-free-website-on-github/</loc>
-    <lastmod>2026-01-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://latenslink.co.ke/intel/how-to-set-up-tg-bots-for-your-delivery-system/</loc>
-    <lastmod>2026-01-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://latenslink.co.ke/intel/how-to-edit-in-canva/</loc>
-    <lastmod>2026-01-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://latenslink.co.ke/intel/how-to-set-up-bulk-email-with-brevo/</loc>
-    <lastmod>2026-01-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://latenslink.co.ke/intel/how-to-run-ads/</loc>
-    <lastmod>2026-01-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://latenslink.co.ke/intel/how-to-buy-domain-and-setup/</loc>
-    <lastmod>2026-01-20</lastmod>
-    <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
