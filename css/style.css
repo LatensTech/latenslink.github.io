@@ -1,3 +1,27 @@
+/* ===== LatensLink Brand Colors (Override Bootstrap Vars) ===== */
+:root{
+  --bs-primary: #0b0b0b;     /* Black (primary) */
+  --bs-secondary: #d4af37;   /* Gold (secondary) */
+
+  /* Optional helpers (safe neutrals) */
+  --ll-black: #0b0b0b;
+  --ll-gold: #d4af37;
+  --ll-gold-dark: #b38b2e;
+  --ll-offwhite: #f6f6f6;
+}
+
+/* Buttons: gold should read black text */
+.btn-secondary{
+  color: #0b0b0b !important;
+}
+.btn-secondary:hover{
+  color: #0b0b0b !important;
+}
+
+
+
+
+
 /*** Spinner Start ***/
 
 #spinner {
@@ -662,5 +686,6 @@
     background: var(--bs-secondary);
     border: 0;
 }
+
 
 /*** Footer End ***/
