@@ -1,9 +1,7 @@
-.services-content::after {
-    content: '';
-    display: block;
-    background-color: rgba(0, 0, 0, 0.8); /* Updated from rgba(3, 43, 243, 0.8) to black */
+.services:hover {
+    color: rgba(212, 175, 55, 0.8);
 }
 
 .contact {
-    color: #d4af37; /* Updated from #26d48c to gold */
+    background-color: #0b0b0b;
 }
