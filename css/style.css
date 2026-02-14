@@ -671,3 +671,46 @@
 }
 
 /*** Footer End ***/
+
+
+/* Timeline Section */
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: auto;
+}
+
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    background-color: #d4af37; /* Gold */
+    top: 0;
+    bottom: 0;
+    left: 20px;
+    margin-left: -2px;
+}
+
+.timeline-item {
+    position: relative;
+    padding-left: 60px;
+    margin-bottom: 50px;
+}
+
+.timeline-dot {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    left: 11px;
+    background-color: #d4af37;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.timeline-content h4 {
+    font-weight: 600;
+}
+
+.timeline-content p {
+    margin: 10px 0 0;
+}
