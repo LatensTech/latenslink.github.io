@@ -304,9 +304,10 @@
     }
 }
 
-.page-header {
-    background: linear-gradient(rgba(0, 0, 0, .6), rgba(0, 0, 0, .6)), url(../img/hero001.jpg) center center no-repeat;
+.page-header{
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('/img/hero001.jpg');
     background-size: cover;
+    background-position: center;
 }
 
 .page-header .breadcrumb-item+.breadcrumb-item::before {
