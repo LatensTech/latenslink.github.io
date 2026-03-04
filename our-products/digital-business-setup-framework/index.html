@@ -33,6 +33,38 @@
 
         <!-- Template Stylesheet -->
         <link href="/css/style.css" rel="stylesheet">
+
+<style>
+  /* Page-only styles for product detail */
+  .product-hero-card {
+    border: 1px solid rgba(0,0,0,0.08);
+    border-radius: 16px;
+  }
+  .product-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    border-radius: 999px;
+    background: rgba(255, 193, 7, 0.12); /* your gold but subtle */
+    color: #0b0b0b;
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+  .sticky-cta {
+    position: sticky;
+    top: 110px; /* below navbar */
+  }
+  .feature-list li {
+    margin-bottom: 10px;
+  }
+  .phase-card {
+    border: 1px solid rgba(0,0,0,0.08);
+    border-radius: 14px;
+    height: 100%;
+  }
+</style>
+        
     </head>
 
     <body>
@@ -164,7 +196,160 @@
         </div>
         <!-- Fact End -->
 
+<!-- Product Detail Start -->
+<div class="container-fluid py-5">
+  <div class="container py-5">
 
+    <!-- Top Intro -->
+    <div class="row g-5 align-items-start">
+      <!-- Left: Copy -->
+      <div class="col-lg-7 wow fadeIn" data-wow-delay=".2s">
+        <span class="product-badge mb-3">
+          <i class="bi bi-lightning-charge-fill"></i>
+          Execution Framework • Kenya Edition
+        </span>
+
+        <h1 class="mb-3">Digital Business Setup Framework</h1>
+        <p class="mb-4">
+          A structured <strong>10-step setup system</strong> for launching a digital business in Kenya the right way —
+          legal foundation, digital ownership, public presence, and operational discipline.
+        </p>
+
+        <div class="row g-3 mb-4">
+          <div class="col-md-6">
+            <div class="p-3 product-hero-card bg-light">
+              <h6 class="mb-1"><i class="bi bi-check2-circle text-primary me-2"></i>Built for execution</h6>
+              <small>Clear steps, real tools, minimal fluff.</small>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="p-3 product-hero-card bg-light">
+              <h6 class="mb-1"><i class="bi bi-shield-check text-primary me-2"></i>Prevents chaos later</h6>
+              <small>Structure now, avoid rebuilds later.</small>
+            </div>
+          </div>
+        </div>
+
+        <!-- Problem -->
+        <h4 class="mb-3">Why this exists</h4>
+        <p class="mb-4">
+          Most businesses start in the wrong order: social pages first, no domain ownership, mixed money flows,
+          no tracking, and scattered logins. It “works” until it doesn’t — then everything becomes a recovery mission.
+          This framework fixes the order.
+        </p>
+
+        <!-- Who it's for -->
+        <h4 class="mb-3">Who it’s for</h4>
+        <ul class="feature-list">
+          <li><strong>New entrepreneurs</strong> setting up a business properly from day one.</li>
+          <li><strong>Freelancers & small businesses</strong> formalizing operations and payments.</li>
+          <li><strong>Any business</strong> entering online sales and wanting structure before marketing.</li>
+        </ul>
+      </div>
+
+      <!-- Right: Sticky CTA Card -->
+      <div class="col-lg-5 wow fadeIn" data-wow-delay=".3s">
+        <div class="sticky-cta">
+          <div class="product-hero-card p-4 bg-white shadow-sm">
+            <div class="d-flex justify-content-between align-items-start mb-3">
+              <div>
+                <h5 class="mb-1">Get the Framework</h5>
+                <small class="text-muted">Instant access after payment</small>
+              </div>
+              <span class="badge bg-primary">PDF</span>
+            </div>
+
+            <div class="mb-3">
+              <div class="d-flex align-items-baseline gap-2">
+                <h2 class="text-primary mb-0">Ksh 1,500</h2>
+                <small class="text-muted">one-time</small>
+              </div>
+              <small class="text-muted">Price can be updated anytime.</small>
+            </div>
+
+            <a href="PAYSTACK_LINK_HERE" class="btn btn-primary w-100 py-3 mb-3">
+              Get the Framework (Paystack)
+            </a>
+
+            <div class="p-3 bg-light rounded">
+              <small class="d-block mb-2"><strong>Includes:</strong></small>
+              <small class="d-block">• 10-step setup sequence (Kenya-focused)</small>
+              <small class="d-block">• Domain, email, payments, landing page guidance</small>
+              <small class="d-block">• Records control & tracking discipline</small>
+            </div>
+
+            <hr class="my-4">
+
+            <small class="text-muted">
+              Need help implementing? WhatsApp us after purchase:
+              <a href="https://wa.me/254789108058">+254 789 108 058</a>
+            </small>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- What you get -->
+    <div class="row g-5 mt-4 align-items-start">
+      <div class="col-lg-12 wow fadeIn" data-wow-delay=".2s">
+        <h3 class="mb-3">What’s inside</h3>
+        <p class="mb-4">
+          This framework gives you the correct order of operations — plus recommended tools and practical guidance.
+        </p>
+      </div>
+
+      <!-- Phases -->
+      <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay=".2s">
+        <div class="phase-card p-4">
+          <h5 class="text-secondary mb-2">Phase 1</h5>
+          <h6 class="mb-3">Legal Foundation</h6>
+          <small>Business name registration + bank account setup and separation.</small>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay=".3s">
+        <div class="phase-card p-4">
+          <h5 class="text-secondary mb-2">Phase 2</h5>
+          <h6 class="mb-3">Digital Ownership</h6>
+          <small>Domain, professional email, payment processor setup.</small>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay=".4s">
+        <div class="phase-card p-4">
+          <h5 class="text-secondary mb-2">Phase 3</h5>
+          <h6 class="mb-3">Public Presence</h6>
+          <small>Landing page + WhatsApp Business configured properly.</small>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay=".5s">
+        <div class="phase-card p-4">
+          <h5 class="text-secondary mb-2">Phase 4</h5>
+          <h6 class="mb-3">Structure & Discipline</h6>
+          <small>Records control, identity clarity, sales/expense/lead tracking.</small>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom CTA -->
+    <div class="row mt-5">
+      <div class="col-lg-12 wow fadeIn" data-wow-delay=".2s">
+        <div class="p-4 p-md-5 bg-primary rounded text-white d-flex flex-column flex-md-row justify-content-between align-items-md-center">
+          <div class="mb-3 mb-md-0">
+            <h4 class="text-white mb-1">Ready to set it up properly?</h4>
+            <small class="text-white-50">Stop guessing. Follow the system. Build clean from day one.</small>
+          </div>
+          <a href="https://paystack.com/buy/digital-business-setup-checklist-kenya-edition" class="btn btn-secondary px-4 py-3">
+            Get the Framework
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+<!-- Product Detail End -->
 
 
 
