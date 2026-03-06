@@ -826,3 +826,41 @@
     height: 44px;
   }
 }
+
+
+
+/* Improve reading comfort on mobile */
+@media (max-width: 768px) {
+
+  body {
+    font-size: 16px;
+    line-height: 1.75;
+  }
+
+  .container {
+    max-width: 640px;
+  }
+
+  p {
+    margin-bottom: 18px;
+  }
+
+  h1 {
+    font-size: 30px !important;
+    line-height: 1.2;
+  }
+
+  h2 {
+    font-size: 24px !important;
+  }
+
+  section,
+  .container-fluid {
+    padding-top: 2.5rem !important;
+    padding-bottom: 2.5rem !important;
+  }
+}
+
+p {
+    max-width: 680px;
+}
