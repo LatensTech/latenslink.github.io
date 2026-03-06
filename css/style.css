@@ -715,3 +715,114 @@
 .timeline-content p {
     margin: 10px 0 0;
 }
+
+
+
+/* =========================================
+   Mobile breathing room (global overrides)
+   ========================================= */
+@media (max-width: 576px) {
+
+  /* Base typography */
+  body {
+    font-size: 16px;
+    line-height: 1.65;
+  }
+
+  p {
+    line-height: 1.7;
+    margin-bottom: 14px;
+  }
+
+  h1, .h1 { 
+    font-size: 28px !important; 
+    line-height: 1.15;
+  }
+  h2, .h2 { 
+    font-size: 24px !important; 
+    line-height: 1.2;
+  }
+  h3, .h3 { 
+    font-size: 20px !important; 
+    line-height: 1.25;
+  }
+  h4, .h4 { 
+    font-size: 18px !important; 
+    line-height: 1.3;
+  }
+
+  /* Containers: give side padding */
+  .container, .container-fluid {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  /* Section spacing: reduce huge gaps + keep it consistent */
+  .py-5 { padding-top: 2.25rem !important; padding-bottom: 2.25rem !important; }
+  .my-5 { margin-top: 2rem !important; margin-bottom: 2rem !important; }
+  .pt-5 { padding-top: 2.25rem !important; }
+  .pb-5 { padding-bottom: 2.25rem !important; }
+
+  /* Cards & content blocks: more padding so it doesn't feel cramped */
+  .services .services-item {
+    padding: 14px 0 !important;
+  }
+
+  .phase-card,
+  .product-hero-card,
+  .blog-item,
+  .project-content a {
+    border-radius: 14px;
+  }
+
+  .blog-content,
+  .phase-card,
+  .product-hero-card {
+    padding: 16px !important;
+  }
+
+  /* Topbar note: prevent overflow on small screens */
+  #note { 
+    width: auto !important; 
+    max-width: 100% !important; 
+  }
+
+  /* Carousel: stack buttons + reduce padding */
+  .carousel-caption .carousel-content {
+    padding: 0 10px;
+  }
+
+  /* Make the two CTA buttons stack vertically on phones */
+  .carousel-caption .carousel-content a {
+    display: block;
+    width: 100%;
+  }
+
+  .carousel-caption .carousel-content a button {
+    width: 100%;
+    margin: 8px 0 !important;
+    padding: 12px 16px !important;
+    border-radius: 18px !important;
+  }
+
+  /* Page header: less tall */
+  .page-header.py-5 {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+  }
+  .page-header h1 {
+    font-size: 28px !important;
+  }
+  .page-header .breadcrumb-item,
+  .page-header .breadcrumb-item a {
+    font-size: 14px !important;
+  }
+
+  /* Back to top button: don’t eat screen space */
+  .back-to-top {
+    right: 16px;
+    bottom: 16px;
+    width: 44px;
+    height: 44px;
+  }
+}
